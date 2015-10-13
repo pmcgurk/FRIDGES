@@ -14,8 +14,13 @@
       src: url(atomic-age.woff) format('truetype')
   }
   
+  @font-face {
+      font-family: 'fabian';
+      src: url(fabian.woff) format('truetype'), url(fabian.tff) format('truetype')
+  }
+  
   .logo {
-      font-family: 'atomic-age', Fallback, 'Oswald';
+      font-family: 'fabian', Fallback, 'Oswald';
   }
   
   .large {
