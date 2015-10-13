@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" name="theme-color" content="#1e88e5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="icon" href="img/icon.png" />
+    <link rel="apple-touch-icon" href="img/icon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+    <title>COOLS</title>
+</head>
+<header>
+    <div class="navbar-fixed">
+        <nav class="blue">
+            <a data-activates="mobile" class="button-collapse hide-on-large-and-up"><i class="mdi-navigation-menu right"></i></a>
+            <div class="nav-wrapper container">
+                <a class="brand-logo left">
+                    <span class="logo large center">COOLS</span>
+                </a>
+                <ul class="hide-on-med-and-down right">
+                    <li><a>prototype</a>
+                    </li>
+                </ul>
+                <ul class="side-nav" id="mobile">
+                    <li><a>prototype</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12 center-align">
+                <div id="temperatureDisplay" class="card blue white-text">
+                    <h1><span id="temperatureDisplayText">16</span>°C</h1>
+                    <div class="row">
+                        <a class="waves-effect waves-light btn green" onclick="Materialize.toast('Decreased', 1000)">-</a>
+                        <a class="waves-effect waves-light btn red" onclick="Materialize.toast('Increased', 1000)">+</a>
+                    </div>
+                    <h6>Target: <span id="targetTemperatureDisplayText">15</span>°C</h6>
+                    <h6>Door: <span id="doorStatusDisplayText">Closed</span></h6>
+                    <br>
+                </div>
+            </div>
+            <div class="col s12 m12 l12">
+                <div id="datesDisplay" class="card blue white-text">
+                    <h5 class="center-align logo">Expiring Soon</h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-field="name">Product</th>
+                                <th data-field="date">Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Cheese</td>
+                                <td>13/10/15</td>
+                                <td><a class="red-text" onclick="Materialize.toast('Dismissed', 1000)">X</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Milk</td>
+                                <td>14/10/15</td>
+                                <td><a class="red-text" onclick="Materialize.toast('Dismissed', 1000)">X</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col s12 m12 l12 center-align">
+                <div id="cameraDisplay">
+                    <img src="img/dummyCameraImg.jpg" class="responsive-img">
+                </div>
+            </div>
+            <div class="col s12 m12 l12 center-align">
+                <div id="temperatureDisplay" class="card blue white-text">
+                    <div id="lastUpdatedText">Last Updated: 15:59 21/10/15</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/js.js"></script>
+
+</html>
