@@ -26,3 +26,13 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 ![Raspberry Pi](https://upload.wikimedia.org/wikipedia/commons/4/45/Raspberry_Pi_-_Model_A.jpg)
 
 There are several models of Raspberry Pi available:
+
+|                | Raspberry Pi Model A                                 | Raspberry Pi 2                  |
+|----------------|------------------------------------------------------|---------------------------------|
+| CPU            | 700 MHz Low Power ARM1176JZ-F Applications Processor | 900MHz quad-core ARM Cortext-A7 |
+| RAM            | 256MB                                                | 1GB                             |
+| Ethernet port  | None                                                 | Yes                             |
+| USB 2.0        | 1 port                                               | 4 ports                         |
+| HDMI           | Full HDMI port                                       | Full HDMI port                  |
+| Audio output   | 3.5mm audio jack                                     | 3.5mm audio jack                |
+| Number of GPIO | 17                                                   | 40                              |
