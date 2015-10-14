@@ -5,9 +5,9 @@ Scott Henderson, Candy Mortimer, Alexis McBride, Raniel Mark Lafferty and Paul J
 
 ----
 
-Contents
-Introduction
-Assessment of Capabilities
+Contents  
+Introduction  
+Assessment of Capabilities  
 
 ----
 
@@ -22,8 +22,7 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 
 ## Arduino
 
-
-
-
-
 ## Raspberry Pi
+![Raspberry Pi](https://upload.wikimedia.org/wikipedia/commons/4/45/Raspberry_Pi_-_Model_A.jpg)
+
+There are several models of Raspberry Pi available:
