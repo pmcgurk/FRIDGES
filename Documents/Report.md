@@ -22,6 +22,17 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 
 ## Arduino
 
+| Arduino             |                   |
+|---------------------|-------------------|
+| Microcontroller     | 16 MHz ATmega328P |
+| SRAM                | 2KB               |
+| Flash Memory        | 32KB              |
+| USB 2.0             | None              |
+| HDMI                | None              |
+| Audio output        | None              |
+| Digital I/O pins    | 14                |
+| Analogue input pins | 6                 |
+
 ## Raspberry Pi
 ![Raspberry Pi](https://upload.wikimedia.org/wikipedia/commons/4/45/Raspberry_Pi_-_Model_A.jpg)
 
