@@ -36,6 +36,8 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 ## Raspberry Pi
 ![Raspberry Pi](https://upload.wikimedia.org/wikipedia/commons/4/45/Raspberry_Pi_-_Model_A.jpg)
 
+The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs.
+
 There are several models of Raspberry Pi available:
 
 |                | Raspberry Pi Model A                                 | Raspberry Pi 2                  |
@@ -47,3 +49,7 @@ There are several models of Raspberry Pi available:
 | HDMI           | Full HDMI port                                       | Full HDMI port                  |
 | Audio output   | 3.5mm audio jack                                     | 3.5mm audio jack                |
 | Number of GPIO | 17                                                   | 40                              |
+
+## Choice
+
+We have chosen to go for the Raspberry Pi 2. The reason we chose a RPi over an Arduino was that we needed the higher performance that the RPi line offers in order to serve our web pages and do the barcode scanning in software. Furthermore we wanted internet connectivity and we felt this would be easier to achieve in the Linux based Pi. The reason we chose to use the model 2 instead of the model A was the better connectivity for peripherals in terms of USB ports and available GPIOs, with the higher performance an added bonus.
