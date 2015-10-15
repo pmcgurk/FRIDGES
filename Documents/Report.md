@@ -83,8 +83,8 @@ This is being used within the project as a visual display of the temperature of 
 | Colour | Wave Length | Forward Voltage | Forward Current | Luminosity |
 |--------|-------------|-----------------|-----------------|------------|
 | Red    | 623nm       | 2.0V            | 20ma            | 2800mcd    |
-| Green  | 623nm       | 3.2V            | 20ma            | 6500mcd    |
-| Blue   | 623nm       | 3.2V            | 20ma            | 1200mcd    |
+| Green  | 517.5nm     | 3.2V            | 20ma            | 6500mcd    |
+| Blue   | 466nm       | 3.2V            | 20ma            | 1200mcd    |
 
 ##### Resistors
 A resistor is a device which reduces the flow of current within a circuit. This can be used to protect elements from high current, as well as other things.
@@ -136,4 +136,3 @@ Our excellent group organisation has allowed us to have already made good progre
 # Conclusion
 
 We have outlined a solid plan to go forward and start developing our smart fridge. By staying as organised as we have been so far, we should meet all the deadlines (submission ones as well as ones we have set ourselves) with no trouble. Building a smart fridge will be very interesting, not only because we will have a useful product by the end of the project, but also because of the environmental implications. By being able to regulate the temperature of the fridge, as well as alerting a user if the door has been left open, we will ensure the fridge will use the least amount of power possible. Secondly, by giving the user an obvious visual representation of which foods are going out of date soon, there is the hope that this will reduce food wastage. Furthermore, it is generally a useful system which will be applicable to the real world. We look forward to making good progress, and our strong group dynamic will allow us to overcome any obstacles with minimal stress.
-
