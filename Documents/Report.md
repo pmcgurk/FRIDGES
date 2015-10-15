@@ -71,6 +71,44 @@ There are several models of Raspberry Pi available:
 
 We have chosen to go for the Raspberry Pi 2. The reason we chose a RPi over an Arduino was that we needed the higher performance that the RPi line offers in order to serve our web pages and do the barcode scanning in software. Furthermore we wanted internet connectivity and we felt this would be easier to achieve in the Linux based Pi. The reason we chose to use the model 2 instead of the model A was the better connectivity for peripherals in terms of USB ports and available GPIOs, with the higher performance an added bonus.
 
+## Hardware Design
+#### Main Parts
+##### RGB LED
+An RGB LED (Red Green Blue Light Emitting Diode) is a small light which has three different diodes within it, capable of emitting three types of light. Each pin controls a different colour, with the longest pin being the PLUS. Using PWM (Pulse Width Modulation), we can dim and lighten the different colours to give a range of colours.
+
+This is being used within the project as a visual display of the temperature of the fridge, which Blue representing when the temperature is near the ideal temperature, and red
+
+![RGB LED Diagram](rgb_led_diagram.jpg)
+
+| Colour | Wave Length | Forward Voltage | Forward Current | Luminosity |
+|--------|-------------|-----------------|-----------------|------------|
+| Red    | 623nm       | 2.0V            | 20ma            | 2800mcd    |
+| Green  | 623nm       | 3.2V            | 20ma            | 6500mcd    |
+| Blue   | 623nm       | 3.2V            | 20ma            | 1200mcd    |
+
+##### Resistors
+A resistor is a device which reduces the flow of current within a circuit. This can be used to protect elements from high current, as well as other things.
+
+This is being used within the project to protect the RGB LED, and within the temperature part of the circuit to work out the resistance of the themistor (see below).
+
+| Value | Quantity |
+|-------|----------|
+| 1kΩ   | 2        |
+| 470Ω  | 3        |
+
+##### Thermistor
+A themistor is a resistor which is sensitive to temperature. The resistance of the thermistor is used to work out the temperature of it's surroundings using a variety of different math techniques, notably the Steinhart–Hart equation.
+
+This is being used within the project to work out the temperature within the fridge, allowing us to monitor it in real-time.
+
+![Thermistor Diagram](thermistor_diagram.jpg)
+###### Thermistor symbol
+
+##### Raspberry Pi Camera
+blah blah
+
+##### Raspberry Pi Touch Screen
+blah blah
 ----
 
 # Software Design
@@ -91,10 +129,11 @@ Since the RPi.GPIO library provides access to the GPIOs via Python, we thought i
 ----
 
 # Current Progress
-Our excellent group organisation has allowed us to have already made good progress on Phase 1 of our project. To begin with, we have researched all of the necessary components to complete our project, including deciding on a Raspberry Pi 2 as the basis for our embedded system. We have also created a demo to sense temperature and change the colour of an LED using this Pi, as this is one of the main features of our project. Another feature that we have already implemented is an Apache web server running on the Pi. This will allow the user to control the fridge remotely. We have also planned a prototype that will allows us to identify the major challenges in our design/software before moving onto the final build of our project. The basis of a web interface has been created to allow a user to view/change temperature, display current contents of the fridge, including expiration dates, and also to show the latest image from the PI camera.
+Our excellent group organisation has allowed us to have already made good progress on Phase 1 of our project. To begin with, we have researched all of the necessary components to complete our project, including deciding on a Raspberry Pi 2 as the basis for our embedded system. We have also created a demo to sense temperature and change the colour of an LED using this Pi, as this is one of the main features of our project. Another feature that we have already implemented is a Flask web server running on the Pi. Flask will give us an easy way to store data and check the values of the sensors remotely via a web interface. We have also planned a prototype that will allows us to identify the major challenges in our design/software before moving onto the final build of our project. The basis of a web interface has been created to allow a user to view/change temperature, display current contents of the fridge, including expiration dates, and also to show the latest image from the PI camera.
 
 ----
 
 # Conclusion
 
 We have outlined a solid plan to go forward and start developing our smart fridge. By staying as organised as we have been so far, we should meet all the deadlines (submission ones as well as ones we have set ourselves) with no trouble. Building a smart fridge will be very interesting, not only because we will have a useful product by the end of the project, but also because of the environmental implications. By being able to regulate the temperature of the fridge, as well as alerting a user if the door has been left open, we will ensure the fridge will use the least amount of power possible. Secondly, by giving the user an obvious visual representation of which foods are going out of date soon, there is the hope that this will reduce food wastage. Furthermore, it is generally a useful system which will be applicable to the real world. We look forward to making good progress, and our strong group dynamic will allow us to overcome any obstacles with minimal stress.
+
