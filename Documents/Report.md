@@ -53,3 +53,42 @@ There are several models of Raspberry Pi available:
 ## Choice
 
 We have chosen to go for the Raspberry Pi 2. The reason we chose a RPi over an Arduino was that we needed the higher performance that the RPi line offers in order to serve our web pages and do the barcode scanning in software. Furthermore we wanted internet connectivity and we felt this would be easier to achieve in the Linux based Pi. The reason we chose to use the model 2 instead of the model A was the better connectivity for peripherals in terms of USB ports and available GPIOs, with the higher performance an added bonus.
+
+## Hardware Design
+#### Main Parts
+##### RGB LED
+An RGB LED (Red Green Blue Light Emitting Diode) is a small light which has three different diodes within it, capable of emitting three types of light. Each pin controls a different colour, with the longest pin being the PLUS. Using PWM (Pulse Width Modulation), we can dim and lighten the different colours to give a range of colours.
+
+This is being used within the project as a visual display of the temperature of the fridge, which Blue representing when the temperature is near the ideal temperature, and red
+
+![RGB LED Diagram](rgb_led_diagram.jpg)
+
+| Colour | Wave Length | Forward Voltage | Forward Current | Luminosity |
+|--------|-------------|-----------------|-----------------|------------|
+| Red    | 623nm       | 2.0V            | 20ma            | 2800mcd    |
+| Green  | 623nm       | 3.2V            | 20ma            | 6500mcd    |
+| Blue   | 623nm       | 3.2V            | 20ma            | 1200mcd    |
+
+##### Resistors
+A resistor is a device which reduces the flow of current within a circuit. This can be used to protect elements from high current, as well as other things.
+
+This is being used within the project to protect the RGB LED, and within the temperature part of the circuit to work out the resistance of the themistor (see below).
+
+| Value | Quantity |
+|-------|----------|
+| 1kΩ   | 2        |
+| 470Ω  | 3        |
+
+##### Thermistor
+A themistor is a resistor which is sensitive to temperature. The resistance of the thermistor is used to work out the temperature of it's surroundings using a variety of different math techniques, notably the Steinhart–Hart equation.
+
+This is being used within the project to work out the temperature within the fridge, allowing us to monitor it in real-time.
+
+![Thermistor Diagram](thermistor_diagram.jpg)
+###### Thermistor symbol
+
+##### Raspberry Pi Camera
+blah blah
+
+##### Raspberry Pi Touch Screen
+blah blah
