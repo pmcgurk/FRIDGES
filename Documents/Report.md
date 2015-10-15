@@ -1,13 +1,13 @@
 
 CS413 ACE Group 7
 
-Scott Henderson, Candy Mortimer, Alexis McBride, Raniel Mark Lafferty and Paul Junior ‘PJ’ McGurk
+Scott Henderson, Andy Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
 
 ----
 
-Contents  
-Introduction  
-Assessment of Capabilities  
+# Contents  
+[Introduction](#introduction)  
+[Assessment of Capabilities](#assessment-of-capabilities)  
 
 ----
 
@@ -18,11 +18,13 @@ The project is to create a product using either an Arduino and/or Raspberry Pi t
 
 # Assessment of Capabilities
 ## Requirements
-The device must be able to support a touchscreen, have a thermometer connected, webcam to act as barcode scanner, wireless capabilities and be able to run a web server.
+The device must be able to support a touchscreen, have a thermometer connected, camera to act as barcode scanner, wireless capabilities and be able to run a web server.
 
 ## Arduino
 
-| Arduino             |                   |
+The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
+
+|                     |   Arduino Uno V3  |
 |---------------------|-------------------|
 | Microcontroller     | 16 MHz ATmega328P |
 | SRAM                | 2KB               |
@@ -36,7 +38,7 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 ## Raspberry Pi
 ![Raspberry Pi](https://upload.wikimedia.org/wikipedia/commons/4/45/Raspberry_Pi_-_Model_A.jpg)
 
-The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs.
+The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs. The Raspberry Pi also has official peripherals or "modules" for devices such as a camera or a touchscreen.
 
 There are several models of Raspberry Pi available:
 
