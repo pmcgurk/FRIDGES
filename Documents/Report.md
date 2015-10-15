@@ -1,14 +1,17 @@
 
 CS413 ACE Group 7
 
-Scott Henderson, Candy Mortimer, Alexis McBride, Raniel Mark Lafferty and Paul Junior ‘PJ’ McGurk
+Scott Henderson, Andrew Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
 
 ----
 
-Contents  
-Introduction  
-Assessment of Capabilities  
-
+# Contents  
+  - [Introduction](#introduction)  
+  - [Assessment of Capabilities](#assessment-of-capabilities)  
+    - [Requirements](#requirements)
+    - [Arduino](#arduino)
+    - [Raspberry Pi](#raspberrypi)
+    - [Choice](#choice)
 ----
 
 # Introduction
@@ -18,11 +21,13 @@ The project is to create a product using either an Arduino and/or Raspberry Pi t
 
 # Assessment of Capabilities
 ## Requirements
-The device must be able to support a touchscreen, have a thermometer connected, webcam to act as barcode scanner, wireless capabilities and be able to run a web server.
+The device must be able to support a touchscreen, have a thermometer connected, camera to act as barcode scanner, wireless capabilities and be able to run a web server.
 
 ## Arduino
 
-| Arduino             |                   |
+The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
+
+|                     |   Arduino Uno V3  |
 |---------------------|-------------------|
 | Microcontroller     | 16 MHz ATmega328P |
 | SRAM                | 2KB               |
@@ -36,7 +41,7 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 ## Raspberry Pi
 ![Raspberry Pi](https://upload.wikimedia.org/wikipedia/commons/4/45/Raspberry_Pi_-_Model_A.jpg)
 
-The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs.
+The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs. The Raspberry Pi also has official peripherals or "modules" for devices such as a camera or a touchscreen.
 
 There are several models of Raspberry Pi available:
 
@@ -92,3 +97,31 @@ blah blah
 
 ##### Raspberry Pi Touch Screen
 blah blah
+----
+
+# Software Design
+## Operating System
+[Raspbian](https://www.raspbian.org/) is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the web server.
+## Accessing the hardware
+[RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO) is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware SPI, I2C, or PWM functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from python fairly easily.
+
+## Web server
+### Why use a web server?
+Most of the functionality of our project requires us to have an interface to the fridge to administrate and view information. We have chosen to go with a web-based approach, with the RPi itself hosting the web server. Going with this approach allows us to write the client application once and access it from a phone or a desktop without having to write client applications directly for each.
+### Technology stack
+Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. We will achieve this using the [Flask](http://flask.pocoo.org/) framework. Flask features a web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. Although none of us have had any experience with this technology before, we thought it was a natural fit and do not anticipate much trouble in utilizing it.
+## Temperature Measurement
+## Barcode Scanning
+## Touchscreen Interface
+
+----
+
+# Current Progress
+Our excellent group organisation has allowed us to have already made good progress on Phase 1 of our project. To begin with, we have researched all of the necessary components to complete our project, including deciding on a Raspberry Pi 2 as the basis for our embedded system. We have also created a demo to sense temperature and change the colour of an LED using this Pi, as this is one of the main features of our project. Another feature that we have already implemented is a Flask web server running on the Pi. Flask will give us an easy way to store data and check the values of the sensors remotely via a web interface. We have also planned a prototype that will allows us to identify the major challenges in our design/software before moving onto the final build of our project. The basis of a web interface has been created to allow a user to view/change temperature, display current contents of the fridge, including expiration dates, and also to show the latest image from the PI camera.
+
+----
+
+# Conclusion
+
+We have outlined a solid plan to go forward and start developing our smart fridge. By staying as organised as we have been so far, we should meet all the deadlines (submission ones as well as ones we have set ourselves) with no trouble. Building a smart fridge will be very interesting, not only because we will have a useful product by the end of the project, but also because of the environmental implications. By being able to regulate the temperature of the fridge, as well as alerting a user if the door has been left open, we will ensure the fridge will use the least amount of power possible. Secondly, by giving the user an obvious visual representation of which foods are going out of date soon, there is the hope that this will reduce food wastage. Furthermore, it is generally a useful system which will be applicable to the real world. We look forward to making good progress, and our strong group dynamic will allow us to overcome any obstacles with minimal stress.
+
