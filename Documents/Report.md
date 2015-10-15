@@ -12,6 +12,18 @@ Scott Henderson, Andrew Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
     - [Arduino](#arduino)
     - [Raspberry Pi](#raspberrypi)
     - [Choice](#choice)
+  - [Software Design](#software-design)
+    - [Operating System](#operating-system)
+    - [Accessing the Hardware](#accessing-the-hardware)
+    - [Web server](#web-server)
+      - [Why use a web server?](#why-use-a-web-server?)
+      - [Technology stack](#technology-stack)
+    - [Temperature Measurement](#temperature-measurement)
+    - [Barcode Scanning](#barcode-scanning)
+    - [Touchscreen Interface](#touchscreen-interface)
+  - [Current Progress](#current-progress)
+  - [Conclusion](#conclusion)
+  
 ----
 
 # Introduction
