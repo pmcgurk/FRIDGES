@@ -105,7 +105,19 @@ This is being used within the project to work out the temperature within the fri
 ###### Thermistor symbol
 
 ##### Raspberry Pi Camera
-blah blah
+The Raspberry Pi Camera Board connects to any Raspberry Pi or Compute module and allows for high definition photography. It has several useful features, including: high data capability, 5 mega-pixel fixed focus, support of 1080p, 720p60 and VGA90. It also has automatic control functions including white balance, exposure control, luminance detection.
+The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Serial Interface Port. Via Raspbian, there are several applications that can be used to take photos, including Raspistill.
+
+| Raspberry Pi Camera Board spec: |                 |
+|---------------------------------|-----------------|
+| Dimensions                      | 8.5 x 8.5 x 5mm |
+| Maximum frame rate capture      | 30fps           |
+| Maximum supported resolution    | 2592 x 1944     |
+| Supported Bus Interfaces        | I2C             |
+| Supported Video Ports           | Raspberry Pi    |
+| Minimum Operating Temperature   | -30°C           |
+
+The minimum operating temperature of -30°C means we could mount the camera inside the fridge if we so desire.
 
 ##### Raspberry Pi Touch Screen
 blah blah
