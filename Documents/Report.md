@@ -6,9 +6,12 @@ Scott Henderson, Andy Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
 ----
 
 # Contents  
-[Introduction](#introduction)  
-[Assessment of Capabilities](#assessment-of-capabilities)  
-
+  - [Introduction](#introduction)  
+  - [Assessment of Capabilities](#assessment-of-capabilities)  
+    - [Requirements](#requirements)
+    - [Arduino](#arduino)
+    - [Raspberry Pi](#raspberrypi)
+    - [Choice](#choice)
 ----
 
 # Introduction
