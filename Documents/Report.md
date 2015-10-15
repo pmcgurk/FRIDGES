@@ -23,7 +23,7 @@ Scott Henderson, Andrew Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
     - [Touchscreen Interface](#touchscreen-interface)
   - [Current Progress](#current-progress)
   - [Conclusion](#conclusion)
-  
+
 ----
 
 # Introduction
@@ -124,6 +124,10 @@ Most of the functionality of our project requires us to have an interface to the
 Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. We will achieve this using the [Flask](http://flask.pocoo.org/) framework. Flask features a web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. Although none of us have had any experience with this technology before, we thought it was a natural fit and do not anticipate much trouble in utilizing it.
 ## Temperature Measurement
 ## Barcode Scanning
+### Barcode Scanning Library
+[Zbar](http://zbar.sourceforge.net/) is an open source barcode reading library that supports a wide range of barcode formats. It has Python bindings allowing us to read the barcodes in Python.
+### Identifying Products using the Barcode
+[Outpan](https://www.outpan.com/) is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
 ## Touchscreen Interface
 
 ----
@@ -136,4 +140,3 @@ Our excellent group organisation has allowed us to have already made good progre
 # Conclusion
 
 We have outlined a solid plan to go forward and start developing our smart fridge. By staying as organised as we have been so far, we should meet all the deadlines (submission ones as well as ones we have set ourselves) with no trouble. Building a smart fridge will be very interesting, not only because we will have a useful product by the end of the project, but also because of the environmental implications. By being able to regulate the temperature of the fridge, as well as alerting a user if the door has been left open, we will ensure the fridge will use the least amount of power possible. Secondly, by giving the user an obvious visual representation of which foods are going out of date soon, there is the hope that this will reduce food wastage. Furthermore, it is generally a useful system which will be applicable to the real world. We look forward to making good progress, and our strong group dynamic will allow us to overcome any obstacles with minimal stress.
-
