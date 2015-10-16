@@ -1,5 +1,4 @@
-# temperature program taken from github.com/simonmonk
-# doesnt work with main (for some reason)
+# temperature program modified from https://github.com/simonmonk/pi_starter_kit/blob/master/04_thermometer.py
 import RPi.GPIO as GPIO, random as r
 import time, math
 
