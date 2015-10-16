@@ -177,7 +177,7 @@ This will be used within the project to display a custom GUI which will have a n
 #### Operating System
 [Raspbian](https://www.raspbian.org/) is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the web server.
 #### Accessing the hardware
-[RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO) is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware SPI or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from python fairly easily.
+[RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO) is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from python fairly easily.
 
 #### Web server
 ##### Why use a web server?
