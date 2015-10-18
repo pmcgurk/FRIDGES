@@ -195,9 +195,18 @@ blah
 [Zbar](http://zbar.sourceforge.net/) is an open source barcode reading library that supports a wide range of barcode formats. It has Python bindings allowing us to read the barcodes in Python.
 ##### Identifying Products using the Barcode
 [Outpan](https://www.outpan.com/) is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
-#### Touchscreen Interface
-The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals.
+#### Interface
+##### Touchscreen
+The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use [matchbox keyboard](https://github.com/xlab/matchbox-keyboard).
 ![GUI Flow](GUI-flow.png)
+
+##### Mobile
+The mobile interface will also be written in HTML5, JavaScript and CSS3, again, using the Materialize CSS library.
+
+This interface will be similar to the touchscreen interface, visually, but will not be able to add products, at least, to begin with.
+
+![Mobile App Image](Mobile-Screenshot.png)
+
 
 ----
 
