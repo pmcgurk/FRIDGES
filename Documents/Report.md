@@ -1,7 +1,10 @@
+University of Strathclyde
 
-CS413 ACE Group 7
+CS413 ACE Group 7 - ACE Phase 1
 
-Scott Henderson, Andrew Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
+![COOLS logo](large-logo-and-tag.png)
+
+Group Members: Scott Henderson, Andrew Mortimer, Alex McBride, Daniel Rafferty and Paul McGurk
 
 ----
 
@@ -193,6 +196,8 @@ blah
 ##### Identifying Products using the Barcode
 [Outpan](https://www.outpan.com/) is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
 #### Touchscreen Interface
+The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals.
+![GUI Flow](GUI-flow.png)
 
 ----
 
