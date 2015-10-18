@@ -96,8 +96,8 @@
             <div class="col s12 m12 l12 center-align">
                 <div class="card blue darken-2 white-text">
                     <h5 class="center-align logo">Manage Items</h5>
-                    <a class="waves-effect waves-light btn green modal-trigger" href="#addmodal">Add</a>
-                    <a class="waves-effect waves-light btn red modal-trigger" href="#removemodal">Remove</a>
+                    <a class="waves-effect waves-light btn green modal-opener" value="addItemModal">Add</a>
+                    <a class="waves-effect waves-light btn red   modal-opener" value="removeItemModal">Remove</a>
                     <br>
                     <br>
                 </div>
@@ -110,45 +110,51 @@
         </div>
     </div>
     <!-- modal strutuces -->
-    <div id="addmodal" class="modal modal-fixed-footer">
+    <div id="addItemModal" class="modal ">
         <div class="modal-content center-align">
             <h5 class="logo">Add Item</h5>
             <h6>Present Barcode</h6>
             <img src="img/dummyBarcodeImg.jpg" class="responsive-img">
-        </div>
-        <div class="modal-footer">
-            <a href="#barcodeNotFoundmodal" class="modal-action waves-effect waves-green btn-flat modal-trigger">DEBUG: Barcode not found Modal</a>
-            <a href="#enterDatemodal" class="modal-action waves-effect waves-green btn-flat model-trigger">DEBUG: Barcode found Modal</a>
+            <br>
+            <a class="waves-effect btn modal-opener" value="barcodeNotFoundModal">Barcode not found Modal</a>
+            <a class="waves-effect btn modal-opener" value="enterDateModal">Barcode found Modal</a>
         </div>
     </div>
-    <div id="barcodeNotFoundmodal" class="modal modal-fixed-footer">
+    <div id="removeItemModal" class="modal ">
+        <div class="modal-content center-align">
+            <h5 class="logo">Remove Item</h5>
+            <h6>Present Barcode or Select from below</h6>
+            <br>
+            <a class="modal-action btn modal-opener">Remove</a>
+            <a class="modal-action btn modal-closer">Cancel</a>
+        </div>
+    </div>
+    <div id="barcodeNotFoundModal" class="modal ">
         <div class="modal-content center-align">
             <h5 class="logo">Barcode not found</h5>
             <h6>Please enter product name manually</h6>
-            <input class="materialize-textarea">
-        </div>
-        <div class="modal-footer">
-            <a href="#enterDatemodal" class="modal-action waves-effect waves-green btn-flat modal-trigger">Done</a>
-            <a class="modal-action modal-close waves-effect waves-green btn-flat modal-trigger modal-close">Cancel</a>
+            <input id="date" type="text" class="validate">
+            <label for="date">Name</label>
+            <br>
+            <a class="modal-action btn modal-opener" value="enterDateModal">Done</a>
+            <a class="modal-action btn modal-closer">Cancel</a>
         </div>
     </div>
-    <div id="enterDatemodal" class="modal modal-fixed-footer">
+    <div id="enterDateModal" class="modal modal-fixed-footer">
         <div class="modal-content center-align">
+            <h5 class="logo">Date Entry</h5>
             <h6>Present Date or enter below</h6>
-            <img src="img/dummyBarcodeImg.jpg" class="responsive-img">
-            <input class="materialize-textarea">
-        </div>
-        <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close">Done</a>
+            <br>
+            <img src="img/dummyDateImg.jpg" class="responsive-img">
+            <br>
+            <a class="modal-action btn modal-opener" value="finishModal">Finish</a>
         </div>
     </div>
-    <div id="removemodal" class="modal modal-fixed-footer">
+    <div id="finishModal" class="modal ">
         <div class="modal-content center-align">
-            <h5 class="logo">Remove Item</h5>
-        </div>
-        <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close">Done</a>
-            <a class="modal-action modal-close waves-effect waves-green btn-flat modal-trigger modal-close">Cancel</a>
+            <h2 class="logo">Product Added</h2>
+            <br>
+            <a class="modal-action btn modal-close">Close</a>
         </div>
     </div>
 </main>
