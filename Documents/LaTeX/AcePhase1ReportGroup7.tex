@@ -2,6 +2,7 @@
 \usepackage{graphicx,amssymb, amstext, amsmath, epstopdf, booktabs, verbatim, gensymb, geometry, appendix, natbib, lmodern, hyperref, inputenc}
 \geometry{letterpaper}
 %\usepackage{garamond}
+\usepackage[table]{xcolor}
 
 \newcommand*\Title{COOLS}
 \newcommand*\cpiType{Phase 1 Report}
@@ -22,6 +23,7 @@
 \end{titlepage}
 
 \linespread{1.15} %Set standard document linespacing
+\renewcommand{\arraystretch}{1.2} %Set table height spacing
 
 \tableofcontents
 
@@ -40,7 +42,21 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 \subsection{Arduino}
 The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!25}
+	\begin{tabular}{ | c | c | }
+		\hline
+	 	\multicolumn{2}{|c|}{Arduino Uno V3} \\ \hline
+		Microcontroller 	& 16 MHz ATmega328p \\ \hline
+		SRAM 			& 2KB \\ \hline
+		Flash Memory	& 32KB \\ \hline
+		USB 2.0		& None \\ \hline
+		HDMI 			& None \\ \hline
+		Audio Output	& None \\ \hline
+		Digital I/O Pins	& 14 \\ \hline
+		Analogue input pins & 6 \\ \hline
+	\end{tabular}
+\end{center}
 
 \subsection{Raspberry Pi}
 
@@ -54,7 +70,20 @@ The Raspberry Pi is a small form-factor ARM based computer. It is a very popular
 
 There are several models of Raspberry Pi available:
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!25}
+	\begin{tabular}{| c | p{6cm} | p{6cm} |}
+		\hline
+		  & Raspberry Pi Model A & Raspberry Pi 2 \\ \hline
+		CPU & 700 MHz Low Power ARM1176JZ-F Applications Processor & 900MHz quad-core ARM Cortext-A7 \\ \hline
+		RAM & 256MB & 1GB \\ \hline
+		Ethernet port & None & One \\ \hline
+		USB 2.0 & 1 port & 4 ports \\ \hline
+		HDMI & Full HDMI port & Full HDMI port \\ \hline
+		Audio Output & 3.5mm audio jack & 3.5mm audio jack \\ \hline
+		Number of GPIOs & 17 & 40 \\ \hline
+	\end{tabular}
+\end{center}
 
 \subsection{Choice}
 We have chosen to go for the Raspberry Pi 2. The reason we chose a RPi over an Arduino was that we needed the higher performance that the RPi line offers in order to serve our web pages and do the barcode scanning in software. Furthermore we wanted internet connectivity and we felt this would be easier to achieve in the Linux based Pi. The reason we chose to use the model 2 instead of the model A was the better connectivity for peripherals in terms of USB ports and available GPIOs, with the higher performance an added bonus.
