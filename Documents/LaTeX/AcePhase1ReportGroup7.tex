@@ -56,7 +56,7 @@ The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p proce
 \end{figure}
 
 \begin{center}
-	\rowcolors{1}{white}{gray!25}
+	\rowcolors{1}{white}{gray!15}
 	\begin{tabular}{ | c | c | }
 		\hline
 	 	\multicolumn{2}{|c|}{Arduino Uno V3} \\ \hline
@@ -84,7 +84,7 @@ The Raspberry Pi is a small form-factor ARM based computer. It is a very popular
 There are several models of Raspberry Pi available:
 
 \begin{center}
-	\rowcolors{1}{white}{gray!25}
+	\rowcolors{1}{white}{gray!15}
 	\begin{tabular}{| c | p{6cm} | p{6cm} |}
 		\hline
 		  & Raspberry Pi Model A & Raspberry Pi 2 \\ \hline
@@ -117,7 +117,16 @@ This is being used within the project as a visual display of the temperature of 
 \includegraphics[scale=.5]{images/rgb_led_diagram.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|*{6}{c|}}
+		\hline
+		\textbf{Colour} & Wave Length & Forward Voltage & Forward Current & Luminosity & Operating Temperature \\ \hline
+		Red & 623nm & 2.0V & 20ma & 2800mcd & -25 \textasciitilde \ 85\degree C \\ \hline
+		Green & 517.5nm & 3.2V & 20ma & 6500mcd & -25 \textasciitilde \ 85\degree C \\ \hline
+		Blue & 466nm & 3.2V & 20ma & 1200mcd & -25 \textasciitilde \ 85\degree C \\ \hline
+	\end{tabular}
+\end{center}
 
 \subsubsection{Resistor}
 
@@ -132,7 +141,15 @@ This is being used within the project to protect the RGB LED, and within the tem
 \includegraphics[height=2cm]{images/resistor_diagram.jpg}
 \end{figure}
 
-TODO: table, change image
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|c|c|}
+		\hline
+		Value & Quantity \\ \hline
+		1k\ohm & 2 \\ \hline
+		470\ohm & 3 \\ \hline
+	\end{tabular}
+\end{center}
 
 \subsubsection{Thermistor}
 
@@ -147,7 +164,14 @@ This is being used within the project to work out the temperature within the fri
 \includegraphics[height=2cm]{images/thermistor_diagram.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|c|c|}
+		\hline
+		Value & Quantity \\ \hline
+		1k\ohm \ (at 25\degree C) & 1 \\ \hline
+	\end{tabular}
+\end{center}
 
 \subsubsection{Capacitor}
 
@@ -162,7 +186,14 @@ This is used within the project to work out the temperature of the fridge, which
 \includegraphics[height=2cm]{images/capacitor_diagram.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|c|c|}
+		\hline
+		Value & Quantity \\ \hline
+		330nF & 1 \\ \hline
+	\end{tabular}
+\end{center}
 
 \subsubsection{Raspberry Pi Camera}
 
