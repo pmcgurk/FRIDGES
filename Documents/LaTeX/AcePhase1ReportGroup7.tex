@@ -1,9 +1,15 @@
 \documentclass[10pt]{article}
-\usepackage{graphicx,amssymb, amstext, amsmath, epstopdf, booktabs, verbatim, gensymb, geometry, appendix, natbib, lmodern, hyperref, inputenc}
+\usepackage{graphicx,amssymb, amstext, amsmath, epstopdf, booktabs, verbatim, gensymb, geometry, appendix, natbib, lmodern, hyperref, inputenc, titlesec}
 \geometry{letterpaper}
 %\usepackage{garamond}
 \usepackage[table]{xcolor}
 
+
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \newcommand*\Title{COOLS}
 \newcommand*\cpiType{Phase 1 Report}
 \newcommand*\Date{October 2015}
@@ -42,6 +48,13 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 \subsection{Arduino}
 The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
 
+\begin{figure}[h]
+\centering
+\caption{Arduino Uno V3}
+\label{Arduino Uno V3}
+\includegraphics[scale=.35]{images/Arduino.jpg}
+\end{figure}
+
 \begin{center}
 	\rowcolors{1}{white}{gray!15}
 	\begin{tabular}{ | c | c | }
@@ -57,14 +70,14 @@ The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p proce
 		Analogue input pins & 6 \\ \hline
 	\end{tabular}
 \end{center}
-
+\newpage
 \subsection{Raspberry Pi}
 
 \begin{figure}[h]
 \centering
 \caption{Raspberry Pi}
 \label{Raspberry Pi}
-\includegraphics[scale=.5]{images/Raspberry-Pi.jpg}
+\includegraphics[scale=.4]{images/Raspberry-Pi.jpg}
 \end{figure}
 The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs. The Raspberry Pi also has official peripherals or "modules" for devices such as a camera or a touchscreen.
 
@@ -91,7 +104,7 @@ We have chosen to go for the Raspberry Pi 2. The reason we chose a RPi over an A
 \newpage
 \section{Hardware Design}
 \subsection{Main Parts}
-\textbf{RGB LED}
+\subsubsection{RGB LED}
 
 An RGB LED (Red Green Blue Light Emitting Diode) is a small light which has three different diodes within it, capable of emitting three types of light. Each pin controls a different colour, with the longest pin being the PLUS. Using PWM (Pulse Width Modulation), we can dim and lighten the different colours to give a range of colours. The operating temperatures are also well within the range of the fridge.
 
@@ -115,7 +128,7 @@ This is being used within the project as a visual display of the temperature of 
 	\end{tabular}
 \end{center}
 
-\textbf{Resistor}
+\subsubsection{Resistor}
 
 A resistor is a device which reduces the flow of current within a circuit. This can be used to protect elements from high current, as well as other things.
 
@@ -138,7 +151,7 @@ This is being used within the project to protect the RGB LED, and within the tem
 	\end{tabular}
 \end{center}
 
-\textbf{Thermistor}
+\subsubsection{Thermistor}
 
 A themistor is a resistor which is sensitive to temperature. The resistance of the thermistor is used to work out the temperature of it's surroundings using a variety of different math techniques, notably the Steinhart-Hart equation.
 
@@ -160,7 +173,7 @@ This is being used within the project to work out the temperature within the fri
 	\end{tabular}
 \end{center}
 
-\textbf{Capacitor}
+\subsubsection{Capacitor}
 
 A capacitor is a device which stores electrical energy temporary.
 
@@ -182,7 +195,7 @@ This is used within the project to work out the temperature of the fridge, which
 	\end{tabular}
 \end{center}
 
-\textbf{Raspberry Pi Camera}
+\subsubsection{Raspberry Pi Camera}
 
 The Raspberry Pi Camera Board connects to any Raspberry Pi or Compute module and allows for high definition photography. It has several useful features, including: high data capability, 5 mega-pixel fixed focus, support of 1080p, 720p60 and VGA90. It also has automatic control functions including white balance, exposure control, luminance detection.
 The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Serial Interface Port. Via Raspbian, there are several applications that can be used to take photos, including Raspistill.
@@ -200,7 +213,7 @@ The minimum operating temperature of -30\degree C means we could mount the camer
 
 This will be used within the project to scan the barcode of the products being entered into the fridge. It could possibly automatically detect the use-by date as well.
 
-\textbf{Raspberry Pi Touch Screen Display}
+\subsubsection{Raspberry Pi Touch Screen Display}
 
 The Raspberry Pi 7" Touchscreen Display connects to a raspberry pi, and allows it to display graphics in a self contained package. It also allows the user to interact with the GUI through touch, ommiting the need for additional peripherals such as mouse and keyboard.
 
@@ -231,7 +244,7 @@ TODO: text about the prototype here
 \includegraphics[height=10cm]{images/prototypeDiagram.png}
 \end{figure}
 
-\textbf{Result}
+\subsubsection{Result}
 \begin{figure}[h]
 \centering
 \caption{Prototype working}
@@ -248,11 +261,11 @@ TODO: text about the prototype here
 \hyperref[https://pypi.python.org/pypi/RPi.GPIO]{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from python fairly easily.
 
 \subsection{Web server}
-\textbf{Why use a web server?}
+\subsubsection{Why use a web server?}
 
 Most of the functionality of our project requires us to have an interface to the fridge to administrate and view information. We have chosen to go with a web-based approach, with the RPi itself hosting the web server. Going with this approach allows us to write the client application once and access it from a phone or a desktop without having to write client applications directly for each.
 
-\textbf{Technology stack}
+\subsubsection{Technology stack}
 
 Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. We will achieve this using the\hyperref[http://flask.pocoo.org/]{Flask} framework. Flask features a web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. Although none of us have had any experience with this technology before, we thought it was a natural fit and do not anticipate much trouble in utilizing it.
 
@@ -261,17 +274,17 @@ Since the RPi.GPIO library provides access to the GPIOs via Python, we thought i
 blah
 
 \subsection{Barcode Scanning}
-\textbf{Barcode Scanning Library}
+\subsubsection{Barcode Scanning Library}
 
 \hyperref[http://zbar.sourceforge.net/]{Zbar} is an open source barcode reading library that supports a wide range of barcode formats. It has Python bindings allowing us to read the barcodes in Python.
 
-\textbf{Identifying Products using the Barcode}
+\subsubsection{Identifying Products using the Barcode}
 
 \hyperref[https://www.outpan.com/]{Outpan} is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
 
 \subsection{Interface}
 
-\textbf{Touchscreen}
+\subsubsection{Touchscreen}
 The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \hyperref[https://github.com/xlab/matchbox-keyboard]{matchbox keyboard.}
 
 \begin{figure}[h]
@@ -282,7 +295,7 @@ The touchscreen interface will be written in HTML5, JavaScript and CSS3, using t
 \end{figure}
 
 
-\textbf{Mobile}
+\subsubsection{Mobile}
 
 The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \hyperref[https://github.com/xlab/matchbox-keyboard]{matchbox keyboard.}
 
@@ -301,60 +314,4 @@ Our excellent group organisation has allowed us to have already made good progre
 \section{Conclusion}
 
 We have outlined a solid plan to go forward and start developing our smart fridge. By staying as organised as we have been so far, we should meet all the deadlines (submission ones as well as ones we have set ourselves) with no trouble. Building a smart fridge will be very interesting, not only because we will have a useful product by the end of the project, but also because of the environmental implications. By being able to regulate the temperature of the fridge, as well as alerting a user if the door has been left open, we will ensure the fridge will use the least amount of power possible. Secondly, by giving the user an obvious visual representation of which foods are going out of date soon, there is the hope that this will reduce food wastage. Furthermore, it is generally a useful system which will be applicable to the real world. We look forward to making good progress, and our strong group dynamic will allow us to overcome any obstacles with minimal stress.
-
-
-
-
-
-
-\newpage
-TODO: BELOW IS JUST OLD STUFF FROM THE TEMPLATE, REMOVE WHEN TABLES ARE DONE
-Use the \texttt{callout} command:
-
-\callout{By the shores of gitchee gumee\\ by the shining big sea waters \\ stood the wigwam of Nokomis \\ brother of the moon, Nokomis.}
-
-\section{Old stuff, ignore below}
-\subsection{Writing in a box}
-
-Use the \texttt{frame} command:
-
-\frame{ 'Twas brillig and the slithy toves did gyre and gimble in the wabe \\ all mimsy were the borogroves, and the mome raths outgrabe. \\ Beware the Jabberwock, my son, the claws that bite, the jaws that snatch \\ Beware the Jubjub bird, and shun the frumious Bandersnatch.}
-
-\section{Presenting data}
-
-This describes more general stuff.  If you are experienced with \LaTeX, you may already know this.
-
-
-Figure \ref{fathorse} shows a fat horse.  You might use a more informative graphic.  If you make it in excel, make sure the dimensions are right before you export it, or it will be fuzzy.  I do that, and then copy it into paint and save it as a *.png (or *.jpg).  For Stata graphics, you can either save them as vector graphics (*.eps) and use \texttt{epstopdf} or save them as a normal graphic.  The advantage of vector graphics is that you can scale them without fuzziness.
-
-\subsection{Tables}
-
-\begin{table}[h!]\footnotesize
-\caption{Effect of Codes}
-\label{main}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc}	\toprule	
-& \multicolumn{2}{c}{Natural Gas} &	\multicolumn{2}{c}{Electricity} &	\multicolumn{2}{c}{Gas \& Electricity} \\				
-\cmidrule{2-7}						
-	& \multicolumn{1}{c}{(1)\mbox{\ }} &	\multicolumn{1}{c}{(2)\mbox{\ }} &	\multicolumn{1}{c}{(3)\mbox{\ }} &	\multicolumn{1}{c}{(4)\mbox{\ }} &	\multicolumn{1}{c}{(5)\mbox{\ }} &	\multicolumn{1}{c}{(6)} \\
-\midrule					
-Log Electric Price &	.412$^{***}$ &	.410$^{***}$ &	-.307$^{***}$ &	-.334$^{***}$ &	.048 &	.028 \\
-&	\raisebox{.7ex}[0pt]{\scriptsize (.111)} &	\raisebox{.7ex}[0pt]{\scriptsize (.053)} &	\raisebox{.7ex}[0pt]{\scriptsize (.048)} &	\raisebox{.7ex}[0pt]{\scriptsize (.027)} &	\raisebox{.7ex}[0pt]{\scriptsize (.055)} &	\raisebox{.7ex}[0pt]{\scriptsize (.028)} \\
-Log Gas Price &	-.314$^{***}$ &	-.472$^{***}$ &	.132$^{***}$ &	.202$^{***}$ &	-.073$^{***}$ &	-.099$^{***}$ \\
-&	\raisebox{.7ex}[0pt]{\scriptsize (.047)} &	\raisebox{.7ex}[0pt]{\scriptsize (.032)} &	\raisebox{.7ex}[0pt]{\scriptsize (.013)} &	\raisebox{.7ex}[0pt]{\scriptsize (.013)} &	\raisebox{.7ex}[0pt]{\scriptsize (.021)} &	\raisebox{.7ex}[0pt]{\scriptsize (.014)} \\
-Percent Code Units &	.470$^{*}$ &	.799$^{***}$ &	-.001 &	-.147$^{***}$ &	.215 &	.267$^{***}$ \\
-&	\raisebox{.7ex}[0pt]{\scriptsize (.281)} &	\raisebox{.7ex}[0pt]{\scriptsize (.110)} &	\raisebox{.7ex}[0pt]{\scriptsize (.099)} &	\raisebox{.7ex}[0pt]{\scriptsize (.044)} &	\raisebox{.7ex}[0pt]{\scriptsize (.145)} &	\raisebox{.7ex}[0pt]{\scriptsize (.051)} \\
-Log Heating Degree Days &	.697$^{***}$ &	.621$^{***}$ &	.113$^{***}$ &	.146$^{***}$ &	.383$^{***}$ &	.370$^{***}$ \\
-&	\raisebox{.7ex}[0pt]{\scriptsize (.072)} &	\raisebox{.7ex}[0pt]{\scriptsize (.058)} &	\raisebox{.7ex}[0pt]{\scriptsize (.024)} &	\raisebox{.7ex}[0pt]{\scriptsize (.021)} &	\raisebox{.7ex}[0pt]{\scriptsize (.043)} &	\raisebox{.7ex}[0pt]{\scriptsize (.027)} \\
-Log Cooling Degree Days &	.011 &	.008 &	.058$^{***}$ &	.061$^{***}$ &	.015 &	.015$^{*}$ \\
-&	\raisebox{.7ex}[0pt]{\scriptsize (.017)} &	\raisebox{.7ex}[0pt]{\scriptsize (.019)} &	\raisebox{.7ex}[0pt]{\scriptsize (.012)} &	\raisebox{.7ex}[0pt]{\scriptsize (.010)} &	\raisebox{.7ex}[0pt]{\scriptsize (.010)} &	\raisebox{.7ex}[0pt]{\scriptsize (.009)} \\
-Log Median Income &	.089 &	.116$^{*}$ &	.031 &	.008 &	.034 &	.030 \\
-&	\raisebox{.7ex}[0pt]{\scriptsize (.119)} &	\raisebox{.7ex}[0pt]{\scriptsize (.065)} &	\raisebox{.7ex}[0pt]{\scriptsize (.040)} &	\raisebox{.7ex}[0pt]{\scriptsize (.028)} &	\raisebox{.7ex}[0pt]{\scriptsize (.047)} &	\raisebox{.7ex}[0pt]{\scriptsize (.028)} \\
-\midrule
-Instrumental Variables & No & Yes &No&Yes&No&Yes\\
-\bottomrule		
-\end{tabular*}%
-\\Confidence Level: *90\% **95\% ***99\%	
-\end{table}
-Table \ref{main} was produced using \texttt{est2tex} to get results directly out of from Stata.  The tables were beautified using the \texttt{booktabs} package.  Both of these things are worth doing, and will save time and enhance appeal.
-
 \end{document}
