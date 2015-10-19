@@ -43,7 +43,7 @@ The device must be able to support a touchscreen, have a thermometer connected, 
 The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
 
 \begin{center}
-	\rowcolors{1}{white}{gray!25}
+	\rowcolors{1}{white}{gray!15}
 	\begin{tabular}{ | c | c | }
 		\hline
 	 	\multicolumn{2}{|c|}{Arduino Uno V3} \\ \hline
@@ -71,7 +71,7 @@ The Raspberry Pi is a small form-factor ARM based computer. It is a very popular
 There are several models of Raspberry Pi available:
 
 \begin{center}
-	\rowcolors{1}{white}{gray!25}
+	\rowcolors{1}{white}{gray!15}
 	\begin{tabular}{| c | p{6cm} | p{6cm} |}
 		\hline
 		  & Raspberry Pi Model A & Raspberry Pi 2 \\ \hline
@@ -104,7 +104,16 @@ This is being used within the project as a visual display of the temperature of 
 \includegraphics[scale=.5]{images/rgb_led_diagram.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|*{6}{c|}}
+		\hline
+		\textbf{Colour} & Wave Length & Forward Voltage & Forward Current & Luminosity & Operating Temperature \\ \hline
+		Red & 623nm & 2.0V & 20ma & 2800mcd & -25 \textasciitilde \ 85\degree C \\ \hline
+		Green & 517.5nm & 3.2V & 20ma & 6500mcd & -25 \textasciitilde \ 85\degree C \\ \hline
+		Blue & 466nm & 3.2V & 20ma & 1200mcd & -25 \textasciitilde \ 85\degree C \\ \hline
+	\end{tabular}
+\end{center}
 
 \textbf{Resistor}
 
@@ -119,7 +128,15 @@ This is being used within the project to protect the RGB LED, and within the tem
 \includegraphics[height=2cm]{images/resistor_diagram.jpg}
 \end{figure}
 
-TODO: table, change image
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|c|c|}
+		\hline
+		Value & Quantity \\ \hline
+		1k\ohm & 2 \\ \hline
+		470\ohm & 3 \\ \hline
+	\end{tabular}
+\end{center}
 
 \textbf{Thermistor}
 
@@ -134,7 +151,14 @@ This is being used within the project to work out the temperature within the fri
 \includegraphics[height=2cm]{images/thermistor_diagram.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|c|c|}
+		\hline
+		Value & Quantity \\ \hline
+		1k\ohm \ (at 25\degree C) & 1 \\ \hline
+	\end{tabular}
+\end{center}
 
 \textbf{Capacitor}
 
@@ -149,7 +173,14 @@ This is used within the project to work out the temperature of the fridge, which
 \includegraphics[height=2cm]{images/capacitor_diagram.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{|c|c|}
+		\hline
+		Value & Quantity \\ \hline
+		330nF & 1 \\ \hline
+	\end{tabular}
+\end{center}
 
 \textbf{Raspberry Pi Camera}
 
@@ -165,7 +196,7 @@ The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Seria
 
 TODO: table
 
-The minimum operating temperature of -30°C means we could mount the camera inside the fridge if we so desire.
+The minimum operating temperature of -30\degree C means we could mount the camera inside the fridge if we so desire.
 
 This will be used within the project to scan the barcode of the products being entered into the fridge. It could possibly automatically detect the use-by date as well.
 
