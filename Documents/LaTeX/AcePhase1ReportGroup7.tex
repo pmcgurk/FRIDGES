@@ -178,7 +178,7 @@ The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Seria
 
 TODO: table
 
-The minimum operating temperature of -30°C means we could mount the camera inside the fridge if we so desire.
+The minimum operating temperature of -30\degree C means we could mount the camera inside the fridge if we so desire.
 
 This will be used within the project to scan the barcode of the products being entered into the fridge. It could possibly automatically detect the use-by date as well.
 
@@ -204,13 +204,14 @@ TODO: this
 
 \newpage
 \subsection{Prototype Circuit}
-TODO: text about the prototype here
+To accurately assess the feasibility of certain parts of this project, we created a prototype circuit of the temperature sensitive LED component. This was completed with a breadboard connecting the GPIO pins to a range of devices, most notable of which being a thermistor, and a RGB LED.
 
+\subsubsection{Circuit Diagram}
 \begin{figure}[h]
 \centering
 \caption{Prototype Circuit}
 \label{Prototype Circuit}
-\includegraphics[height=10cm]{images/prototypeDiagram.png}
+\includegraphics[height=8cm]{images/prototypeDiagram.png}
 \end{figure}
 
 \subsubsection{Result}
@@ -240,7 +241,7 @@ Since the RPi.GPIO library provides access to the GPIOs via Python, we thought i
 
 \subsection{Temperature Measurement}
 
-blah
+The temperature measurement element of this project is currently written in Python. This program was modified from a script written by Simon Monk for his ``Raspberry Pi Starter Pack''. The program works by measuring the time it takes to empty a 330nF Capacitor, using the variable resistance from the thermistor, which depends on the temperature. 
 
 \subsection{Barcode Scanning}
 \subsubsection{Barcode Scanning Library}
