@@ -196,7 +196,7 @@ This is used within the project to work out the temperature of the fridge, which
 	\end{tabular}
 \end{center}
 
-\subsubsection{Hall Effect sensor and Magnet}
+\subsubsection{Hall Effect Sensor and Magnet}
 
 A Hall Effect sensor detects magnetic fields. It is often used as a non-contact switch for applications such as doors. We intend to mount the sensor on the chassis of the fridge next to the door, and mount a magnet on the door itself, aligned with the sensor. When the door is closed the sensor will detect the magnetic field from the sensor and the output signal will go low. When the door is opened, the magnetic field will not be detected by the sensor and the signal will go high.
 
@@ -329,15 +329,15 @@ The prototype for detecting the state of the door consists of a breadboard, the 
 \subsection{Operating System}
 \hyperref[https://www.raspbian.org/]{Raspbian} is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the web server.
 
-\subsection{Accessing the hardware}
+\subsection{Accessing the Hardware}
 \hyperref[https://pypi.python.org/pypi/RPi.GPIO]{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from python fairly easily.
 
-\subsection{Web server}
-\subsubsection{Why use a web server?}
+\subsection{Web Server}
+\subsubsection{Why use a Web Server?}
 
 Most of the functionality of our project requires us to have an interface to the fridge to administrate and view information. We have chosen to go with a web-based approach, with the RPi itself hosting the web server. Going with this approach allows us to write the client application once and access it from a phone or a desktop without having to write client applications directly for each.
 
-\subsubsection{Technology stack}
+\subsubsection{Technology Stack}
 
 Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a python-based approach. We achieved this using the \hyperref[http://flask.pocoo.org/]{Flask} framework. Flask features a web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
 
