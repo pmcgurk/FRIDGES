@@ -227,7 +227,7 @@ The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Seria
 	 	\multicolumn{2}{|c|}{Technical Specifications} \\ \hline
 		Dimensions 		& 8.5 x 8.5 x 5mm \\ \hline
 		Maximum frame rate capture 	& 30fps \\ \hline
-		Maximum supported resolution	& 32KB \\ \hline
+		Maximum supported resolution	& 2592 x 1944 \\ \hline
 		Supported Bus Interfaces		& I2C \\ \hline
 		Supported Video Ports		& Raspberry Pi \\ \hline
 		Minimum Operating Temperature	& -30\degree C \\ \hline
@@ -303,6 +303,26 @@ To accurately assess the feasibility of certain parts of this project, we create
 \label{Prototype working}
 \includegraphics[height=4cm]{images/tempsenproto.png}
 \end{figure}
+\pagebreak
+\subsection{Prototype Door State Circuit}
+
+The prototype for detecting the state of the door consists of a breadboard, the hall effect sensor and magnet, and a resistor. We could do away from the breadboard since it is attached almost directly to the pi.
+
+\subsubsection{Circuit Diagram}
+\begin{figure}[h]
+\centering
+\caption{Prototype Circuit}
+\label{Prototype Circuit}
+\includegraphics[height=8cm]{images/hall_effect_diagram.png}
+\end{figure}
+
+\subsubsection{Circuit Schematic}
+\begin{figure}[h]
+\centering
+\caption{Prototype Circuit Schematic}
+\label{Prototype Circuit Schematic}
+\includegraphics[height=6cm]{images/hall_effect_schem.png}
+\end{figure}
 
 \newpage
 \section{Software Design}
@@ -364,7 +384,7 @@ The mobile interface will also be written in HTML5, JavaScript and CSS3, again, 
 
 \newpage
 \section{GANTT Chart}
-\includegraphics[height=20cm, width=23cm,angle=-90]{GANTT.pdf}
+\includegraphics[height=20cm, width=23cm,angle=90]{GANTT.pdf}
 
 \newpage
 \section{Current Progress}
