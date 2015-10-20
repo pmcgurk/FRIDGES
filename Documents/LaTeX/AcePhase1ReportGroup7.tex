@@ -335,7 +335,7 @@ The prototype for detecting the state of the door consists of a breadboard, the 
 \label{Prototype Circuit Schematic}
 \includegraphics[height=6cm]{images/hall_effect_schem.png}
 \end{figure}
-
+\addtocontents{toc}{\protect\newpage}
 \newpage
 \section{Software Design}
 \subsection{Operating System}
@@ -371,7 +371,6 @@ The temperature measurement element of this project is currently written in Pyth
 \subsection{Door State Detection}
 
 Using the hall effect sensor attached to a GPIO, we will be able to use the RPi.GPIO library to detect whether the door is open or closed. This information might be tied in with the temperature measurement in order to indicate to a user when they are leaving the fridge door open for too long.
-
 \newpage
 \subsection{Interface}
 \subsubsection{Local}
