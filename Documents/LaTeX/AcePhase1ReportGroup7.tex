@@ -207,7 +207,7 @@ This is used within the project to work out the temperature of the fridge, which
 	\end{tabular}
 \end{center}
 
-\subsubsection{Hall Effect sensor and Magnet}
+\subsubsection{Hall Effect Sensor and Magnet}
 
 A Hall Effect sensor detects magnetic fields. It is often used as a non-contact switch for applications such as doors. We intend to mount the sensor on the chassis of the fridge next to the door, and mount a magnet on the door itself, aligned with the sensor. When the door is closed the sensor will detect the magnetic field from the magnetic and the output signal will go low. When the door is opened, the magnetic field will not be detected by the sensor and the signal will go high.
 
@@ -338,19 +338,19 @@ The prototype for detecting the state of the door consists of a breadboard, the 
 \newpage
 \section{Software Design}
 \subsection{Operating System}
-\hyperref[https://www.raspbian.org/]{Raspbian} is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes the full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the Web server.
+\hyperref{https://www.raspbian.org/}{Raspbian} is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes the full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the Web server.
 
 \subsection{Accessing the hardware}
-\hyperref[https://pypi.python.org/pypi/RPi.GPIO]{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from Python fairly easily.
+\hyperref{https://pypi.python.org/pypi/RPi.GPIO}{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from Python fairly easily.
 
 \subsection{Web server}
 \subsubsection{Why use a Web Server?}
 
 Most of the functionality of our project requires us to have an interface to the fridge to administrate and view information. We have chosen to go with a Web-based approach, with the RPi itself hosting the Web server. Going with this approach allows us to write the client application once and access it from a phone or a desktop without having to write client applications directly for each.
 
-\subsubsection{Technology stack}
+\subsubsection{Technology Stack}
 
-Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a Python-based approach. We achieved this using the \hyperref[http://flask.pocoo.org/]{Flask} framework. Flask features a Web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
+Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a Python-based approach. We achieved this using the \hyperref{http://flask.pocoo.org/}{Flask} framework. Flask features a Web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
 
 \subsection{Temperature Measurement}
 
@@ -359,11 +359,12 @@ The temperature measurement element of this project is currently written in Pyth
 \subsection{Barcode Scanning}
 \subsubsection{Barcode Scanning Library}
 
-\hyperref[http://zbar.sourceforge.net/]{Zbar} is an open source barcode reading library that supports a wide range of barcode formats. It has Python bindings allowing us to read the barcodes in Python.
+\href{http://zbar.sourceforge.net/}{Zbar} is an open source barcode reading library that supports a wide range of barcode formats. It has Python bindings allowing us to read the barcodes in Python.
 
 \subsubsection{Identifying Products using the Barcode}
 
-\hyperref[https://www.outpan.com/]{Outpan} is a Web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
+
+\href{https://www.outpan.com/}{Outpan} is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
 
 \subsection{Door State Detection}
 
@@ -371,8 +372,7 @@ Using the hall effect sensor attached to a GPIO, we will be able to use the RPi.
 
 \subsection{Interface}
 
-\subsubsection{Touchscreen}
-The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \hyperref[https://github.com/xlab/matchbox-keyboard]{Matchbox keyboard.}
+The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \href{https://github.com/xlab/matchbox-keyboard}{Matchbox keyboard.}
 
 \begin{figure}[h]
 \centering
