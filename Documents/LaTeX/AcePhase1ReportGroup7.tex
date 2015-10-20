@@ -36,6 +36,7 @@
 \newpage
 \section{Introduction}
 
+\subsection{About the Project}
 The project is to create a product using an Arduino and/or Raspberry Pi that will be a part of the Internet of things. The Internet of things is about taking everyday objects and embedding them with software, electronics and networking capabilities so that they can sense the environment around them and then send and receive data. The idea, after much thought and discussion will be to create a smart fridge. This idea will not only have a physical benefit to its application but also an environmental one, as from the start the design is centred on trying to reduce food waste and energy consumption.
 
 \subsection{Motivation}
@@ -45,7 +46,7 @@ According to statistics from \href{http://www.lovefoodhatewaste.com/content/fact
 
 The same website claims that if this food wastage was reduced to 0, it would be equivalent to taking a quarter of the cars in the UK off the road. According to studies from \href{http://www.lovefoodhatewaste.com/content/love-your-fridge-and-waste-less}{WRAP}, by ensuring our fridges are at the right temperature (between 0 and 5 \degree C), as a country there is a potential of \pounds 200 million to be saved. Apprently, 70\% of fridges are kept too warm, meaning food becomes inconsumable much more quickly.
 
-\subsubsection{Our goal}
+\subsubsection{Our Goal}
 
 By allowing a user to know more easily when foods are soon to be out of date, we hope to reduce food waste and the environmental impact it has.
 
@@ -63,7 +64,7 @@ The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p proce
 \centering
 \caption{Arduino Uno V3}
 \label{Arduino Uno V3}
-\includegraphics[height=9cm]{images/Arduino.jpg}
+\includegraphics[height=8.5cm]{images/Arduino.jpg}
 \end{figure}
 
 \begin{center}
@@ -149,7 +150,7 @@ This is being used within the project to protect the RGB LED, as a pull-up for t
 \centering
 \caption{Resistor}
 \label{Resistor}
-\includegraphics[height=2.5cm]{images/resistor_diagram.jpg}
+\includegraphics[height=2cm]{images/resistor_diagram.jpg}
 \end{figure}
 
 \begin{center}
@@ -218,7 +219,6 @@ A Hall Effect sensor detects magnetic fields. It is often used as a non-contact 
 \includegraphics[width=8cm]{images/hall-effect-sensor.jpg}
 \end{figure}
 
-
 \subsubsection{Raspberry Pi Camera}
 
 The Raspberry Pi Camera Board connects to any Raspberry Pi and allows for high definition photography. It has several useful features, including: high data capability, 5 mega-pixel fixed focus, support for 1080p, 720p60 and VGA90. It also has automatic control functions including white balance, exposure control, and luminance detection.
@@ -249,6 +249,7 @@ The minimum operating temperature of -30\degree C means we could mount the camer
 
 This will be used within the project to scan the barcode of the products being entered into the fridge. It could possibly automatically detect the use-by date as well.
 
+\newpage
 \subsubsection{Raspberry Pi Touch Screen Display}
 
 The Raspberry Pi 7" Touchscreen Display connects to a Raspberry Pi, and allows it to display graphics in a self-contained package. It also allows the user to interact with the GUI through touch, omitting the need for additional peripherals such as mouse and keyboard.
@@ -338,10 +339,10 @@ The prototype for detecting the state of the door consists of a breadboard, the 
 \newpage
 \section{Software Design}
 \subsection{Operating System}
-\hyperref{https://www.raspbian.org/}{Raspbian} is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes the full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the Web server.
+\href{https://www.raspbian.org/}{Raspbian} is a Linux Debian-based operating system which is designed to run on a Raspberry Pi. It optimizes the full power of the Linux desktop environment for the Raspberry Pi's hardware. It allows us to focus on writing the functionality of the software that is unique to our smart fridge, leveraging the rich software ecosystem of 35000 packages that are offered by Raspbian to implement some of the more "standard" technologies such as the Web server.
 
 \subsection{Accessing the hardware}
-\hyperref{https://pypi.python.org/pypi/RPi.GPIO}{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from Python fairly easily.
+\href{https://pypi.python.org/pypi/RPi.GPIO}{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from Python fairly easily.
 
 \subsection{Web server}
 \subsubsection{Why use a Web Server?}
@@ -350,12 +351,13 @@ Most of the functionality of our project requires us to have an interface to the
 
 \subsubsection{Technology Stack}
 
-Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a Python-based approach. We achieved this using the \hyperref{http://flask.pocoo.org/}{Flask} framework. Flask features a Web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
+Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a Python-based approach. We achieved this using the \href{http://flask.pocoo.org/}{Flask} framework. Flask features a Web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
 
 \subsection{Temperature Measurement}
 
 The temperature measurement element of this project is currently written in Python. This program was modified from a script written by Simon Monk for his ``Raspberry Pi Starter Pack''. The program works by measuring the time it takes to empty a 330nF capacitor, using the variable resistance from the thermistor, which depends on the temperature. 
 
+\newpage
 \subsection{Barcode Scanning}
 \subsubsection{Barcode Scanning Library}
 
@@ -370,8 +372,9 @@ The temperature measurement element of this project is currently written in Pyth
 
 Using the hall effect sensor attached to a GPIO, we will be able to use the RPi.GPIO library to detect whether the door is open or closed. This information might be tied in with the temperature measurement in order to indicate to a user when they are leaving the fridge door open for too long.
 
+\newpage
 \subsection{Interface}
-
+\subsubsection{Local}
 The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \href{https://github.com/xlab/matchbox-keyboard}{Matchbox keyboard.}
 
 \begin{figure}[h]
@@ -382,20 +385,19 @@ The touchscreen interface will be written in HTML5, JavaScript and CSS3, using t
 \end{figure}
 
 
-\subsubsection{Mobile}
+\subsubsection{Remote}
 
 The mobile interface will also be written in HTML5, JavaScript and CSS3, again, using the Materialize CSS library. This interface will be similar to the touchscreen interface, visually, but will not be able to add products, at least to begin with.
 
 \begin{figure}[h]
 \centering
-\caption{Mobile GUI}
-\label{Mobile GUI}
-\includegraphics[height=8.5cm]{images/Mobile-Screenshot.png}
+\caption{Remote GUI accessed on a Mobile}
+\label{Remote GUI accessed on a Mobile}
+\includegraphics[height=10cm]{images/Mobile-Screenshot.png}
 \end{figure}
 
-\newpage
 \section{GANTT Chart}
-\includegraphics[height=20cm, width=23cm,angle=90]{GANTT.pdf}
+\includegraphics[height=24cm, width=24cm,angle=90]{GANTT.pdf}
 
 \newpage
 \section{Current Progress}
@@ -405,7 +407,7 @@ Our excellent group organisation has allowed us to have already made good progre
 \section{Stretch Features}
 If we meet all of our deadlines, there are some extra features we would like to implement. One of these features would be for the user to be able to change the temperature of the fridge from both the touch interface and remotely. This would be useful as it would give the user greater control over the fridge and enhance the energy saving aspects of the fridge.
 
-One other feature would be to recommend meals based on what is currently in your fridge. These meals could be taken from an open-source recipe database, like \hyperref[http://api.bigoven.com]{Big Oven}, and can be filtered based on what may be going out of date in your fridge. This further reduces food wastage.
+One other feature would be to recommend meals based on what is currently in your fridge. These meals could be taken from an open-source recipe database, like \href{http://api.bigoven.com}{Big Oven}, and can be filtered based on what may be going out of date in your fridge. This further reduces food wastage.
 
 Ordering more food would also be a great feature to aid in food reduction. The fridge could recognise when you are low on a specific product, and order more for you from your preferred supplier (Asda/Tesco/Amazon). This would result in less over-buying, as more food would only be ordered when the current stock is low.
 
