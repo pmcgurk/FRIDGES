@@ -34,6 +34,13 @@ The project is to create a product using either an Arduino and/or Raspberry Pi t
 
 ----
 
+# Motivation
+According to statistics from http://www.lovefoodhatewaste.com/content/facts-about-food-waste-1 (a website run by WRAP - Waste and Resources Action Programme) UK households throw away 7 million tonnes of food every year. One of the main reasons for this is not using the food before it goes out of date. The average cost per household of this food wastage is £470 per year.
+#### Environmental Impact
+The same website claims that if this food wastage was reduced to 0, it would be equivalent to taking a quarter of the cars in the UK off the road. According to studies from WRAP (http://www.lovefoodhatewaste.com/content/love-your-fridge-and-waste-less) by ensuring our fridges are at the right temperature (between 0 and 5°C), as a country there is a potential of £200 million to be saved. Apprently, 70% of fridges are kept too warm, meaning food becomes inconsumable much more quickly.
+#### Our goal
+By allowing the temperature of the fridge to be changed remotely, as well as alerting a user when foods are soon to be out of date, we hope to reduce food waste and reduce the environmental impact of this.
+
 # Assessment of Capabilities
 ## Requirements
 The device must be able to support a touchscreen, have a thermometer connected, camera to act as barcode scanner, wireless capabilities and be able to run a web server.
