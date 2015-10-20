@@ -44,7 +44,7 @@ The project is to create a product using either an Arduino and/or Raspberry Pi t
 
 \subsection{Requirements}
 
-The device must be able to support a touchscreen, have a thermometer connected, camera to act as barcode scanner, wireless capabilities and be able to run a web server.
+The device we choose we must be able to support a touchscreen, have a thermometer connected, camera to act as barcode scanner, wireless capabilities and be able to run a web server.
 
 \subsection{Arduino}
 The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
@@ -53,7 +53,7 @@ The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p proce
 \centering
 \caption{Arduino Uno V3}
 \label{Arduino Uno V3}
-\includegraphics[scale=.35]{images/Arduino.jpg}
+\includegraphics[height=9cm]{images/Arduino.jpg}
 \end{figure}
 
 \begin{center}
@@ -78,7 +78,7 @@ The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p proce
 \centering
 \caption{Raspberry Pi}
 \label{Raspberry Pi}
-\includegraphics[scale=.4]{images/Raspberry-Pi.jpg}
+\includegraphics[height=9cm]{images/Raspberry-Pi.jpg}
 \end{figure}
 The Raspberry Pi is a small form-factor ARM based computer. It is a very popular system that has a healthy development ecosystem. The RPi can run a custom Linux-based operating system, called Raspbian, allowing fairly high level development and integration with lower-level peripherals such as GPIOs. The Raspberry Pi also has official peripherals or "modules" for devices such as a camera or a touchscreen.
 
@@ -115,7 +115,7 @@ This is being used within the project as a visual display of the temperature of 
 \centering
 \caption{RGB LED}
 \label{RGB LED}
-\includegraphics[scale=.5]{images/rgb_led_diagram.jpg}
+\includegraphics[height=5cm]{images/rgb_led_diagram.jpg}
 \end{figure}
 
 \begin{center}
@@ -138,8 +138,8 @@ This is being used within the project to protect the RGB LED, and within the tem
 \begin{figure}[h]
 \centering
 \caption{Resistor}
-\label{Resistorr}
-\includegraphics[height=2cm]{images/resistor_diagram.jpg}
+\label{Resistor}
+\includegraphics[height=2.5cm]{images/resistor_diagram.jpg}
 \end{figure}
 
 \begin{center}
@@ -162,7 +162,7 @@ This is being used within the project to work out the temperature within the fri
 \centering
 \caption{Thermistor}
 \label{Thermistor}
-\includegraphics[height=2cm]{images/thermistor_diagram.jpg}
+\includegraphics[height=2.5cm]{images/thermistor_diagram.jpg}
 \end{figure}
 
 \begin{center}
@@ -184,7 +184,7 @@ This is used within the project to work out the temperature of the fridge, which
 \centering
 \caption{Capacitor}
 \label{Capacitor}
-\includegraphics[height=2cm]{images/capacitor_diagram.jpg}
+\includegraphics[height=2.5cm]{images/capacitor_diagram.jpg}
 \end{figure}
 
 \begin{center}
@@ -208,7 +208,19 @@ The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Seria
 \includegraphics[height=4cm]{images/pi-camera.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{ | c | c | }
+		\hline
+	 	\multicolumn{2}{|c|}{Technical Specifications} \\ \hline
+		Dimensions 		& 8.5 x 8.5 x 5mm \\ \hline
+		Maximum frame rate capture 	& 30fps \\ \hline
+		Maximum supported resolution	& 32KB \\ \hline
+		Supported Bus Interfaces		& I2C \\ \hline
+		Supported Video Ports		& Raspberry Pi \\ \hline
+		Minimum Operating Temperature	& -30\degree C \\ \hline
+	\end{tabular}
+\end{center}
 
 The minimum operating temperature of -30\degree C means we could mount the camera inside the fridge if we so desire.
 
@@ -227,12 +239,35 @@ We choose this screen as others were seen as too small to be able to display a u
 \includegraphics[height=7cm]{images/pi-touchscreen.jpg}
 \end{figure}
 
-TODO: table
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{ | c | c | }
+		\hline
+	 	\multicolumn{2}{|c|}{Technical Specifications} \\ \hline
+		Dimensions 		& 194mm x 110mm x 20mm \\ \hline
+		Viewable screen size 	& 155m x 86mm \\ \hline
+		Screen resolution	& 800 x 480 \\ \hline
+	\end{tabular}
+\end{center}
 
 This will be used within the project to display a custom GUI which will have a number of uses, such as; display all products which are near their use-by date, adding custom products (homemade food, products which do not scan properly, etc). From this screen, the user will also be able to see the temperature of the fridge, and possibly change the temperature within the fridge, if that is implemented.
 
 \subsection{Component List}
-TODO: this
+\begin{center}
+	\rowcolors{1}{white}{gray!15}
+	\begin{tabular}{ | c | c | c | c |}
+		\hline
+	 	Quantity & Component Name & PriceUnit & Total Price \\ \hline
+		1	& Raspberry Pi Touch Screen 	& \pounds	& \pounds \\ \hline
+		1 	& Raspberry Pi Camera 	& \pounds	& \pounds \\ \hline
+		1	& 330nF Capacitor	& \pounds	& \pounds \\ \hline
+		1	& RGB LED   & \pounds	& \pounds \\ \hline
+		1	& Thermistor	& \pounds	& \pounds \\ \hline
+		1	& 1k\ohm & \pounds	& \pounds \\ \hline
+		1	& 470\ohm & \pounds	& \pounds \\ \hline
+			& 	& Total 	& \pounds \\ \hline
+	\end{tabular}
+\end{center}
 
 \newpage
 \subsection{Prototype Circuit}
@@ -300,13 +335,13 @@ The touchscreen interface will be written in HTML5, JavaScript and CSS3, using t
 
 \subsubsection{Mobile}
 
-The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \hyperref[https://github.com/xlab/matchbox-keyboard]{matchbox keyboard.}
+The mobile interface will also be written in HTML5, JavaScript and CSS3, again, using the Materialize CSS library. This interface will be similar to the touchscreen interface, visually, but will not be able to add products, at least, to begin with.
 
 \begin{figure}[h]
 \centering
 \caption{Mobile GUI}
 \label{Mobile GUI}
-\includegraphics[height=10cm]{images/Mobile-Screenshot.png}
+\includegraphics[height=8.5cm]{images/Mobile-Screenshot.png}
 \end{figure}
 
 \newpage

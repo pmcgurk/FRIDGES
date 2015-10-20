@@ -166,15 +166,15 @@ This will be used within the project to display a custom GUI which will have a n
 #### Component List
 | Quantity | Component Name             | Price/Unit | Total Price |
 |----------|----------------------------|------------|-------------|
-| 1        | Raspberry Pi Touch Screen  |  £         |  £          |
-| 1        | Raspberry Pi Camera        |  £         |  £          |
-| 1        | 330nf Capacitor            |  £         |  £          |
-| 1        | RGB LED                    |  £         |  £          |
-| 1        | Thermistor                 |  £         |  £          |
-| 2        | 1kΩ Resistor               |  £         |  £          |
-| 3        | 470Ω Resistor              |  £         |  £          |
+| 1        | Raspberry Pi Touch Screen  |  £42.99    |  £42.99     |
+| 1        | Raspberry Pi Camera        |  £16.20    |  £16.20     |
+| 1        | 330nF Capacitor            |  £0.09     |  £0.09      |
+| 1        | RGB LED                    |  £2.76     |  £2.76      |
+| 1        | Thermistor                 |  £0.60     |  £0.60      |
+| 2        | 1kΩ Resistor               |  £1.00     |  £2.00      |
+| 3        | 470Ω Resistor              |  £0.005    |  £0.02      |
 |          |                            |            |             |
-|          |                            |  Total     |  £          |
+|          |                            |  Total     |  £64.66     |
 <!-- TODO: magnets? that type of stuff for this -->
 #### Prototype Circuit
 ![Temperature Sensitive LED Prototype Circuit](prototypeDiagram.png)
