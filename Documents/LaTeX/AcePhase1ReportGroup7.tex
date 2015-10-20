@@ -198,6 +198,14 @@ This is used within the project to work out the temperature of the fridge, which
 
 \subsubsection{Hall Effect sensor and Magnet}
 
+A Hall Effect sensor detects magnetic fields. It is often used as a non-contact switch for applications such as doors. We intend to mount the sensor on the chassis of the fridge next to the door, and mount a magnet on the door itself, aligned with the sensor. When the door is closed the sensor will detect the magnetic field from the sensor and the output signal will go low. When the door is opened, the magnetic field will not be detected by the sensor and the signal will go high.
+
+\begin{figure}[h]
+\centering
+\caption{Hall Effect Sensor}
+\label{Hall Effect Sensor}
+\includegraphics[width=8cm]{images/hall-effect-sensor.jpg}
+\end{figure}
 
 
 \subsubsection{Raspberry Pi Camera}
@@ -277,7 +285,7 @@ This will be used within the project to display a custom GUI which will have a n
 \end{center}
 
 \newpage
-\subsection{Prototype Circuit}
+\subsection{Prototype Temperature Circuit}
 To accurately assess the feasibility of certain parts of this project, we created a prototype circuit of the temperature sensitive LED component. This was completed with a breadboard connecting the GPIO pins to a range of devices, most notable of which being a thermistor, and a RGB LED.
 
 \subsubsection{Circuit Diagram}
