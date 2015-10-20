@@ -7,7 +7,7 @@
 
 \setcounter{secnumdepth}{4}
 \titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+{\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \newcommand*\Title{FRIDGES}
@@ -42,11 +42,11 @@ The project is to create a product using an Arduino and/or Raspberry Pi that wil
 \subsection{Motivation}
 According to statistics from \href{http://www.lovefoodhatewaste.com/content/facts-about-food-waste-1}{LoveFoodHateWaste} (a website run by WRAP - Waste and Resources Action Programme) UK households throw away 7 million tonnes of food every year. One of the main reasons for this is not using the food before it goes out of date. The average cost per household of this food wastage is \pounds 470 per year.
 
-\subsubsection{Environmental Impact}
+\fontfamily{lmtt}{\subsubsection{Environmental Impact}}
 
 The same website claims that if this food wastage was reduced to 0, it would be equivalent to taking a quarter of the cars in the UK off the road. According to studies from \href{http://www.lovefoodhatewaste.com/content/love-your-fridge-and-waste-less}{WRAP}, by ensuring our fridges are at the right temperature (between 0 and 5 \degree C), as a country there is a potential of \pounds 200 million to be saved. Apprently, 70\% of fridges are kept too warm, meaning food becomes inconsumable much more quickly.
 
-\subsubsection{Our Goal}
+\fontfamily{lmtt}{\subsubsection{Our Goal}}
 
 By allowing a user to know more easily when foods are soon to be out of date, we hope to reduce food waste and the environmental impact it has.
 
@@ -116,7 +116,7 @@ We have chosen to go for the Raspberry Pi 2. The reason we chose a RPi over an A
 \newpage
 \section{Hardware Design}
 \subsection{Main Parts}
-\subsubsection{RGB LED}
+\fontfamily{lmtt}{\subsubsection{{RGB LED}}}
 
 An RGB LED (Red Green Blue Light Emitting Diode) is a small light which has three different diodes within it, capable of emitting three types of light. Each pin controls a different colour, with the longest pin being the PLUS. Using PWM (Pulse Width Modulation), we can dim and lighten the different colours to give a range of colours. The operating temperature of the LED covers the expected temperature in the fridge.
 
@@ -140,7 +140,7 @@ This is being used within the project as a visual display of the temperature in 
 	\end{tabular}
 \end{center}
 
-\subsubsection{Resistor}
+\fontfamily{lmtt}{\subsubsection{Resistor}}
 
 A resistor is a device which reduces the flow of current within a circuit. This can be used for many applications such as protecting elements from high current.
 
@@ -164,7 +164,7 @@ This is being used within the project to protect the RGB LED, as a pull-up for t
 	\end{tabular}
 \end{center}
 
-\subsubsection{Thermistor}
+\fontfamily{lmtt}{\subsubsection{Thermistor}}
 
 A thermistor is a resistor which is sensitive to temperature. The resistance of the thermistor is used to work out the temperature of it's surroundings via the Steinhart-Hart equation.
 
@@ -186,7 +186,7 @@ This is being used within the project to work out the temperature within the fri
 	\end{tabular}
 \end{center}
 
-\subsubsection{Capacitor}
+\fontfamily{lmtt}{\subsubsection{Capacitor}}
 
 A capacitor is a device which stores electrical energy temporarily.
 
@@ -208,7 +208,7 @@ This is used within the project to work out the temperature of the fridge, which
 	\end{tabular}
 \end{center}
 
-\subsubsection{Hall Effect Sensor and Magnet}
+\fontfamily{lmtt}{\fontfamily{lmtt}{\subsubsection{Hall Effect Sensor and Magnet}}
 
 A Hall Effect sensor detects magnetic fields. It is often used as a non-contact switch for applications such as doors. We intend to mount the sensor on the chassis of the fridge next to the door, and mount a magnet on the door itself, aligned with the sensor. When the door is closed the sensor will detect the magnetic field from the magnetic and the output signal will go low. When the door is opened, the magnetic field will not be detected by the sensor and the signal will go high.
 
@@ -219,7 +219,7 @@ A Hall Effect sensor detects magnetic fields. It is often used as a non-contact 
 \includegraphics[width=8cm]{images/hall-effect-sensor.jpg}
 \end{figure}
 
-\subsubsection{Raspberry Pi Camera}
+\fontfamily{lmtt}{\subsubsection{Raspberry Pi Camera}}
 
 The Raspberry Pi Camera Board connects to any Raspberry Pi and allows for high definition photography. It has several useful features, including: high data capability, 5 mega-pixel fixed focus, support for 1080p, 720p60 and VGA90. It also has automatic control functions including white balance, exposure control, and luminance detection.
 The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Serial Interface Port. Via Raspbian, there are several applications that can be used to take photos, including Raspistill.
@@ -250,7 +250,7 @@ The minimum operating temperature of -30\degree C means we could mount the camer
 This will be used within the project to scan the barcode of the products being entered into the fridge. It could possibly automatically detect the use-by date as well.
 
 \newpage
-\subsubsection{Raspberry Pi Touch Screen Display}
+\fontfamily{lmtt}{\subsubsection{Raspberry Pi Touch Screen Display}}
 
 The Raspberry Pi 7" Touchscreen Display connects to a Raspberry Pi, and allows it to display graphics in a self-contained package. It also allows the user to interact with the GUI through touch, omitting the need for additional peripherals such as mouse and keyboard.
 
@@ -300,7 +300,7 @@ This will be used within the project to display a custom GUI which will have a n
 \subsection{Prototype Temperature Circuit}
 To accurately assess the feasibility of certain parts of this project, we created a prototype circuit of the temperature sensitive LED component. This was completed with a breadboard connecting the GPIO pins to a range of devices, most notable of which being a thermistor, and a RGB LED.
 
-\subsubsection{Circuit Diagram}
+\fontfamily{lmtt}{\subsubsection{Circuit Diagram}}
 \begin{figure}[h]
 \centering
 \caption{Prototype Circuit}
@@ -308,7 +308,7 @@ To accurately assess the feasibility of certain parts of this project, we create
 \includegraphics[height=8cm]{images/prototypeDiagram.png}
 \end{figure}
 
-\subsubsection{Result}
+\fontfamily{lmtt}{\subsubsection{Result}}
 \begin{figure}[h]
 \centering
 \caption{Prototype working}
@@ -320,7 +320,7 @@ To accurately assess the feasibility of certain parts of this project, we create
 
 The prototype for detecting the state of the door consists of a breadboard, the hall effect sensor and magnet, and a resistor. We could do away from the breadboard since it is attached almost directly to the Pi.
 
-\subsubsection{Circuit Diagram}
+\fontfamily{lmtt}{\subsubsection{Circuit Diagram}}
 \begin{figure}[h]
 \centering
 \caption{Prototype Circuit}
@@ -328,7 +328,7 @@ The prototype for detecting the state of the door consists of a breadboard, the 
 \includegraphics[height=8cm]{images/hall_effect_diagram.png}
 \end{figure}
 
-\subsubsection{Circuit Schematic}
+\fontfamily{lmtt}{\subsubsection{Circuit Schematic}}
 \begin{figure}[h]
 \centering
 \caption{Prototype Circuit Schematic}
@@ -345,11 +345,11 @@ The prototype for detecting the state of the door consists of a breadboard, the 
 \href{https://pypi.python.org/pypi/RPi.GPIO}{RPi.GPIO} is a library that allows high level access to the GPIOs on the board through python bindings. Since we currently do not have plans to utilize the hardware PWM, SPI, or I2C functionalities we are not limited by the fact that RPi.GPIO does not support these. If we choose to use any of these functionalities then we can implement them in C and call down from Python fairly easily.
 
 \subsection{Web server}
-\subsubsection{Why use a Web Server?}
+\fontfamily{lmtt}{\subsubsection{Why use a Web Server?}}
 
 Most of the functionality of our project requires us to have an interface to the fridge to administrate and view information. We have chosen to go with a Web-based approach, with the RPi itself hosting the Web server. Going with this approach allows us to write the client application once and access it from a phone or a desktop without having to write client applications directly for each.
 
-\subsubsection{Technology Stack}
+\fontfamily{lmtt}{\subsubsection{Technology Stack}
 
 Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a Python-based approach. We achieved this using the \href{http://flask.pocoo.org/}{Flask} framework. Flask features a Web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
 
@@ -359,11 +359,11 @@ The temperature measurement element of this project is currently written in Pyth
 
 \newpage
 \subsection{Barcode Scanning}
-\subsubsection{Barcode Scanning Library}
+\fontfamily{lmtt}{\subsubsection{Barcode Scanning Library}}
 
 \href{http://zbar.sourceforge.net/}{Zbar} is an open source barcode reading library that supports a wide range of barcode formats. It has Python bindings allowing us to read the barcodes in Python.
 
-\subsubsection{Identifying Products using the Barcode}
+\fontfamily{lmtt}{\subsubsection{Identifying Products using the Barcode}}
 
 
 \href{https://www.outpan.com/}{Outpan} is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
@@ -373,7 +373,7 @@ The temperature measurement element of this project is currently written in Pyth
 Using the hall effect sensor attached to a GPIO, we will be able to use the RPi.GPIO library to detect whether the door is open or closed. This information might be tied in with the temperature measurement in order to indicate to a user when they are leaving the fridge door open for too long.
 \newpage
 \subsection{Interface}
-\subsubsection{Local}
+\fontfamily{lmtt}{\subsubsection{Local}}
 The touchscreen interface will be written in HTML5, JavaScript and CSS3, using the Materialize CSS for the visuals. As for the keyboard for entering data, we will use \href{https://github.com/xlab/matchbox-keyboard}{Matchbox keyboard.}
 
 \begin{figure}[h]
@@ -384,7 +384,7 @@ The touchscreen interface will be written in HTML5, JavaScript and CSS3, using t
 \end{figure}
 
 
-\subsubsection{Remote}
+\fontfamily{lmtt}{\subsubsection{Remote}}
 
 The mobile interface will also be written in HTML5, JavaScript and CSS3, again, using the Materialize CSS library. This interface will be similar to the touchscreen interface, visually, but will not be able to add products, at least to begin with.
 
