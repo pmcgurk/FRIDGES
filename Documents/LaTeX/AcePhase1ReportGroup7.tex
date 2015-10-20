@@ -147,6 +147,7 @@ This is being used within the project to protect the RGB LED, and within the tem
 	\begin{tabular}{|c|c|}
 		\hline
 		Value & Quantity \\ \hline
+		10k\ohm & 1 \\ \hline
 		1k\ohm & 2 \\ \hline
 		470\ohm & 3 \\ \hline
 	\end{tabular}
@@ -195,6 +196,10 @@ This is used within the project to work out the temperature of the fridge, which
 		330nF & 1 \\ \hline
 	\end{tabular}
 \end{center}
+
+\subsubsection{Hall Effect sensor and Magnet}
+
+
 
 \subsubsection{Raspberry Pi Camera}
 
@@ -263,11 +268,12 @@ This will be used within the project to display a custom GUI which will have a n
 		1	& 330nF Capacitor	& \pounds 0.09	& \pounds 0.09 \\ \hline
 		1	& RGB LED   & \pounds 2.76	& \pounds 2.76 \\ \hline
 		1	& Thermistor	& \pounds 0.60	& \pounds 0.60 \\ \hline
+		1	& 10k\ohm & \pounds 0.053 	& \pounds 0.053 \\ \hline
 		2	& 1k\ohm & \pounds 0.027	& \pounds 0.054 \\ \hline
 		3	& 470\ohm & \pounds 0.005	& \pounds 0.02 \\ \hline
 		1	& Digital Hall Effect Sensor & \pounds 1.53	& \pounds 1.53 \\ \hline
 		1	& Magnet & \pounds 1.055	& \pounds 1.055 \\ \hline
-			& 	& Total 	& \pounds 65.31 \\ \hline
+			& 	& Total 	& \pounds 65.37 \\ \hline
 	\end{tabular}
 \end{center}
 
@@ -321,6 +327,10 @@ The temperature measurement element of this project is currently written in Pyth
 \subsubsection{Identifying Products using the Barcode}
 
 \hyperref[https://www.outpan.com/]{Outpan} is a web service that provides an API for identifying products from their GTIN. It is free to use and has a database of millions of products. We can make simple HTTP requests with the barcode we just scanned and get information such as the name of the product back.
+
+\subsection{Door State Detection}
+
+Using the hall-effect sensor attached to a GPIO, we will be able to use the RPi.GPIO library to detect whether the door is open or closed. This information might be tied in with the temperature measurement in order to indicate to a user when they are leaving the fridge door open for too long.
 
 \subsection{Interface}
 
