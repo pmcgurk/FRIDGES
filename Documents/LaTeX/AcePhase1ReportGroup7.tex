@@ -43,7 +43,7 @@ The project is to create a product using either an Arduino and/or Raspberry Pi t
 
 \subsection{Requirements}
 
-The device we end up choosing must be able to support all the hardware and software we want to incorporate into our smart fridge. One of things we want to be able to support is a touchscreen to allow the user to interact with the fridge directly and on top of this a camera to act as a barcode scanner and then display the product on the screen. we also want to have a thermometer inside the fridge so we can take temperature readings d, camera to act as barcode scanner, wireless capabilities and be able to run a web server.
+The device we end up choosing must be able to support all the hardware and software we want to incorporate into our smart fridge. One of things we want to be able to support is a touchscreen to allow the user to interact with the fridge directly and on top of this a camera to act as a barcode scanner and then display the product on the screen. Another device that we also want to support is a thermometer that will be positioned inside the fridge allowing us to monitor the temperature in the fridge by taking readings. The final thing our device must have is wireless capabilities, this is so that we will be able to set up and run our own web server for the fridge.
 
 \subsection{Arduino}
 The Arduino Uno V3 is a small microcontroller board sporting an ATmega328p processor. It is designed for prototyping embedded products and as a result has good support for driving ICs and other low-level peripherals. The 6 PWM outputs allows analogue components to be operated easily, and the lean 16MHz processor is extremely low power meaning it could potentially be powered from a battery.
@@ -389,7 +389,18 @@ The mobile interface will also be written in HTML5, JavaScript and CSS3, again, 
 \newpage
 \section{Current Progress}
 
-Our excellent group organisation has allowed us to have already made good progress on Phase 1 of our project. To begin with, we have researched all of the necessary components to complete our project, including deciding on a Raspberry Pi 2 as the basis for our embedded system. We have also created a demo to sense temperature and change the colour of an LED using this Pi, as this is one of the main features of our project. Another feature that we have already implemented is a Flask web server running on the Pi. Flask will give us an easy way to store data and check the values of the sensors remotely via a web interface. We have also planned a prototype that will allows us to identify the major challenges in our design/software before moving onto the final build of our project. The basis of a web interface has been created to allow a user to view/change temperature, display current contents of the fridge, including expiration dates, and also to show the latest image from the PI camera.
+Our excellent group organisation has allowed us to have already made good progress on Phase 1 of our project. To begin with, we have researched all of the necessary components to complete our project, including deciding on a Raspberry Pi 2 Model B as the basis for our embedded system. We have also created a demo to sense temperature and change the colour of an LED using this Pi, as this is one of the main features of our project. Another feature that we have already implemented is a Flask web server running on the Pi. Flask will give us an easy way to store data and check the values of the sensors remotely via a web interface. We have also planned a prototype that will allows us to identify the major challenges in our design/software before moving onto the final build of our project. The basis of a web interface has been created to allow a user to view/change temperature, display current contents of the fridge, including expiration dates, and also to show the latest image from the PI camera.
+
+\section{Stretch Features}
+If we meet all of our deadlines, there are some extra features we would like to implement. One of these features would be for the user to be able to change the temperature of the fridge from both the touch interface and remotely. This would be useful as it would give the user greater control over the fridge and enhance the energy saving aspects of the fridge.
+
+One other feature would be to recommend meals based on what is currently in your fridge. These meals could be taken from an open-source recipe database, like \hyperref[http://api.bigoven.com]{Big Oven}, and can be filtered based on what may be going out of date in your fridge. This further reduces food wastage.
+
+Ordering more food would also be a great feature to aid in food reduction. The fridge could recognise when you are low on a specific product, and order more for you from your preferred supplier (Asda/Tesco/Amazon). This would result in less over-buying, as more food will only be ordered when the current stock is low.
+
+User profiles are another optional feature we would like to add. This would allow a group of users (families, housemates) to mark which food is theirs, and receive personalised information. This would also allow user customisation, like changing the interface colours/backgrounds. This would also allow us to have the fridge only open for recognised users, either by login or NFC chip.
+
+Our final extra feature would be to allow users to add widgets to the interface of their fridge. These could include Reminders, Weather forecasts, Daily News and even information from Twitter/Facebook feeds. 
 
 \section{Conclusion}
 
