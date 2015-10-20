@@ -3,6 +3,7 @@
 \geometry{letterpaper}
 %\usepackage{garamond}
 \usepackage[table]{xcolor}
+\usepackage{pdfpages}
 
 
 \setcounter{secnumdepth}{4}
@@ -242,8 +243,9 @@ To accurately assess the feasibility of certain parts of this project, we create
 \centering
 \caption{Prototype Circuit}
 \label{Prototype Circuit}
-\includegraphics[height=8cm]{images/prototypeDiagram.png}
+\includegraphics[height=12cm]{images/prototypeDiagram.png}
 \end{figure}
+\pagebreak
 
 \subsubsection{Result}
 \begin{figure}[h]
@@ -306,6 +308,9 @@ The touchscreen interface will be written in HTML5, JavaScript and CSS3, using t
 \label{Mobile GUI}
 \includegraphics[height=10cm]{images/Mobile-Screenshot.png}
 \end{figure}
+
+\newpage
+\includepdf[scale=1.1,angle=-90]{GANTT.pdf}
 
 \newpage
 \section{Current Progress}
