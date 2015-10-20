@@ -3,7 +3,6 @@
 \geometry{letterpaper}
 %\usepackage{garamond}
 \usepackage[table]{xcolor}
-\usepackage{pdfpages}
 
 
 \setcounter{secnumdepth}{4}
@@ -11,11 +10,11 @@
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-\newcommand*\Title{FRIDGES}
+\newcommand*\Title{COOLS}
 \newcommand*\cpiType{Phase 1 Report}
 \newcommand*\Date{October 2015}
-\newcommand*\Author{Paul McGurk, Alex McBride,  Daniel Lafferty,        Andrew Mortimer, and Scott Henderson} 
-\title{FRIDGES}
+\newcommand*\Author{Paul McGurk, Alex McBride,  Daniel Rafferty,        Andrew Mortimer, and Scott Henderson} 
+\title{COOLS}
 \author{Paul McGurk, Alex McBride, Daniel Rafferty, Andrew Mortimer, and Scott Henderson}
 \date{\today}
 %-----------------------------------------------------------
@@ -215,7 +214,7 @@ The Pi Camera Board has a 15cm ribbon cable which slots into the Pi Camera Seria
 	 	\multicolumn{2}{|c|}{Technical Specifications} \\ \hline
 		Dimensions 		& 8.5 x 8.5 x 5mm \\ \hline
 		Maximum frame rate capture 	& 30fps \\ \hline
-		Maximum supported resolution	& 2592 x 1944 \\ \hline
+		Maximum supported resolution	& 32KB \\ \hline
 		Supported Bus Interfaces		& I2C \\ \hline
 		Supported Video Ports		& Raspberry Pi \\ \hline
 		Minimum Operating Temperature	& -30\degree C \\ \hline
@@ -258,16 +257,14 @@ This will be used within the project to display a custom GUI which will have a n
 	\begin{tabular}{ | c | c | c | c |}
 		\hline
 	 	Quantity & Component Name & PriceUnit & Total Price \\ \hline
-		1	& Raspberry Pi Touch Screen 	& \pounds 42.99	& \pounds 42.99 \\ \hline
-		1 	& Raspberry Pi Camera 	& \pounds 16.20	& \pounds 16.20 \\ \hline
-		1	& 330nF Capacitor	& \pounds 0.09	& \pounds 0.09 \\ \hline
-		1	& RGB LED   & \pounds 2.76	& \pounds 2.76 \\ \hline
-		1	& Thermistor	& \pounds 0.60	& \pounds 0.60 \\ \hline
-		2	& 1k\ohm & \pounds 0.027	& \pounds 0.054 \\ \hline
-		3	& 470\ohm & \pounds 0.005	& \pounds 0.02 \\ \hline
-		1	& Digital Hall Effect Sensor & \pounds 1.53	& \pounds 1.53 \\ \hline
-		1	& Magnet & \pounds 1.055	& \pounds 1.055 \\ \hline
-			& 	& Total 	& \pounds 65.31 \\ \hline
+		1	& Raspberry Pi Touch Screen 	& \pounds	& \pounds \\ \hline
+		1 	& Raspberry Pi Camera 	& \pounds	& \pounds \\ \hline
+		1	& 330nF Capacitor	& \pounds	& \pounds \\ \hline
+		1	& RGB LED   & \pounds	& \pounds \\ \hline
+		1	& Thermistor	& \pounds	& \pounds \\ \hline
+		1	& 1k\ohm & \pounds	& \pounds \\ \hline
+		1	& 470\ohm & \pounds	& \pounds \\ \hline
+			& 	& Total 	& \pounds \\ \hline
 	\end{tabular}
 \end{center}
 
@@ -280,9 +277,8 @@ To accurately assess the feasibility of certain parts of this project, we create
 \centering
 \caption{Prototype Circuit}
 \label{Prototype Circuit}
-\includegraphics[height=12cm]{images/prototypeDiagram.png}
+\includegraphics[height=8cm]{images/prototypeDiagram.png}
 \end{figure}
-\pagebreak
 
 \subsubsection{Result}
 \begin{figure}[h]
@@ -307,7 +303,7 @@ Most of the functionality of our project requires us to have an interface to the
 
 \subsubsection{Technology stack}
 
-Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. We will achieve this using the\hyperref[http://flask.pocoo.org/]{Flask} framework. Flask features a web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. Although none of us have had any experience with this technology before, we thought it was a natural fit and do not anticipate much trouble in utilizing it.
+Since the RPi.GPIO library provides access to the GPIOs via Python, we thought it prudent to serve the dynamic content of our application from Python also. However, we had originally implemented the server using Apache and PHP5, so we had to change this to a python-based approach. We achieved this using the \hyperref[http://flask.pocoo.org/]{Flask} framework. Flask features a web server and a templating engine to allow us to write static HTML with wildcards that allow us to dynamically insert relevant data. This also allows us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
 
 \subsection{Temperature Measurement}
 
@@ -345,9 +341,6 @@ The mobile interface will also be written in HTML5, JavaScript and CSS3, again, 
 \label{Mobile GUI}
 \includegraphics[height=8.5cm]{images/Mobile-Screenshot.png}
 \end{figure}
-
-\newpage
-\includepdf[scale=1.1,angle=-90]{GANTT.pdf}
 
 \newpage
 \section{Current Progress}
