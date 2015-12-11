@@ -11,15 +11,16 @@ import temperature
 import changeLED
 import time
 import RPi.GPIO as GPIO
+import json
+
 
 def main():
-    LEDColour.setup(3, 20, True)
+    LEDColour.setup(15, 30, True)
     while (True):
-        #temp = temp + 0.01 # test value as get temperature doesnt work
-        temp = round(temperature.getTemperature(), 1)
-        RGB = LEDColour.getLEDColour(temp)
-        changeLED.changeLED(RGB)
+        temp = round(temperature.getTemperature(), 1) #get temperature
+	doorOpen = False # change to hall effect result
+        changeLED.changeLED(LEDColour.getLEDColour(temp))
         time.sleep(0.2)
-			
+	print json.dumps({'temp': temp, 'doorOpen': doorOpen, 'products:': {'name': "sandwich"}}, sort_keys=True, indent=4, separators=(',', ': '))
 
 main()
