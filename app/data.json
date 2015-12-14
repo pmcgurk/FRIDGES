@@ -1,0 +1,8 @@
+{
+    "doorOpen": false,
+    "products:": {
+        "name": "sandwich"
+    },
+    "target": 15,
+    "temp": 24.6
+}
