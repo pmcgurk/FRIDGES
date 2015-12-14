@@ -1,4 +1,5 @@
   $(document).ready(function () {
+      update();
       var lastModal = "",
           modalOpenFunc = function () {
               console.log("opening modal: " + $(this).attr("value"));
@@ -16,4 +17,22 @@
       $('.modal-trigger').leanModal();
 
       $('.modal-opener').click(modalOpenFunc);
+      interval = setInterval(update, 1000);
   });
+
+  function update() {
+      getData();
+  }
+
+  function getData() {
+      $.getJSON("../data.json", updateData);
+  }
+
+  function updateData(data) {
+      console.log(data);
+      $('#temperatureDisplayText').text(data.temp);
+      $('#targetTemperatureDisplayText').text(data.target);
+      $('#doorStatusDisplayText').text(data.doorOpen);
+      var dt = new Date();
+      $('#lastUpdatedText').text(dt.toLocaleString())
+  }
