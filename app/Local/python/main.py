@@ -15,12 +15,13 @@ import json
 
 
 def main():
-    LEDColour.setup(15, 30, True)
+    target = 15;
+    LEDColour.setup(target, 30, True)
     while (True):
         temp = round(temperature.getTemperature(), 1) #get temperature
-	doorOpen = False # change to hall effect result
+        doorOpen = False # change to hall effect result
         changeLED.changeLED(LEDColour.getLEDColour(temp))
-        time.sleep(0.2)
-	print json.dumps({'temp': temp, 'doorOpen': doorOpen, 'products:': {'name': "sandwich"}}, sort_keys=True, indent=4, separators=(',', ': '))
-
+        time.sleep(1)
+        with open('../../data.json', 'w') as outfile:
+            json.dump({'temp': temp, 'target': target, 'doorOpen': doorOpen, 'products:': {'name': "sandwich"}}, outfile, sort_keys=True, indent=4, separators=(',', ': '))
 main()
