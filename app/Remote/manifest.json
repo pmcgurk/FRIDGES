@@ -1,0 +1,15 @@
+{
+    "short_name": "FRIDGES",
+    "name": "FRIDGES",
+    "icons": [
+        {
+            "src": "img/logo.png",
+            "type": "image/png",
+            "sizes": "192x192"
+    }
+  ],
+    "background_color": "#1976D2",
+    "theme_color": "#1976D2",
+    "display": "standalone",
+    "orientation": "portrait"
+}

@@ -1,0 +1,62 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx,amssymb, amstext, amsmath, epstopdf, booktabs, verbatim, gensymb, geometry, appendix, natbib, lmodern, hyperref, inputenc, titlesec}
+\geometry{letterpaper}
+%\usepackage{garamond}
+\usepackage[table]{xcolor}
+
+
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\newcommand*\Title{FRIDGES}
+\newcommand*\cpiType{Phase 2 Report}
+\newcommand*\Date{January 2016}
+\newcommand*\Author{Paul McGurk, Alex McBride,  Daniel Rafferty,  Andrew Mortimer, and Scott Henderson} 
+\title{FRIDGES}
+\author{Paul McGurk, Alex McBride, Daniel Rafferty, Andrew Mortimer, and Scott Henderson}
+\date{\today}
+%-----------------------------------------------------------
+
+\usepackage{cpistuff/cpi} % This is what makes your document look like a cpi document.
+
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\linespread{1.15} %Set standard document linespacing
+\renewcommand{\arraystretch}{1.2} %Set table height spacing
+
+\tableofcontents
+
+\newpage
+\section{User Guide}
+\subsection{Barcode Scanning}
+When an item is placed in the fridge, the barcode can be scanned and its best-before date recorded. In order to do this, select the "Barcode Scanner" option using the touchscreen. Then hold the barcode up to the Pi Camera. This will scan the barcode and store it. Select the product if it appears in the product list that will be generated, otherwise it can be manually added to the database so that it will be remembered  for next time. Once this is done, the best-before date can be entered on the touchscreen. This means, the fridge will know when each item of food in the fridge will be nearing its best-before date, and will display the food that is going out of date soon on the home menu of the touchscreen.
+\subsection{Temperature Reading}
+The thermometer takes constant readings of the temperature inside the fridge. An LED will change colour based on the current temperature of the fridge. Blue indicates a normal (or lower) operating temperature. This will transition to green then red as the temperature rises above normal. This willl most likely be an indicator that the fridge door has been left open and the fridge will have to use more energy to bring the temperature back down to the normal operating temperature.
+\subsection{Open Door Alert}
+If the door has been left open, for more than one minute, it will send a notification to the web application that the door has not been closed.
+\subsection{Stock Count}
+Select the "Stock" menu on the touchscreen to be given a display of what is currently in the fridge and how much of each item there is.
+
+
+
+
+\section{Technical Manual}
+\subsection{how the gadget was designed and implemented}
+The idea of our Smart Fridge is to reduce food wastage and power consumption. By doing this, the environmental impact will be lessened. In order to achieve this goal, we added several features to an ordinary mini-fridge.
+
+\section{Final Project Plan}
+\subsection{The final project plan that identifies the contributions made by each member of the group.}
+\subsubsection{Paul McGurk}
+\subsubsection{Daniel Rafferty}
+\subsubsection{Alex McBride}
+\subsubsection{Andrew Mortimer}
+\subsubsection{Scott Henderson}
+
+\end{document}

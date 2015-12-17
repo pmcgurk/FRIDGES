@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" name="theme-color" content="#1565c0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="icon" href="img/icon.png" />
+    <link rel="apple-touch-icon" href="img/icon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+    <title>FRIDGES</title>
+</head>
+<header>
+    <div class="navbar-fixed">
+        <nav class="blue darken-2">
+            <a data-activates="mobile" class="button-collapse hide-on-med-and-up"><i class="mdi-navigation-menu right"></i></a>
+            <div class="nav-wrapper container">
+                <ul class="hide-on-med-and-down left">
+                    <li>
+                        <a></a>
+                    </li>
+                </ul>
+                <a class="brand-logo center">
+                    <span class="logo large">FRIDGES</span>
+                </a>
+                <ul class="side-nav" id="mobile">
+                    <li class="blue-text text-darken-2">Table of Contents</li>
+                    <li><a href="#introduction">Introduction</a>
+                    </li>
+                    <li><a href="#about">- About</a>
+                    </li>
+                    <li><a href="#motivation">- Motivation</a>
+                    </li>
+                    <li><a href="#goal">- Goal</a>
+                    </li>
+                    <li><a href="#userGuide">User Guide</a>
+                    </li>
+                    <li><a href="#barcodescanning">- Barcode Scanning</a>
+                    </li>
+                    <li><a href="#temperaturereading">- Temperature Reading</a>
+                    </li>
+                    <li><a href="#opendooralert">- Open Door Alert</a>
+                    </li>
+                    <li><a href="#technicalmanual">Technical Manual</a>
+                    </li>
+                    <li><a href="#techman1">- Technical Manual Sub 1</a>
+                    </li>
+                    <li><a href="#techman2">- Technical Manual Sub 2</a>
+                    </li>
+                    <li><a href="#finalprojectplan">Final Project Plan</a>
+                    </li>
+                    <li>
+                        <a href="#pm">- Paul McGurk</a>
+                    </li>
+                    <li>
+                        <a href="#dr">- Daniel Rafferty</a>
+                    </li>
+                    <li>
+                        <a href="#amc">- Alex McBride</a>
+                    </li>
+                    <li>
+                        <a href="#am">- Andrew Mortimer</a>
+                    </li>
+                    <li>
+                        <a href="#sh">- Scott Henderson</a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="row">
+        <div class="col s12 m9 l10">
+            <div class="card blue darken-2 white-text">
+                <div class="container">
+                    <h4 class="logo section scrollspy" id="userGuide">Introduction</h4>
+                    <h5 id="about" class="section scrollspy">About</h5>
+                    <p>The project is to create a product using an Arduino and/or Raspberry Pi that will be a part of the Internet of things. The Internet of things is about taking everyday objects and embedding them with software, electronics and networking capabilities so that they can sense the environment around them and then send and receive data. The idea, after much thought and discussion will be to create a smart fridge. This idea will not only have a physical benefit to its application but also an environmental one, as from the start the design is centred on trying to reduce food waste and energy consumption.</p>
+                    <h5 id="motivation" class="section scrollspy">Motivation</h5>
+                    <p>According to statistics from LoveFoodHateWaste (a website run by WRAP - Waste and Resources Action Programme) UK households throw away 7 million tonnes of food every year. One of the main reasons for this is not using the food before it goes out of date. The average cost per household of this food wastage is £470 per year.</p>
+                    <h5 id="goal" class="section scrollspy">Goal</h5>
+                    <p>By allowing a user to know more easily when foods are soon to be out of date, we hope to reduce food waste and the environmental impact it has.</p>
+                </div>
+            </div>
+            <div class="card blue darken-2 white-text">
+                <div class="container">
+                    <h4 class="logo section scrollspy" id="userGuide">User Guide</h4>
+                    <h5 id="barcodescanning" class="section scrollspy">Barcode Scanning</h5>
+                    <p>When an item is placed in the fridge, the barcode can be scanned and its best-before date recorded. In order to do this, select the "Barcode Scanner" option using the touchscreen. Then hold the barcode up to the Pi Camera. This will scan the barcode and store it. Select the product if it appears in the product list that will be generated, otherwise it can be manually added to the database so that it will be remembered for next time. Once this is done, the best-before date can be entered on the touchscreen. This means, the fridge will know when each item of food in the fridge will be nearing its best-before date, and will display the food that is going out of date soon on the home menu of the touchscreen. </p>
+                    <h5 id="temperaturereading" class="section scrollspy">Temperature Reading</h5>
+                    <p>The thermometer takes constant readings of the temperature inside the fridge. An LED will change colour based on the current temperature of the fridge. Blue indicates a normal (or lower) operating temperature. This will transition to green then red as the temperature rises above normal. This willl most likely be an indicator that the fridge door has been left open and the fridge will have to use more energy to bring the temperature back down to the normal operating temperature. </p>
+                    <h5 id="opendooralert" class="section scrollspy">Open Door Alert</h5>
+                    <p>If the door has been left open, for more than one minute, it will send a notification to the web application that the door has not been closed. \subsection{Stock Count} Select the "Stock" menu on the touchscreen to be given a display of what is currently in the fridge and how much of each item there is. </p>
+                </div>
+            </div>
+            <div class="card blue darken-2 white-text">
+                <div class="container">
+                    <h4 class="logo section scrollspy" id="technicalmanual">Technical Manual</h4>
+                    <h5 id="techman1" class="section scrollspy">Technical Manual Subheading 1</h5>
+                    <p>The idea of our Smart Fridge is to reduce food wastage and power consumption. By doing this, the environmental impact will be lessened. In order to achieve this goal, we added several features to an ordinary mini-fridge.</p>
+                    <h5 id="techman2" class="section scrollspy">Technical Manual Subheading 2</h5>
+                    <p>Do noster doctrina nescius in nisi ingeniis sed consectetur, magna instituendarum mentitum sunt officia, arbitror ita fore. Nisi concursionibus commodo anim possumus, aute eruditionem iudicem amet consequat, fabulas labore lorem se duis qui sint si nam summis consequat. Mandaremus fore te senserit instituendarum ex eram nescius id fabulas. Velit eu a dolore singulis, hic ea familiaritatem. Te illum fidelissimae, multos ea laboris. Eiusmod graviterque e incididunt. Ita lorem quem malis incurreret, ab aut tractavissent.</p>
+
+                </div>
+            </div>
+            <div class="card blue darken-2 white-text">
+                <div class="container">
+                    <h4 class="logo section scrollspy" id="finalprojectplan">Final Project Plan</h4>
+                    <h5 id="pm" class="section scrollspy">Paul McGurk</h5>
+                    <p>Consequat ad eram, e dolore sunt aut tempor. Sed esse incididunt adipisicing, deserunt sunt ne proident relinqueret. Excepteur concursionibus ut vidisse de voluptate quid hic voluptate relinqueret. Iudicem quae velit de malis, legam cupidatat ea appellat, mentitum lorem quibusdam quo de velit incididunt, laborum quae esse hic dolor, ab eram et sunt, se fore admodum deserunt te vidisse et possumus. Cillum mandaremus se quibusdam te laboris nulla anim voluptate summis. Ab incurreret coniunctione a ubi est quae quid illum, si hic elit tempor, te de tractavissent ad ne aut cillum laboris se velit est ingeniis, aut illum commodo, eram o an veniam litteris. Ea dolore probant o quae est nescius te aute, an enim summis dolor consequat ne quid appellat a magna multos si commodo eruditionem si ingeniis ne deserunt cillum nescius doctrina ea id nulla singulis incurreret ad aut nisi arbitror.</p>
+
+                    <h5 id="dr" class="section scrollspy">Daniel Rafferty</h5>
+                    <p>Irure quibusdam ne incididunt et voluptate dolore nulla consequat cillum. Litteris ubi expetendis, ubi nisi illum irure probant, nam tamen quibusdam cohaerescant o lorem ab aut aliqua admodum. Ingeniis ad multos aut mandaremus ipsum doctrina vidisse, sunt in e fugiat ullamco, quo magna mentitum ullamco. Illum se non dolor laboris. Deserunt anim non appellat fidelissimae. Est ipsum est summis. Ab sed varias summis multos quo incurreret ne nostrud e occaecat elit expetendis excepteur, consequat legam commodo si id labore proident laboris non noster senserit si culpa veniam, quis qui nescius ad anim incididunt si voluptatibus. Quibusdam magna possumus qui duis ingeniis eu malis nisi ne ubi irure sempiternum, aliqua excepteur doctrina.</p>
+                    <h5 id="amc" class="section scrollspy">Alex McBride</h5>
+                    <p>Non se summis esse varias, enim deserunt si sunt summis si si non esse elit dolore est aut minim domesticarum ut dolore tempor doctrina e sint vidisse ex exquisitaque qui incididunt aliqua eram est anim, proident sint hic iudicem despicationes. Cernantur fore incididunt aliquip sed senserit aliqua quis senserit ipsum quo aliqua proident est proident, nescius cillum ab ingeniis philosophari qui o culpa eiusmod, elit ingeniis de pariatur, legam iudicem laborum ad et hic praesentibus. Mandaremus amet malis deserunt quorum sed possumus nam fabulas. Quid occaecat ad instituendarum et ad noster officia ingeniis, quamquam veniam ita vidisse tractavissent, fabulas illum ingeniis e nescius nulla vidisse ingeniis de occaecat cillum eu cernantur adipisicing, esse doctrina e coniunctione aut se ut ipsum occaecat. Ullamco nam aliqua. Varias quibusdam et distinguantur est laboris elit probant voluptate. Quem ad an cillum mentitum de ad elit offendit exquisitaque.</p>
+                    <h5 id="am" class="section scrollspy">Andrew Mortimer</h5>
+                    <p>Nescius in duis. Non duis iudicem vidisse aut si probant ea senserit, minim cernantur eu enim culpa, fugiat nescius despicationes, qui quid ingeniis consequat de ad labore instituendarum sed si fugiat mentitum iis elit incurreret o efflorescere. Ne lorem incurreret relinqueret, anim ubi excepteur de varias, id incididunt firmissimum, legam si cernantur, te multos mandaremus in nam si irure laborum, laboris nisi illum de elit, ita proident instituendarum. Ut eiusmod eruditionem iis laboris quem est litteris coniunctione, esse reprehenderit quibusdam tamen pariatur, occaecat quid singulis. Singulis ex enim ullamco, a malis fidelissimae. Noster praetermissum voluptate nisi deserunt. Incurreret malis ab officia consectetur, e pariatur do laborum, o o magna offendit, sed quorum ne duis, magna quamquam excepteur, te fugiat quis legam eiusmod ut expetendis duis quamquam, aute aliquip admodum.</p>
+                    <h5 id="sh" class="section scrollspy">Scott Henderson</h5>
+                    <p>Ne duis ab nulla, consequat quorum qui nostrud exercitation de incididunt imitarentur ea laborum ita cernantur aliqua a commodo graviterque, incurreret quo nulla, dolore litteris praetermissum ad ab illum offendit ingeniis, et eram coniunctione. Aliquip eu dolor occaecat te ullamco est multos ubi quamquam sunt dolor an quae iis ne in multos esse anim. Noster incididunt aut adipisicing, aut vidisse est consequat quo noster singulis hic nisi quid, officia minim senserit. Illum do senserit de tamen. Anim probant se doctrina. Eu duis aute irure possumus, non ut magna veniam quid, voluptate sed enim incididunt, in enim ut lorem. Fabulas a quis tempor.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col hide-on-small-only m3 l2">
+            <ul class="section table-of-contents">
+                <li class="blue-text text-darken-2">Table of Contents</li>
+                <li><a href="#introduction">Introduction</a>
+                </li>
+                <li><a href="#about">- About</a>
+                </li>
+                <li><a href="#motivation">- Motivation</a>
+                </li>
+                <li><a href="#goal">- Goal</a>
+                </li>
+                <li><a href="#userGuide">User Guide</a>
+                </li>
+                <li><a href="#barcodescanning">- Barcode Scanning</a>
+                </li>
+                <li><a href="#temperaturereading">- Temperature Reading</a>
+                </li>
+                <li><a href="#opendooralert">- Open Door Alert</a>
+                </li>
+                <li><a href="#technicalmanual">Technical Manual</a>
+                </li>
+                <li><a href="#techman1">- Technical Manual Sub 1</a>
+                </li>
+                <li><a href="#techman2">- Technical Manual Sub 2</a>
+                </li>
+                <li><a href="#finalprojectplan">Final Project Plan</a>
+                </li>
+                <li>
+                    <a href="#pm">- Paul McGurk</a>
+                </li>
+                <li>
+                    <a href="#dr">- Daniel Rafferty</a>
+                </li>
+                <li>
+                    <a href="#amc">- Alex McBride</a>
+                </li>
+                <li>
+                    <a href="#am">- Andrew Mortimer</a>
+                </li>
+                <li>
+                    <a href="#sh">- Scott Henderson</a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/js.js"></script>
+
+</html>

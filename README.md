@@ -1,4 +1,4 @@
-![COOLS](https://github.com/pmcgurk/CS413/blob/master/Images/COOLSlogotransparent.png)
+![FRIDGES](https://github.com/pmcgurk/CS413/blob/master/Images/fridgeslogo.png)
 
 ## Synopsis
 
