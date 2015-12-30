@@ -11,8 +11,9 @@ from time import gmtime, strftime
 
 
 def main():
-    target = 15;
-    LEDColour.setup(target, 30, True)
+    target = 0;
+    maxTemp = 10
+    LEDColour.setup(target, maxTemp, True)
     while (True):
         temp = round(temperature.getTemperature(), 1) #get temperature
         doorOpen = doorStatus.getDoorStatus(); # change to hall effect result
