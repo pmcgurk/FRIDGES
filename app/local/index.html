@@ -47,28 +47,22 @@
 <main>
     <div class="">
         <div class="row">
-            <div class="col s4 m4 l4 center-align">
-                <div id="temperatureDisplay" class="card blue darken-2 white-text valign-wrapper" style="height: 25vh;">
+            <div class="col s2 m2 l2 center-align">
+                <div id="temperatureDisplay" class="card blue darken-2 white-text valign-wrapper">
                     <div class="valign" style="margin-left: auto; margin-right: auto;">
-                        <h5 class="logo">Current Temperature</h5>
-                        <h1><span id="temperatureDisplayText">00.0</span>°C</h1>
+                        <h6 class="logo">Current Temperature</h6>
+                        <h5><span id="temperatureDisplayText">00.0</span>°C</h5>
                         <h6>Target: <span id="targetTemperatureDisplayText">00</span>°C</h6>
                         <h6>Door Open: <span id="doorStatusDisplayText">unknown</span></h6>
                         <br>
                     </div>
                 </div>
-                <div class="card blue darken-2 white-text" style="height: 18vh;">
-                    <h5 class="center-align logo">Manage Items</h5>
-                    <a class="waves-effect waves-light btn green modal-opener" value="addItemModal">Add</a>
-                    <a class="waves-effect waves-light btn red   modal-opener" value="removeItemModal">Remove</a>
-                    <br>
-                    <br>
-                </div>
+
             </div>
-            <div class="col s8 m8 l8">
+            <div class="col s10 m10 l10">
                 <div id="datesDisplay" class="card blue darken-2 white-text" style="height: 45vh;">
                     <h5 class="center-align logo">Expiring Soon</h5>
-                    <div class="container">
+                    <div id="productDisplay" class="container">
                         <table>
                             <thead>
                                 <tr>
@@ -76,30 +70,15 @@
                                     <th data-field="date">Date</th>
                                 </tr>
                             </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>Cheese</td>
-                                    <td>18/10/15</td>
-                                    <td><a class="red-text" onclick="Materialize.toast('Dismissed', 1000)">X</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Milk</td>
-                                    <td>19/10/15</td>
-                                    <td><a class="red-text" onclick="Materialize.toast('Dismissed', 1000)">X</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Sandwich</td>
-                                    <td>20/10/15</td>
-                                    <td><a class="red-text" onclick="Materialize.toast('Dismissed', 1000)">X</a>
-                                    </td>
-                                </tr>
-                            </tbody>
                         </table>
                     </div>
+                    <div class="center-align">
+                        <br>
+                        <a class="waves-effect waves-light btn green modal-opener" value="addItemModal">Add</a>
+                        <a class="waves-effect waves-light btn red   modal-opener" value="removeItemModal">Remove</a>
+                    </div>
                 </div>
+
             </div>
             <div class="col s12 m12 l12 center-align">
                 <div id="temperatureDisplay" class="card blue darken-2 white-text">
