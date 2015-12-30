@@ -6,12 +6,8 @@
 ## ie data = {temp: 12.2, doorOpen: false, products: {name: "Sandwich", date:"01/01/01"}} etc##
 
 # simple main for the temperature sensitive LED prototype
-import LEDColour
-import temperature
-import changeLED
-import time
-import RPi.GPIO as GPIO
-import json
+import LEDColour, temperature, changeLED, time, doorStatus, RPi.GPIO as GPIO, json
+from time import gmtime, strftime
 
 
 def main():
@@ -19,9 +15,13 @@ def main():
     LEDColour.setup(target, 30, True)
     while (True):
         temp = round(temperature.getTemperature(), 1) #get temperature
-        doorOpen = False # change to hall effect result
+        doorOpen = doorStatus.getDoorStatus(); # change to hall effect result
         changeLED.changeLED(LEDColour.getLEDColour(temp))
         time.sleep(1)
+        updateTime = strftime("%Y-%m-%d %H:%M:%S", gmtime());
         with open('../../data.json', 'w') as outfile:
-            json.dump({'temp': temp, 'target': target, 'doorOpen': doorOpen, 'products:': {'name': "sandwich"}}, outfile, sort_keys=True, indent=4, separators=(',', ': '))
+            json.dump({'time': updateTime, 'temp': temp, 'target': target, 'doorOpen': doorOpen, 
+                       'products': [    {'pid': 1, 'name': "sandwich", 'date': "14-01-2016"},
+                                        {'pid': 2, 'name': "cucumber", 'date': "15-01-2016"},]
+                        }, outfile, sort_keys=True, indent=4, separators=(',', ': '))
 main()
