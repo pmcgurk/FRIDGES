@@ -2,6 +2,8 @@
 
 import zbar
 import requests
+import shlex
+import subprocess
 
 class TescoSearcher:
 	tescoUrl = 'https://secure.techfortesco.com/tescolabsapi/restservice.aspx'
@@ -29,42 +31,100 @@ class TescoSearcher:
 		if self.sessionKey is None:
 			self.login()
 		payload = { 'command' : 'PRODUCTSEARCH'
-			  , 'searchtext' : '5011157630113'
+			  #, 'searchtext' : '5011157630113'
+			  , 'searchtext' : barcode
 			  , 'page' : 1
 			  , 'sessionkey' : self.sessionKey }
 		r = requests.get(self.tescoUrl, params=payload)
 		print r.url
 		response = r.json()
-		print response
 		return response
 		
 			
+class BarcodeScanner:
+	callback = None
+	zbarProc = None
+	ffplay = None
+	ffplayArgs = shlex.split("/home/pi/bin/ffplay -loglevel panic -s 640x400 -f video4linux2 -i /dev/video1")
 
-ts = TescoSearcher()
+	def __init__(self, callback):
+		self.callback = callback
 
-proc = zbar.Processor()
+	@staticmethod
+	def barcodeFoundHandler(proc, image, closure):
+		for symbol in image.symbols:
+			print 'decoded', symbol.type, 'symbol', '"%s"' % symbol.data
+			closure.callback(symbol.data)
 
-proc.parse_config('enable')
+	def startSearch(self):
+		self.startZbar()
+		self.startFFMPEG()
 
-device = '/dev/video1'
-proc.init(device)
+	def startZbar(self):
+		self.zbarProc = zbar.Processor()
+		self.zbarProc.parse_config('enable')
+		self.zbarProc.init('/dev/video1')
+		self.zbarProc.set_data_handler(BarcodeScanner.barcodeFoundHandler, self)
+		self.zbarProc.visible = False
+		self.zbarProc.active = True
 
-def my_handler(proc, image, closure):
-	outpanApiKey = "6b16e7810c5ce6aa2c0bfae25b2ceb46"
-	for symbol in image.symbols:
-		print 'decoded', symbol.type, 'symbol', '"%s"' % symbol.data
-		results = ts.search(symbol.data)
-#		print results	
+	def startFFMPEG(self):
+		ffplayArgs = shlex.split("/home/pi/bin/ffplay -loglevel panic -s 640x400 -f video4linux2 -i /dev/video1")
+		self.ffplay = subprocess.Popen(ffplayArgs)
 
-	
-proc.set_data_handler(my_handler)
+	def stopSearch(self):
+		self.zbarProc.active = False
+		self.ffplay.terminate()	
 
-proc.visible = False
 
-proc.active = True
+def main():
+	#ts = TescoSearcher()
+	#proc = zbar.Processor()
+	#proc.parse_config('enable')
+	#device = '/dev/video1'
+	#proc.init(device)
 
-try:
-	proc.user_wait()
-except zbar.WindowClosed, e:
-	pass
+	#def my_handler(proc, image, closure):
+	#	outpanApiKey = "6b16e7810c5ce6aa2c0bfae25b2ceb46"
+	#	for symbol in image.symbols:
+	#		print 'decoded', symbol.type, 'symbol', '"%s"' % symbol.data
+	#		results = ts.search(symbol.data)
+	#		print results	
 
+	#	
+	#proc.set_data_handler(my_handler)
+	#proc.visible = False
+	#proc.active = True
+
+	#ffplayArgs = shlex.split("/home/pi/bin/ffplay -loglevel panic -s 640x400 -f video4linux2 -i /dev/video1")
+	#ffplay = subprocess.Popen(ffplayArgs)
+
+	#try:
+	#	#proc.user_wait()
+	#	while True:
+	#		pass
+	#except KeyboardInterrupt:
+	#	pass
+	#finally:
+	#	ffplay.terminate()
+
+	ts = TescoSearcher()
+
+	def barcodeCallback(barcode):
+		results = ts.search(barcode)
+		print results	
+
+	bs = BarcodeScanner(barcodeCallback)
+	bs.startSearch()
+	try:
+		while True:
+			pass
+	except KeyboardInterrupt:
+		pass
+	finally:
+		bs.stopSearch()
+		
+
+
+if __name__ == "__main__":
+	main()
