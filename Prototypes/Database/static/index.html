@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" name="theme-color" content="#1565c0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="static/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="static/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="icon" href="static/img/icon.png" />
+    <link rel="apple-touch-icon" href="static/img/icon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+    <title>FRIDGES</title>
+</head>
+<header>
+    <div class="navbar-fixed">
+        <nav class="blue darken-2">
+            <a data-activates="mobile" class="button-collapse hide-on-large-and-up"><i class="mdi-navigation-menu right"></i></a>
+            <div class="nav-wrapper container">
+                <ul class="hide-on-med-and-down left">
+                    <li><a>About</a>
+                    </li>
+                </ul>
+                <a class="brand-logo center">
+                    <span class="logo large">FRIDGES</span>
+                </a>
+                <ul class="hide-on-med-and-down right">
+                    <li><a>Settings</a>
+                    </li>
+                </ul>
+                <ul class="side-nav" id="mobile">
+                    <li><span class="logo">FRIDGES</span>
+                    </li>
+                    <li><a>Settings</a>
+                    </li>
+                    <li><a>About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="">
+        <div class="row">
+            <div class="col s2 m2 l2 center-align">
+                <div id="temperatureDisplay" class="card blue darken-2 white-text valign-wrapper">
+                    <div class="valign" style="margin-left: auto; margin-right: auto;">
+                        <h6 class="logo">Current Temperature</h6>
+                        <h5><span id="temperatureDisplayText">00.0</span>°C</h5>
+                        <h6>Target: <span id="targetTemperatureDisplayText">00</span>°C</h6>
+                        <h6>Door Open: <span id="doorStatusDisplayText">unknown</span></h6>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s10 m10 l10">
+                <div id="datesDisplay" class="card blue darken-2 white-text" style="height: 45vh;">
+                    <h5 class="center-align logo">Expiring Soon</h5>
+                    <div id="productDisplay" class="container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="name">Product</th>
+                                    <th data-field="date">Date</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="center-align">
+                        <br>
+                        <a class="waves-effect waves-light btn green modal-opener" value="addItemModal">Add</a>
+                        <a class="waves-effect waves-light btn red   modal-opener" value="removeItemModal">Remove</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12 m12 l12 center-align">
+                <div id="temperatureDisplay" class="card blue darken-2 white-text">
+                    Last Updated: <span id="lastUpdatedText">11/01/2016, 09:00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal strutuces -->
+    <div id="addItemModal" class="modal ">
+        <div class="modal-content center-align">
+            <h5 class="logo">Add Item</h5>
+            <h6>Present Barcode</h6>
+            <img src="static/img/dummyBarcodeImg.jpg" class="responsive-img">
+            <br>
+            <a class="waves-effect btn modal-opener" value="barcodeNotFoundModal">Barcode not found Modal</a>
+            <a class="waves-effect btn modal-opener" value="enterDateModal">Barcode found Modal</a>
+        </div>
+    </div>
+    <div id="removeItemModal" class="modal ">
+        <div class="modal-content center-align">
+            <h5 class="logo">Remove Item</h5>
+            <h6>Present Barcode or Select from below</h6>
+            <br>
+            <a class="modal-action btn modal-opener">Remove</a>
+            <a class="modal-action btn modal-closer">Cancel</a>
+        </div>
+    </div>
+    <div id="barcodeNotFoundModal" class="modal ">
+        <div class="modal-content center-align">
+            <h5 class="logo">Barcode not found</h5>
+            <h6>Please enter product name manually</h6>
+            <input id="date" type="text" class="validate">
+            <label for="date">Name</label>
+            <br>
+            <a class="modal-action btn modal-opener" value="enterDateModal">Done</a>
+            <a class="modal-action btn modal-closer">Cancel</a>
+        </div>
+    </div>
+    <div id="enterDateModal" class="modal modal-fixed-footer">
+        <div class="modal-content center-align">
+            <h5 class="logo">Date Entry</h5>
+            <h6>Present Date or enter below</h6>
+            <br>
+            <img src="static/img/dummyDateImg.jpg" class="responsive-img">
+            <br>
+            <a class="modal-action btn modal-opener" value="finishModal">Finish</a>
+        </div>
+    </div>
+    <div id="finishModal" class="modal ">
+        <div class="modal-content center-align">
+            <h2 class="logo">Product Added</h2>
+            <br>
+            <a class="modal-action btn modal-close">Close</a>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="static/js/materialize.min.js"></script>
+<script src="static/js/js.js"></script>
+
+</html>
