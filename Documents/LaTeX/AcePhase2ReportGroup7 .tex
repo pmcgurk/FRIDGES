@@ -35,13 +35,18 @@
 
 \newpage
 \section{User Guide}
+
 The idea of our Smart Fridge is to reduce food wastage and power consumption. By doing this, the environmental impact will be lessened. In order to achieve this goal, we added several features to an ordinary mini-fridge.
+
 \subsection{Barcode Scanning}
 When an item is placed in the fridge, the barcode can be scanned and its best-before date recorded. In order to do this, select the "Barcode Scanner" option using the touchscreen. Then hold the barcode up to the Pi Camera. This will scan the barcode and store it. Select the product if it appears in the product list that will be generated, otherwise it can be manually added to the database so that it will be remembered  for next time. Once this is done, the best-before date can be entered on the touchscreen. This means, the fridge will know when each item of food in the fridge will be nearing its best-before date, and will display the food that is going out of date soon on the home menu of the touchscreen.
+
 \subsection{Temperature Reading}
 The thermometer takes constant readings of the temperature inside the fridge. An LED will change colour based on the current temperature of the fridge. Blue indicates a normal (or lower) operating temperature. This will transition to green then red as the temperature rises above normal. This willl most likely be an indicator that the fridge door has been left open and the fridge will have to use more energy to bring the temperature back down to the normal operating temperature.
+
 \subsection{Open Door Alert}
 If the door has been left open for more than one minute, it will send a notification to the web application that the door has not been closed.
+
 \subsection{Stock Count}
 Select the "Stock" menu on the touchscreen to be given a display of what is currently in the fridge and how much of each item there is.
 
@@ -49,14 +54,25 @@ Select the "Stock" menu on the touchscreen to be given a display of what is curr
 
 
 \section{Technical Manual}
+
 \subsection{Web Server}
 We decided to use a Web-based approach for our interface. The Pi itself hosted the Web Server. This meant we only had to write the client application once, meaning it could be accessed from a phone or desktop without client applications having to be written for each.
 
-We served the dynamic content of our application using Python, seeing as the RPi.GPIO library provides access to the GPIO pins using Python. We used the Flask framework
+We served the dynamic content of our application using Python, seeing as the RPi.GPIO library provides access to the GPIO pins using Python. We used the Flask framework. Flask features a Web server and a templating engine to allowed us to write static HTML with wildcards that allowed us to dynamically insert relevant data. This also allowed us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.
+
+\subsection{Interface}
+\fontfamily{lmtt}{\subsubsection{Local}}
+The interface for the touchscreen attached to the fridge was written in HTML, Javascript and CSS3. Matchbox keyboard was used to allow a user to enter data on the touchscreen. The interface consisted of a Home Screen which displayed the current temperature of the fridge and the items that are to expire soon. There is also an "Add Item" menu, which brings up the display from the barcode scanner, and a "Date Entry" menu. When an item is added via the interface, the back-end of the system updates the database to include the new item.
+
+\fontfamily{lmtt}{\subsubsection{Remote}}
+The interface for mobile or desktop was also written in HTML5, Javascript and CSS3 and was designed to look very similar to the touchscreen interface. It has the same temperature display and list of foods to expire soon. However, the remote interface did not have the option to add items.
+
 \subsection{Barcode Scanning}
 The barcode scanner uses a camera which is attached to a Rasperri Pi. The camera scans for barcodes every fraction of a second. When the barcode of a product is held up to the camera, a Python script is run to search the open-source barcode libary, Zbar. Originally, the plan was to use Outpan, which is a web service that provides an API for identifying products from their GTIN. However, Outpan didn't seem to recognise many products, so we decided to use TescoLabs instead. (One disadvantage of this is that it limits us to using products sold from Tesco only). Using the Python code, a simple HTTP request could be made with the barcode just scanned and information on the current product would be returned.
+
 \subsection{Temperature Reading}
 In order to detect the temperature of the fridge, a Rasperry Pi was connected to a bread board which housed a range of devices. The most notable of these were the thermistor and an RGB LED. As a thermistor's resistance changes based on the current temperature, we set up the LED to change colour based on the current resistance of the thermistor. If the resistance is above the threshold temperature, the LED will turn red. Otherwise it will remain blue. The code to allow this to happen was written in Python, modified from a script written by Simon Monk for his "Raspberry Pi Starter Pack". The program worked by measuring the amount of time taken for a 300nF capacitor (using the variable resistance from the thermistor) to empty. This was depended on the temperature.
+
 \subsection{Open Door Alert}
 Using some Python code and a hall effect sensor,  it was possible to constantly check for the presence of a magnetic field, which was from a magnet attached to the door of the fridge. If no magnetic field was detected, after 60 seconds an alert was raised in the Python code. This was relayed to the touchscreen display.
 
