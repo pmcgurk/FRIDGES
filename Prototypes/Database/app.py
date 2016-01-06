@@ -13,7 +13,7 @@ mysql.init_app(app)
 
 @app.route('/')
 def mypisite(name=None):
-	return render_template('index.html')
+	return render_template('/static/index.html')
 
 @app.route('/SQL')
 def SQL():
@@ -28,4 +28,3 @@ def SQL():
 if __name__ == "__main__":
 
 	app.run('0.0.0.0')
-
