@@ -6,7 +6,7 @@
 ## ie data = {temp: 12.2, doorOpen: false, products: {name: "Sandwich", date:"01/01/01"}} etc##
 
 # simple main for the temperature sensitive LED prototype
-import LEDColour, changeLED, MySQLdb, time, doorStatus, RPi.GPIO as GPIO, json
+import LEDColour, temperature, changeLED, MySQLdb, time, doorStatus, RPi.GPIO as GPIO, json
 from time import gmtime, strftime
 
 db = MySQLdb.connect(host="localhost", user="root", passwd='', db="FRIDGES")
@@ -23,7 +23,7 @@ def main():
     maxTemp = 10
     LEDColour.setup(target, maxTemp, True)
     while (True):
-        temp = 1#round(temperature.getTemperature(), 1) #get temperature
+        temp = round(temperature.getTemperature(), 1) #get temperature
         doorOpen = doorStatus.getDoorStatus(); # change to hall effect result
         changeLED.changeLED(LEDColour.getLEDColour(temp))
         time.sleep(1)
