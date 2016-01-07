@@ -10,6 +10,7 @@
               lastModal = $(this).attr("value");
               $('#' + $(this).attr("value")).openModal();
           }
+
       $('.button-collapse').sideNav({
           menuWidth: 175,
           closeOnClick: true
@@ -21,12 +22,21 @@
       $('#addConfirmButton').click(addItem);
       $('#removeButton').click(removeItem);
       $('#registerConfirmButton').click(register);
-      $('#changeButton').click(changeUser);
+      $('#getUsersButton').click(getUsers);
+      $('.changeUserSelection').click(changeUser);
       interval = setInterval(update, 2000);
   });
 
+  var user = {
+      name: "",
+      id: 0
+  };
+
   function update() {
       getData();
+      if (user.name != "") {
+          $(".usernameDisplay").html("Logged in as: " + user.name);
+      }
   }
 
   function getData() {
@@ -42,7 +52,7 @@
       details.name = $("#productName").val();
       details.bestbefore = $("#productBarcode").val();
       details.barcode = $("#productBestBefore").val();
-      details.uid = "1"; //TODO set this to curUser.id;
+      details.uid = user.id; //TODO set this to curUser.id;
       console.log(details);
       $.ajax({
           url: "php/addItem.php",
@@ -83,14 +93,22 @@
   }
 
   function changeUser() {
+      //TODO get user info from id
+      console.log("test");
+      user.id = $(this).attr('uid');
+      user.name = $(this).attr('name');
+      console.log(user);
+  }
+
+  function getUsers() {
       //TODO currently lists all users, should display nicely and allow user to choose, setting curUser to choice.
       $.ajax({
           url: "php/getUsers.php"
-      }).done(changeResponse);
+      }).done(getUsersResponse);
   }
 
-  function changeResponse(response) {
-      users = [];
+  function getUsersResponse(response) {
+      var users = [];
       var parser;
       var xmlDoc;
       if (window.DOMParser) {
@@ -102,11 +120,13 @@
           xmlDoc.loadXML(response);
       }
       var users = xmlDoc.getElementsByTagName("user");
+      var userList = "";
       for (var i = 0; i < users.length; i++) {
           var id = users[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
           var name = users[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-          console.log(id + ": " + name);
+          userList = userList + "<a class='changeUserSelection' uid="+ id + " name = "+name+">" + name + "</a><br>";
       }
+      $("#userList").html(userList);
   }
 
 
