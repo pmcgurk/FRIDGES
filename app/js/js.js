@@ -40,10 +40,11 @@
 
   function addItem() {
       var details = {};
-      details.name = "Sandwich";
-      details.bestbefore = "2016-01-07";
-      details.barcode = "12948291";
-      details.uid = "3"; //TODO set this to curUser.id;
+      details.name = $("#productName").val();
+      details.bestbefore = $("#productBarcode").val();
+      details.barcode = $("#productBestBefore").val();
+      details.uid = "2"; //TODO set this to curUser.id;
+      console.log(details);
       $.ajax({
           url: "php/addItem.php",
           data: details

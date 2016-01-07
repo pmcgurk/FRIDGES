@@ -75,11 +75,8 @@
                         <h5 class="logo">Present Barcode to Camera.</h5>
                         <h6>If the camera fails to scan, or the product does not have a barcode, or you are accessing this remotely, add the item manually below.</h6>
                         <br>
-                        <a id="addButton" class="waves-effect waves-light btn green">Add</a>
+                        <a id="addButton" class="waves-effect waves-light btn green modal-trigger" href="#addItemModal">Add</a>
                         <a id="removeButton" class="waves-effect waves-light btn red">Remove</a>
-                        <br>
-                        <br> debug:
-                        <a id="addConfirmButton" class="waves-effect waves-light btn green">Confirm</a>
                     </div>
                 </div>
             </div>
@@ -88,6 +85,36 @@
             <div id="temperatureDisplay" class="card blue darken-2 white-text">
                 Last Updated: <span id="lastUpdatedText">11/01/2016, 09:00:00</span>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <h4>Add Product</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="productName" type="text" class="validate">
+                            <label for="productName">Product Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <!-- TODO change to date picker -->
+                            <input id="productBestBefore" type="text" class="validate">
+                            <label for="productBestBefore">Best Before (yyyy-mm-dd)</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="productBarcode" type="text" class="validate">
+                            <label for="productBarcode">Barcode</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a id="addConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Confirm</a>
         </div>
     </div>
 </main>
