@@ -28,7 +28,7 @@
   }
 
   function getData() {
-      $.getJSON("../data.json", updateData);
+      $.getJSON("data.json", updateData);
   }
 
   function addItem() {

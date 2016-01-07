@@ -24,8 +24,19 @@
                 <a class="brand-logo center">
                     <span class="logo large">FRIDGES</span>
                 </a>
-                <ul class="side-nav" id="mobile">
-                    <li><span class="logo">FRIDGES</span>
+                <ul class="hide-on-med-and-down left">
+                    <li><span>Change User</span>
+                    </li>
+                </ul>
+                <ul class="hide-on-med-and-down right">
+                    <li><span>Create User</span>
+                    </li>
+                </ul>
+                <ul class="side-nav blue-text" id="mobile">
+                    <li><span>Change User</span>
+                    </li>
+                    <li><span>Create User</span>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -34,19 +45,17 @@
 <main>
     <div class="">
         <div class="row">
-            <div class="col s2 m2 l2 center-align">
-                <div id="temperatureDisplay" class="card blue darken-2 white-text valign-wrapper">
-                    <div class="valign" style="margin-left: auto; margin-right: auto;">
-                        <h6 class="logo">Current Temperature</h6>
-                        <h5><span id="temperatureDisplayText">00.0</span>°C</h5>
-                        <h6>Target: <span id="targetTemperatureDisplayText">00</span>°C</h6>
-                        <h6>Door Open: <span id="doorStatusDisplayText">unknown</span></h6>
-                        <br>
-                    </div>
+            <div class="col s12 m2 l2 center-align">
+                <div id="temperatureDisplay" class="card blue darken-2 white-text">
+                    <h6 class="logo">Current Temperature</h6>
+                    <h5><span id="temperatureDisplayText">00.0</span>°C</h5>
+                    <h6>Target: <span id="targetTemperatureDisplayText">00</span>°C</h6>
+                    <h6>Door Open: <span id="doorStatusDisplayText">unknown</span></h6>
+                    <br>
                 </div>
             </div>
-            <div class="col s10 m10 l10">
-                <div id="datesDisplay" class="card blue darken-2 white-text" style="height: 40vh;">
+            <div class="col s12 m10 l10">
+                <div id="datesDisplay" class="card blue darken-2 white-text">
                     <h5 class="center-align logo">Expiring Soon</h5>
                     <div id="productDisplay" class="container">
                         <table>
@@ -59,10 +68,12 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div class="col s12 m12 l12">
                 <div id="datesDisplay" class="card blue darken-2 white-text">
                     <div class="center-align">
                         <h5 class="logo">Present Barcode to Camera.</h5>
-                        <h6>If the camera fails to scan, or the product does not have a barcode, add the item manually below.</h6>
+                        <h6>If the camera fails to scan, or the product does not have a barcode, or you are accessing this remotely, add the item manually below.</h6>
                         <br>
                         <a id="addButton" class="waves-effect waves-light btn green">Add</a>
                         <a id="removeButton" class="waves-effect waves-light btn red">Remove</a>
@@ -71,10 +82,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12 m12 l12 center-align">
-                <div id="temperatureDisplay" class="card blue darken-2 white-text">
-                    Last Updated: <span id="lastUpdatedText">11/01/2016, 09:00:00</span>
-                </div>
+        </div>
+        <div class="col s12 m12 l12 center-align">
+            <div id="temperatureDisplay" class="card blue darken-2 white-text">
+                Last Updated: <span id="lastUpdatedText">11/01/2016, 09:00:00</span>
             </div>
         </div>
     </div>
