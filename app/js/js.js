@@ -18,7 +18,8 @@
 
       $('.modal-opener').click(modalOpenFunc);
 
-      $('#addButton').click(addItem);
+      $('#addButton').click(showAddItem);
+      $('#addConfirmButton').click(addItem);
       $('#removeButton').click(removeItem);
       $('#registerButton').click(register);
       $('#changeButton').click(changeUser);
@@ -33,8 +34,24 @@
       $.getJSON("data.json", updateData);
   }
 
+  function showAddItem() {
+      Materialize.toast("Display Modal with Forms to add item", 2000);
+  }
+
   function addItem() {
-      Materialize.toast("Display Modal with Forms to add item, then add item to database", 2000);
+      var details = {};
+      details.name = "Sandwich";
+      details.bestbefore = "2016-01-07";
+      details.barcode = "12948291";
+      details.uid = "3"; //TODO set this to curUser.id;
+      $.ajax({
+          url: "php/addItem.php",
+          data: details
+      }).done(addItemResponse);
+  }
+
+  function addItemResponse(response) {
+      console.log(response);
   }
 
   function removeItem() {
