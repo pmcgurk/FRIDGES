@@ -23,7 +23,6 @@
       $('#removeButton').click(removeItem);
       $('#registerConfirmButton').click(register);
       $('#getUsersButton').click(getUsers);
-      $('.changeUserSelection').click(changeUser);
       interval = setInterval(update, 2000);
   });
 
@@ -124,9 +123,10 @@
       for (var i = 0; i < users.length; i++) {
           var id = users[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
           var name = users[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-          userList = userList + "<a class='changeUserSelection' uid="+ id + " name = "+name+">" + name + "</a><br>";
+          userList = userList + "<a class='modal-action modal-close changeUserSelection' uid=" + id + " name = " + name + ">" + name + "</a><br>";
       }
       $("#userList").html(userList);
+      $('.changeUserSelection').click(changeUser);
   }
 
 
