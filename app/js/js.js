@@ -20,6 +20,8 @@
 
       $('#addButton').click(addItem);
       $('#removeButton').click(removeItem);
+      $('#registerButton').click(register);
+      $('#changeButton').click(changeUser);
       interval = setInterval(update, 2000);
   });
 
@@ -45,6 +47,48 @@
 
   function editItem(data) {
       Materialize.toast("Display Modal with Forms to edit item, i.e. to add expiry date", 2000);
+  }
+
+  function register() {
+      var details = {};
+      //details.username = $("#registerForm :input[name=username]").val();
+      //TODO hook up to form
+      details.name = "paul";
+      $.ajax({
+          url: "php/register.php",
+          data: details
+      }).done(registerResponse);
+  }
+
+  function registerResponse(response) {
+      console.log("Server Response: " + response);
+  }
+
+  function changeUser() {
+      //TODO currently lists all users, should display nicely and allow user to choose, setting curUser to choice.
+      $.ajax({
+          url: "php/getUsers.php"
+      }).done(changeResponse);
+  }
+
+  function changeResponse(response) {
+      users = [];
+      var parser;
+      var xmlDoc;
+      if (window.DOMParser) {
+          parser = new DOMParser();
+          xmlDoc = parser.parseFromString(response, "text/xml");
+      } else {
+          xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+          xmlDoc.async = false;
+          xmlDoc.loadXML(response);
+      }
+      var users = xmlDoc.getElementsByTagName("user");
+      for (var i = 0; i < users.length; i++) {
+          var id = users[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+          var name = users[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+          console.log(id + ": " + name);
+      }
   }
 
 
