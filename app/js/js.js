@@ -18,10 +18,9 @@
 
       $('.modal-opener').click(modalOpenFunc);
 
-      $('#addButton').click(showAddItem);
       $('#addConfirmButton').click(addItem);
       $('#removeButton').click(removeItem);
-      $('#registerButton').click(register);
+      $('#registerConfirmButton').click(register);
       $('#changeButton').click(changeUser);
       interval = setInterval(update, 2000);
   });
@@ -43,7 +42,7 @@
       details.name = $("#productName").val();
       details.bestbefore = $("#productBarcode").val();
       details.barcode = $("#productBestBefore").val();
-      details.uid = "2"; //TODO set this to curUser.id;
+      details.uid = "1"; //TODO set this to curUser.id;
       console.log(details);
       $.ajax({
           url: "php/addItem.php",
@@ -71,7 +70,7 @@
       var details = {};
       //details.username = $("#registerForm :input[name=username]").val();
       //TODO hook up to form
-      details.name = "paul";
+      details.name = $('#registerUserName').val();
       $.ajax({
           url: "php/register.php",
           data: details
@@ -80,6 +79,7 @@
 
   function registerResponse(response) {
       console.log("Server Response: " + response);
+      //TODO change to toast
   }
 
   function changeUser() {

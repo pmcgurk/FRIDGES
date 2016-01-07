@@ -29,11 +29,11 @@
                     </li>
                 </ul>
                 <ul class="hide-on-med-and-down right">
-                    <li><a id="registerButton">Create User</a>
+                    <li><a id="registerButton" class="modal-trigger" href="#createUserModal">Create User</a>
                     </li>
                 </ul>
                 <ul class="side-nav blue-text" id="mobile">
-                    <li><a id="registerButton">Create User</a>
+                    <li><a id="registerButton" class="modal-trigger" href="#createUserModal">Create User</a>
                     </li>
                     <li><a id="changeButton">Change User</a>
                     </li>
@@ -115,6 +115,26 @@
         </div>
         <div class="modal-footer">
             <a id="addConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Confirm</a>
+        </div>
+    </div>
+    
+     <div id="createUserModal" class="modal">
+        <div class="modal-content">
+            <h4>Create User</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="registerUserName" type="text" class="validate">
+                            <label for="registerUserName">Your Name</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a id="registerConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Confirm</a>
         </div>
     </div>
 </main>
