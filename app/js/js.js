@@ -129,6 +129,41 @@
       $('.changeUserSelection').click(changeUser);
   }
 
+  function getProducts() {
+      $.ajax({
+          url: "php/getProducts.php"
+      }).done(getProductsResponse);
+  }
+
+  function getProductsResponse(response) {
+      var parser;
+      var xmlDoc;
+      if (window.DOMParser) {
+          parser = new DOMParser();
+          xmlDoc = parser.parseFromString(response, "text/xml");
+      } else {
+          xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+          xmlDoc.async = false;
+          xmlDoc.loadXML(response);
+      }
+	var data = [];
+      var products = xmlDoc.getElementsByTagName("product");
+      var productList = "";
+      for (var i = 0; i < products.length; i++) {
+          var pid = products[i].getElementsByTagName("pid")[0].childNodes[0].nodeValue;
+          var name = products[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+		var date = products[i].getElementsByTagName("date")[0].childNodes[0].nodeValue;
+var json = '{"pid": '+ pid + ', "name": "' + name + '", "date": "' + date + '" }';
+	data.push(JSON.parse(json));
+	}
+  var table = "<table><thead><tr><th>Product</th><th>Date</th></tr></thead><tbody>";
+  for (var i = 0; i < data.length; i++) {
+      table = table + "<tr><td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a class='white-text' onclick='editItem(" + data[i].pid + ")'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + ")'>Remove</a></td></tr>";
+  }
+  table = table + "</tbody></table>";
+  $('#productDisplay').html(table);
+
+      }
 
   function updateData(data) {
       //console.log(data);
@@ -136,15 +171,5 @@
       $('#targetTemperatureDisplayText').text(data.target);
       $('#doorStatusDisplayText').text(data.doorOpen);
       $('#lastUpdatedText').text(data.time)
-      displayProducts(data.products);
-  }
-
-  function displayProducts(data) {
-      //console.log(data);
-      var table = "<table><thead><tr><th>Product</th><th>Date</th></tr></thead><tbody>";
-      for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a class='white-text' onclick='editItem(" + data[i].pid + ")'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + ")'>Remove</a></td></tr>";
-      }
-      table = table + "</tbody></table>";
-      $('#productDisplay').html(table);
+      getProducts();
   }
