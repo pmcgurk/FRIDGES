@@ -9,7 +9,7 @@ $emailExists = $query_rowE[0];
 if ($emailExists == 0) {
     // if not save to database
     $insert = mysql_query("INSERT into User(Name) values ('{$_GET['name']}');") or die(mysql_error());
-    echo "Registered Suggestfully";
+    echo "Registered Successfully";
 } else {
     echo "Username already registered to another user.";
 }
