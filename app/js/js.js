@@ -149,12 +149,14 @@
           var pid = products[i].getElementsByTagName("pid")[0].childNodes[0].nodeValue;
           var name = products[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
           var date = products[i].getElementsByTagName("date")[0].childNodes[0].nodeValue;
-          var json = '{"pid": ' + pid + ', "name": "' + name + '", "date": "' + date + '" }';
-          data.push(JSON.parse(json));
+          var uid = products[i].getElementsByTagName("uid")[0].childNodes[0].nodeValue;
+          var uname = products[i].getElementsByTagName("uname")[0].childNodes[0].nodeValue;
+          var json = {"pid": pid, "name": name, "date": date, "uid": uid, "uname": uname};
+          data.push(json);
       }
-      var table = "<table><thead><tr><th>Product</th><th>Date</th></tr></thead><tbody>";
+      var table = "<table><thead><tr><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
       for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a class='white-text' onclick='editItem(" + data[i].pid + ")'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + ")'>Remove</a></td></tr>";
+          table = table + "<tr><td>"+ data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a class='white-text' onclick='editItem(" + data[i].pid + ")'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + ")'>Remove</a></td></tr>";
       }
       table = table + "</tbody></table>";
       $('#productDisplay').html(table);
