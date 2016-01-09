@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="modal-footer">
-                        <a class="modal-action modal-close waves-effect waves-light btn red" onclick="logout()">Logout</a>
+            <a class="modal-action modal-close waves-effect waves-light btn red" onclick="logout()">Logout</a>
             <a class="modal-action modal-close waves-effect waves-light btn green">Done</a>
         </div>
     </div>
@@ -152,6 +152,32 @@
         </div>
         <div class="modal-footer">
             <a id="registerConfirmButton" class="modal-action modal-close waves-effect waves-light btn green" onclick="register()">Confirm</a>
+        </div>
+    </div>
+
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <h4>Edit Product</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="productEditName" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s12">
+                            <!-- TODO change to date picker -->
+                            <input id="productEditBestBefore" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="productEditBarcode" type="text" class="validate">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a id="editConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Edit</a>
         </div>
     </div>
 </main>

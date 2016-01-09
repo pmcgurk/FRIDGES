@@ -58,12 +58,55 @@
       Materialize.toast("Display Modal with list of items, allow user to click, then remove item from database", 2000);
   }
 
-  function removeThisItem(data) {
-      Materialize.toast("Remove PID: " + data, 2000);
+  function removeThisItem(item, owner) {
+      var user = JSON.parse(localStorage.user);
+      if (owner == user.id) {
+          var details = {};
+          details.pid = item;
+          $.ajax({
+              url: "php/removeItem.php",
+              data: details
+          }).done(removeResponse);
+      } else {
+          Materialize.toast("You don't have permission to do that.", 2000);
+      }
   }
 
-  function editItem(data) {
-      Materialize.toast("Display Modal with Forms to edit item, i.e. to add expiry date", 2000);
+  function removeResponse(response) {
+      Materialize.toast(response, 1000);
+      console.log(response);
+  }
+
+  function editModal() {
+      //TODO fill this with the clicked products info
+      $('#editConfirmButton').click(editItem);
+      $('#productEditName').attr("placeholder", "Current Product Name");
+      $('#productEditBestBefore').attr("placeholder", "Current Product BestBefore");      $('#productEditBarcode').attr("placeholder", "Current Product Barcode");
+      $('#editItemModal').openModal();
+  }
+
+  function editItem() {
+      var user = JSON.parse(localStorage.user);
+      var owner = user.id;
+      //TODO fix this to get the real owner
+      if (owner == user.id) {
+          var details = {};
+          details.pid = 18;
+          //TODO change from hardcoded value
+          details.barcode = $('#productEditBarcode').val();
+          details.bestbefore = $('#productEditBestBefore').val();
+          details.name = $('#productEditName').val();
+          $.ajax({
+              url: "php/editItem.php",
+              data: details
+          }).done(editResponse);
+      } else {
+          Materialize.toast("You don't have permission to do that.", 2000);
+      }
+  }
+
+  function editResponse(response) {
+      console.log(response);
   }
 
   function register() {
@@ -151,12 +194,18 @@
           var date = products[i].getElementsByTagName("date")[0].childNodes[0].nodeValue;
           var uid = products[i].getElementsByTagName("uid")[0].childNodes[0].nodeValue;
           var uname = products[i].getElementsByTagName("uname")[0].childNodes[0].nodeValue;
-          var json = {"pid": pid, "name": name, "date": date, "uid": uid, "uname": uname};
+          var json = {
+              "pid": pid,
+              "name": name,
+              "date": date,
+              "uid": uid,
+              "uname": uname
+          };
           data.push(json);
       }
       var table = "<table><thead><tr><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
       for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>"+ data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a class='white-text' onclick='editItem(" + data[i].pid + ")'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + ")'>Remove</a></td></tr>";
+          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a onclick='editModal()'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
       }
       table = table + "</tbody></table>";
       $('#productDisplay').html(table);
