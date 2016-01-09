@@ -120,7 +120,7 @@
                     <p>We served the dynamic content of our application using Python, seeing as the RPi.GPIO library provides access to the GPIO pins using Python. We used the Flask framework. Flask features a Web server and a templating engine to allowed us to write static HTML with wildcards that allowed us to dynamically insert relevant data. This also allowed us to access the sensors on the Pi to provide the user with up-to-date data straight from the fridge. Although none of us had had any experience with this technology before, we thought it was a natural fit and did not have too much trouble implementing it.</p>
                   -->
                     <p>
-                      We originally planned to serve the content using Flask, a Python web server. This would have given us the advantage of being able to run all of our Python components directly from the server, reducing overhead. We encountered great difficulties in getting this to work, and as a result reverted back to using Apache, with which we were more familiar. The end result is that we have PHP scripts that access and manipulate the database. We independently have a Python script running that dumps all the relevant information about the state of the system such as temperature, door open status, etc. into a JSON file. The client uses AJAX to periodically fetch this JSON file, which it then parses and is used to render/update the page.
+                        We originally planned to serve the content using Flask, a Python web server. This would have given us the advantage of being able to run all of our Python components directly from the server, reducing overhead. We encountered great difficulties in getting this to work, and as a result reverted back to using Apache, with which we were more familiar. The end result is that we have PHP scripts that access and manipulate the database. We independently have a Python script running that dumps all the relevant information about the state of the system such as temperature, door open status, etc. into a JSON file. The client uses AJAX to periodically fetch this JSON file, which it then parses and is used to render/update the page.
                     </p>
                     <h5 id="interface" class="section scrollspy">Interface</h5>
                     <h6 id="interfacelocal" class="section scrollspy">Local</h6>
@@ -135,8 +135,11 @@
                     <h5 id="temperaturereading" class="section scrollspy">Temperature Reading</h5>
                     <p>In order to detect the temperature of the fridge, a Rasperry Pi was connected to a bread board which housed a range of devices. The most notable of these were the thermistor and an RGB LED. As a thermistor's resistance changes based on the current temperature, we set up the LED to change colour based on the current resistance of the thermistor. If the resistance is above the threshold temperature, the LED will turn red. Otherwise it will remain blue. The code to allow this to happen was written in Python, modified from a script written by Simon Monk for his "Raspberry Pi Starter Pack". The program worked by measuring the amount of time taken for a 300nF capacitor (using the variable resistance from the thermistor) to empty. This was depended on the temperature.</p>
 
+                    <img src="img/tempsenproto.png" class="responsive-img">
+
                     <h5 id="opendooralertTech" class="section scrollspy">Open Door Alert</h5>
                     <p>Using some Python code and a hall effect sensor, it was possible to constantly check for the presence of a magnetic field, which was from a magnet attached to the door of the fridge. If no magnetic field was detected, after 60 seconds an alert was raised in the Python code. This was relayed to the touchscreen display.</p>
+                    <img src="img/hall_effect_schem.png" class="responsive-img">
                     <p>In order for the software on the Pi to access the hardware used, we utilised the RPi.GPIO library to allow access to the GPIO pins on the board.</p>
                 </div>
             </div>
