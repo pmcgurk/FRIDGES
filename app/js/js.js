@@ -80,6 +80,7 @@
   function editModal() {
       //TODO fill this with the clicked products info
       $('#editConfirmButton').click(editItem);
+      $('#editConfirmButton').attr("pid", 18);
       $('#productEditName').attr("placeholder", "Current Product Name");
       $('#productEditBestBefore').attr("placeholder", "Current Product BestBefore");      $('#productEditBarcode').attr("placeholder", "Current Product Barcode");
       $('#editItemModal').openModal();
@@ -91,7 +92,7 @@
       //TODO fix this to get the real owner
       if (owner == user.id) {
           var details = {};
-          details.pid = 18;
+          details.pid = $('#editConfirmButton').attr("pid");
           //TODO change from hardcoded value
           details.barcode = $('#productEditBarcode').val();
           details.bestbefore = $('#productEditBestBefore').val();
