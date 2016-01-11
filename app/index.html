@@ -25,9 +25,9 @@
                     <span class="logo large">FRIDGES</span>
                 </a>
                 <ul class="hide-on-med-and-down left">
-                    <li><span class="usernameDisplay">Not Logged In: </span>
+                    <li><span class="usernameDisplay">Not Logged In.</span>
                     </li>
-                    <li><a id="getUsersButton" class="modal-trigger" href="#changeUserModal">Change User</a>
+                    <li><a id="getUsersButton" class="modal-trigger" href="#changeUserModal" onclick="getUsers()">Change User</a>
                     </li>
                 </ul>
                 <ul class="hide-on-med-and-down right">
@@ -39,7 +39,7 @@
                     </li>
                     <li><a id="registerButton" class="modal-trigger" href="#createUserModal">Create User</a>
                     </li>
-                    <li><a id="getUsersButton" class="modal-trigger" href="#changeUserModal">Change User</a>
+                    <li><a id="getUsersButton" class="modal-trigger" href="#changeUserModal" onclick="getUsers()">Change User</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,9 @@
                         <h6>If the camera fails to scan, or the product does not have a barcode, or you are accessing this remotely, add the item manually below.</h6>
                         <br>
                         <a id="addButton" class="waves-effect waves-light btn green modal-trigger" href="#addItemModal">Add</a>
-                        <a id="removeButton" class="waves-effect waves-light btn red">Remove</a>
+                        <a id="removeButton" class="waves-effect waves-light btn red" onclick="removeItem()">Remove</a>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -118,7 +120,7 @@
 
         </div>
         <div class="modal-footer">
-            <a id="addConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Confirm</a>
+            <a id="addConfirmButton" class="modal-action modal-close waves-effect waves-light btn green" onclick="addItem()">Confirm</a>
         </div>
     </div>
     <div id="changeUserModal" class="modal">
@@ -128,7 +130,8 @@
 
             </div>
         </div>
-                <div class="modal-footer">
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-light btn red" onclick="logout()">Logout</a>
             <a class="modal-action modal-close waves-effect waves-light btn green">Done</a>
         </div>
     </div>
@@ -148,7 +151,33 @@
 
         </div>
         <div class="modal-footer">
-            <a id="registerConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Confirm</a>
+            <a id="registerConfirmButton" class="modal-action modal-close waves-effect waves-light btn green" onclick="register()">Confirm</a>
+        </div>
+    </div>
+
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <h4>Edit Product</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="productEditName" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s12">
+                            <!-- TODO change to date picker -->
+                            <input id="productEditBestBefore" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="productEditBarcode" type="text" class="validate">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a id="editConfirmButton" class="modal-action modal-close waves-effect waves-light btn green">Edit</a>
         </div>
     </div>
 </main>

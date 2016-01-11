@@ -1,7 +1,6 @@
 # temperature program modified from https://github.com/simonmonk/pi_starter_kit/blob/master/04_thermometer.py
 import RPi.GPIO as GPIO, random as r
-import time, math
-
+import time, math 
 GPIO.setmode(GPIO.BCM)
 
 a_pin = 17
@@ -15,12 +14,12 @@ def discharge():
     GPIO.output(b_pin, False)
     time.sleep(0.01)
 
-
 def charge_time():
     GPIO.setup(b_pin, GPIO.IN)
     GPIO.setup(a_pin, GPIO.OUT)
     GPIO.output(a_pin, True)
     t1 = time.time()
+    counter = 0
     while not GPIO.input(b_pin):
         pass
     t2 = time.time()
@@ -49,13 +48,7 @@ def temp_from_r(R):
     T = 1/inv_T - t0
     return T * fiddle_factor
 
-
 def getTemperature():
 	temp_c = temp_from_r(read_resistance())
-	#temp_c = analog_read()
 	reading_str = "{:.2f}".format(temp_c)
-	#print(str(temp_c))
-	#temp_c = r.uniform(-1, 11)
 	return temp_c
-
-getTemperature()
