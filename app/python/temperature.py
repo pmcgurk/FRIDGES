@@ -1,6 +1,8 @@
 # temperature program modified from https://github.com/simonmonk/pi_starter_kit/blob/master/04_thermometer.py
 import RPi.GPIO as GPIO, random as r
 import time, math 
+from timeout import timeout
+
 GPIO.setmode(GPIO.BCM)
 
 a_pin = 17
@@ -19,9 +21,9 @@ def charge_time():
     GPIO.setup(a_pin, GPIO.OUT)
     GPIO.output(a_pin, True)
     t1 = time.time()
-    counter = 0
-    while not GPIO.input(b_pin):
-        pass
+    with timeout(seconds=5):
+        while not GPIO.input(b_pin):
+            pass
     t2 = time.time()
     return (t2 - t1) * 1000000 # microseconds
 
