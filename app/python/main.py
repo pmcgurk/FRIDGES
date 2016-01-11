@@ -25,7 +25,6 @@ def main():
     while (True):
         temp = round(temperature.getTemperature(), 1) #get temperature
         doorOpen = doorStatus.getDoorStatus()
-	print "door open = " + str(doorOpen)
         changeLED.changeLED(LEDColour.getLEDColour(temp))
         time.sleep(1)
         updateTime = strftime("%Y-%m-%d %H:%M:%S", gmtime())
