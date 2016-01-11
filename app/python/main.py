@@ -19,15 +19,16 @@ def main():
         print ("Logged in wrong")
     else:
         print(str(data))
-    target = 0;
+    target = 0
     maxTemp = 10
     LEDColour.setup(target, maxTemp, True)
     while (True):
         temp = round(temperature.getTemperature(), 1) #get temperature
-        doorOpen = doorStatus.getDoorStatus(); # change to hall effect result
+        doorOpen = doorStatus.getDoorStatus()
+	print "door open = " + str(doorOpen)
         changeLED.changeLED(LEDColour.getLEDColour(temp))
         time.sleep(1)
-        updateTime = strftime("%Y-%m-%d %H:%M:%S", gmtime());
+        updateTime = strftime("%Y-%m-%d %H:%M:%S", gmtime())
         with open('../data.json', 'w') as outfile:
             json.dump({'time': updateTime, 'temp': temp, 'target': target, 'doorOpen': doorOpen, 
                        'products': [    {'pid': 1, 'name': "sandwich", 'date': "14-01-2016"},
