@@ -67,7 +67,7 @@ INSERT INTO `User` (`Uid`, `Name`) VALUES
 -- Indexes for table `Products`
 --
 ALTER TABLE `Products`
- ADD PRIMARY KEY (`pid`), ADD UNIQUE KEY `Uid` (`Uid`);
+ ADD PRIMARY KEY (`pid`);
 
 --
 -- Indexes for table `User`
