@@ -4,6 +4,7 @@ import zbar
 import requests
 import shlex
 import subprocess
+import json
 
 ### README
 # BarcodeScanner is the class that handles the camera and barcode scanner.
@@ -54,10 +55,7 @@ class TescoSearcher:
 		r = requests.get(self.tescoUrl, params=payload)
 		print r.url
 		response = r.json()
-		with open('../data.json', 'w') as outfile:
-            json.dump({response
-                    }, outfile, sort_keys=True, indent=4, separators=(',', ': '))
-		#return response
+				#return response
 		self.productsFoundCallback(response)
 
 
@@ -98,8 +96,11 @@ class BarcodeScanner:
 
 
 def main():
-	def tescoCallback(json):
-		print json
+	def tescoCallback(response):
+		with open('../data.json', 'w') as outfile:
+		    json.dump(response
+			    , outfile, sort_keys=True, indent=4, separators=(',', ': '))
+		print response
 
 	ts = TescoSearcher(tescoCallback)
 
