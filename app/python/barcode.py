@@ -5,6 +5,7 @@ import requests
 import shlex
 import subprocess
 import json
+import MySQLdb
 
 ### README
 # BarcodeScanner is the class that handles the camera and barcode scanner.
@@ -55,7 +56,7 @@ class TescoSearcher:
 		r = requests.get(self.tescoUrl, params=payload)
 		print r.url
 		response = r.json()
-				#return response
+						#return response
 		self.productsFoundCallback(response)
 
 
@@ -96,11 +97,20 @@ class BarcodeScanner:
 
 
 def main():
+	print 'connecting to db'
+	db = MySQLdb.connect(host="localhost", user="root", passwd='', db="FRIDGES")
+	print 'connected'
+
 	def tescoCallback(response):
-		with open('../data.json', 'w') as outfile:
-		    json.dump(response
-			    , outfile, sort_keys=True, indent=4, separators=(',', ': '))
 		print response
+		name = response['Products'][0]['Name']
+		picture = response['Products'][0]['ImagePath']
+		cursor = db.cursor()
+		statement = "INSERT INTO Products (Uid, name, barcode) values (1, '" + name + "', '0')"	
+                print statement
+		ret = cursor.execute(statement)
+		print 'cursor.execute returned ' + str(ret)
+		db.commit()
 
 	ts = TescoSearcher(tescoCallback)
 
@@ -118,8 +128,6 @@ def main():
 		pass
 	finally:
 		bs.stopSearch()
-
-
 
 if __name__ == "__main__":
 	main()
