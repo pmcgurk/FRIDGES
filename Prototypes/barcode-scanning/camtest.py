@@ -38,7 +38,7 @@ class TescoSearcher:
 		response = r.json()
 		print response
 		if response['StatusCode'] != 0:
-			print "Error %d: %s" % (response['StatusCode'], response['StatusInfo']) 
+			print "Error %d: %s" % (response['StatusCode'], response['StatusInfo'])
 		self.sessionKey = response['SessionKey']
 		print "setting self.sessionKey to %s" % self.sessionKey
 
@@ -54,10 +54,13 @@ class TescoSearcher:
 		r = requests.get(self.tescoUrl, params=payload)
 		print r.url
 		response = r.json()
+		with open('../data.json', 'w') as outfile:
+            json.dump({response
+                    }, outfile, sort_keys=True, indent=4, separators=(',', ': '))
 		#return response
 		self.productsFoundCallback(response)
-		
-			
+
+
 class BarcodeScanner:
 	callback = None
 	zbarProc = None
@@ -91,7 +94,7 @@ class BarcodeScanner:
 
 	def stopSearch(self):
 		self.zbarProc.active = False
-		self.ffplay.terminate()	
+		self.ffplay.terminate()
 
 
 def main():
@@ -114,7 +117,7 @@ def main():
 		pass
 	finally:
 		bs.stopSearch()
-		
+
 
 
 if __name__ == "__main__":
