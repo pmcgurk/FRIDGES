@@ -22,6 +22,6 @@ Paul McGurk
 
 ## License
 
-Copyright 2015 ACE Group 7
+Copyright 2016 ACE Group 7
 
 This project can not be copied and/or distributed without the express permission of the authors.
