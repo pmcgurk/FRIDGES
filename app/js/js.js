@@ -83,26 +83,32 @@
       pid = $(this).attr("pid");
       name = $(this).attr("name");
       date = $(this).attr("date");
+      owner = $(this).attr("owner");
       $('#editConfirmButton').attr("pid", pid);
       $('#editConfirmButton').attr("name", name);
       $('#editConfirmButton').attr("date", date);
+      $('#editConfirmButton').attr("owner", owner);
       $('#editConfirmButton').click(editItem);
       $('#productEditName').attr("placeholder", name);
       $('#productEditBestBefore').attr("placeholder", date);
-      $('#productEditBarcode').attr("placeholder", "12345679");
+      $('#productEditOwner').attr("placeholder", owner);
       $('#editItemModal').openModal();
   }
 
   function editItem() {
       var user = JSON.parse(localStorage.user);
-      var owner = user.id;
+      var owner = $('#editConfirmButton').attr("owner");
       //TODO fix this to get the real owner
-      if (owner == user.id) {
+      if (owner == user.id || owner == 1) {
           var details = {};
           details.pid = $('#editConfirmButton').attr("pid");
           details.bestbefore = $('#productEditBestBefore').val();
           if (details.bestbefore == "") {
               details.bestbefore = $('#productEditBestBefore').attr("placeholder");
+          }
+          details.owner = $('#productEditOwner').val();
+          if (details.owner == "") {
+              details.owner = $('#productEditOwner').attr("placeholder");
           }
           details.name = $('#productEditName').val();
           if (details.name == "") {
@@ -218,7 +224,7 @@
       }
       var table = "<table><thead><tr><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
       for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' class='editModalButton'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' owner='" + data[i].uid + "'  class='editModalButton'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>"; 
       }
       table = table + "</tbody></table>";
       $('#productDisplay').html(table);

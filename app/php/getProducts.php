@@ -1,7 +1,7 @@
 <?php
 
 include("connect.php");
-$result = mysql_query("SELECT * FROM Products") or die(mysql_error());
+$result = mysql_query("SELECT * FROM Products ORDER BY BestBefore ASC") or die(mysql_error());
 echo "<products>";
 while ($row = mysql_fetch_array($result)) {
     echo "<product>";
