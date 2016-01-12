@@ -13,6 +13,7 @@
       $('.modal-trigger').leanModal();
       interval = setInterval(update, 2000);
       $(document).on("click", ".editModalButton", editModal);
+      $(document).on("click", ".claimButton", claimItem);
   });
 
   function update() {
@@ -31,6 +32,19 @@
 
   function showAddItem() {
       Materialize.toast("Display Modal with Forms to add item", 2000);
+  }
+
+  function claimItem() {
+      var user = JSON.parse(localStorage.user);
+      pid = $(this).attr("pid");
+      details = {
+          "pid": pid,
+          "owner": user.id
+      };
+      $.ajax({
+          url: "php/claimItem.php",
+          data: details
+      }).done(editResponse);
   }
 
   function addItem() {
@@ -83,26 +97,32 @@
       pid = $(this).attr("pid");
       name = $(this).attr("name");
       date = $(this).attr("date");
+      owner = $(this).attr("owner");
       $('#editConfirmButton').attr("pid", pid);
       $('#editConfirmButton').attr("name", name);
       $('#editConfirmButton').attr("date", date);
+      $('#editConfirmButton').attr("owner", owner);
       $('#editConfirmButton').click(editItem);
       $('#productEditName').attr("placeholder", name);
       $('#productEditBestBefore').attr("placeholder", date);
-      $('#productEditBarcode').attr("placeholder", "12345679");
+      $('#productEditOwner').attr("placeholder", owner);
       $('#editItemModal').openModal();
   }
 
   function editItem() {
       var user = JSON.parse(localStorage.user);
-      var owner = user.id;
+      var owner = $('#editConfirmButton').attr("owner");
       //TODO fix this to get the real owner
-      if (owner == user.id) {
+      if (owner == user.id || owner == 1) {
           var details = {};
           details.pid = $('#editConfirmButton').attr("pid");
           details.bestbefore = $('#productEditBestBefore').val();
           if (details.bestbefore == "") {
               details.bestbefore = $('#productEditBestBefore').attr("placeholder");
+          }
+          details.owner = $('#productEditOwner').val();
+          if (details.owner == "") {
+              details.owner = $('#productEditOwner').attr("placeholder");
           }
           details.name = $('#productEditName').val();
           if (details.name == "") {
@@ -174,7 +194,9 @@
       for (var i = 0; i < users.length; i++) {
           var id = users[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
           var name = users[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-          userList = userList + "<a class='modal-action modal-close changeUserSelection' uid=" + id + " name = " + name + ">" + name + "</a><br>";
+          userList = userList + "<a class='modal-action modal-close changeUserSelection' uid=" + id + " name = " + name + ">" +
+              id + ": " +
+              name + "</a><br>";
       }
       $("#userList").html(userList);
 
@@ -205,20 +227,26 @@
           var pid = products[i].getElementsByTagName("pid")[0].childNodes[0].nodeValue;
           var name = products[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
           var date = products[i].getElementsByTagName("date")[0].childNodes[0].nodeValue;
+          var img = products[i].getElementsByTagName("img")[0].childNodes[0].nodeValue;
           var uid = products[i].getElementsByTagName("uid")[0].childNodes[0].nodeValue;
           var uname = products[i].getElementsByTagName("uname")[0].childNodes[0].nodeValue;
           var json = {
               "pid": pid,
               "name": name,
               "date": date,
+              "img": img,
               "uid": uid,
               "uname": uname
           };
           data.push(json);
       }
-      var table = "<table><thead><tr><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
+      var table = "<table><thead><tr><th>Image</th><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
       for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' class='editModalButton'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          if (data[i].uid == 1) {
+              table = table + "<tr><td><img height='50px' src='" + data[i].img + "'></td><td>" + data[i].uname + "</td><td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' owner='" + data[i].uid + "'  class='claimButton btn green'>Claim</a></td><td><a class='btn red' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          } else {
+              table = table + "<tr><td><img height='50px' src='" + data[i].img + "'></td><td>" + data[i].uname + "</td><td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' owner='" + data[i].uid + "'  class='editModalButton btn yellow darken-2'>Edit</a></td><td><a class='btn red' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          }
       }
       table = table + "</tbody></table>";
       $('#productDisplay').html(table);
@@ -226,11 +254,11 @@
   }
 
   function getDoorText(data) {
-        if (data) {
-            return "Door Open";
-        } else {
-            return "Door Closed";
-        }
+      if (data) {
+          return "Door Open";
+      } else {
+          return "Door Closed";
+      }
   }
 
   function updateData(data) {
