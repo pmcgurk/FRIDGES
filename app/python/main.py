@@ -19,8 +19,8 @@ def main():
         print ("Logged in wrong")
     else:
         print(str(data))
-    target = 20
-    maxTemp = 30
+    target = 15
+    maxTemp = 20
     LEDColour.setup(target, maxTemp, True)
     while (True):
         temp = round(temperature.getTemperature(), 1) #get temperature

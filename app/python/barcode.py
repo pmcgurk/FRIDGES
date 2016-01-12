@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 import zbar
+import sys
 import requests
 import shlex
 import subprocess
 import json
+import time
 import MySQLdb
+import threading
 
 ### README
 # BarcodeScanner is the class that handles the camera and barcode scanner.
@@ -30,6 +33,7 @@ class TescoSearcher:
 		self.productsFoundCallback = productsFoundCallback
 
 	def login(self):
+		print 'logging in'
 		payload = { 'command' : 'LOGIN'
 			  , 'email' : 'alex.mcbride.2013@uni.strath.ac.uk'
 		          , 'password' : 'fridges!1'
@@ -78,6 +82,8 @@ class BarcodeScanner:
 	def startSearch(self):
 		self.startZbar()
 		self.startFFMPEG()
+		time.sleep(2)
+		self.repositionFFMPEG()
 
 	def startZbar(self):
 		self.zbarProc = zbar.Processor()
@@ -90,6 +96,11 @@ class BarcodeScanner:
 	def startFFMPEG(self):
 		ffplayArgs = shlex.split("/home/pi/bin/ffplay -loglevel panic -s 640x400 -f video4linux2 -i /dev/video1")
 		self.ffplay = subprocess.Popen(ffplayArgs)
+
+	def repositionFFMPEG(self):
+		xdotoolArgs = shlex.split("xdotool search --name /dev/video1 windowmove 0 250 windowsize 272 210")
+		xdotool = subprocess.Popen(xdotoolArgs)
+		xdotool.wait()
 
 	def stopSearch(self):
 		self.zbarProc.active = False
@@ -111,10 +122,19 @@ def main():
 		ret = cursor.execute(statement)
 		print 'cursor.execute returned ' + str(ret)
 		db.commit()
+		sys.exit()
+		
 
 	ts = TescoSearcher(tescoCallback)
 
+	loginproc = threading.Thread(target=ts.login)
+	loginproc.start()
+
+	bs = None
+
 	def barcodeCallback(barcode):
+		bs.stopSearch()
+		loginproc.join()
 		ts.search(barcode)
 
 	bs = BarcodeScanner(barcodeCallback)
