@@ -225,11 +225,19 @@
 
   }
 
+  function getDoorText(data) {
+        if (data) {
+            return "Door Open";
+        } else {
+            return "Door Closed";
+        }
+  }
+
   function updateData(data) {
       //console.log(data);
       $('#temperatureDisplayText').text(data.temp);
       $('#targetTemperatureDisplayText').text(data.target);
-      $('#doorStatusDisplayText').text(data.doorOpen);
+      $('#doorStatusDisplayText').text(getDoorText(data.doorOpen));
       $('#lastUpdatedText').text(data.time)
       getProducts();
   }
