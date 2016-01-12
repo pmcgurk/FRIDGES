@@ -103,7 +103,17 @@
                 <div class="container">
                     <h4 class="logo section scrollspy" id="userGuide">User Guide</h4>
                     <h5 id="barcodescanning" class="section scrollspy">Barcode Scanning</h5>
-                    <p>When an item is placed in the fridge, the barcode can be scanned and its best-before date recorded. <br><br> Step by Step Guide for Scanning Products <br><br> 1. Select the "Barcode Scanner" option using the touchscreen. <br> 2. Hold the barcode up to the Pi Camera. This will scan the barcode and store it. <br> 3. Select the product if it appears in the product list that will be generated, otherwise it can be manually added to the database so that it will be remembered for next time. <br> 4. The best-before date can now be entered. This means, the fridge will know when each item of food in the fridge will be nearing its best-before date, and will display the food that is going out of date soon on the home menu of the touchscreen. <br><br> Please note that only products that Tesco Groceries sells will be able to be scanned.</p>
+                    <p>When an item is placed in the fridge, the barcode can be scanned and its best-before date recorded.
+                      <br><br> Step by Step Guide for Scanning Products <br><br>
+                      1. Select the "Scan Barcode" option using the touchscreen. <br>
+                      <img src="img/guide-add-barcode.png" style="height: 25vh" class="responsive-img">
+                      <br>
+                      2. Hold the barcode up to the Pi Camera, using the viewfinder for guidance.<br>
+                      3. Once the barcode has been detected, the viewfinder will close and the barcode will be used to search for the product on Tesco Labs API<br>
+                      4. If the product is found, it will appear in the list of products owned by user Guest. Press the Claim button to claim ownership of the item <br>
+                      5. If the product does not appear in the list, then you can use the Add button to add the product manually. This is useful if you have non-Tesco product. <br>
+                      6. The best-before date can be entered by clicking Edit next to the product.
+                      <br><br> Please note that only products that Tesco Groceries sells will be able to be scanned - other products will have to be entered manually.</p>
                     <h5 id="removingitems" class="section scrollspy">Removing Items</h5>
                     <p>When removing an item from the fridge, find the product on the list and click the remove button. This product will then be removed from the list of products.
                     <h5 id="temperaturereading" class="section scrollspy">Temperature Reading</h5>
@@ -152,7 +162,8 @@
                     <p>Implemented the barcode scanning using Zbar and EAN lookup using the Tesco Labs API, which involved a great deal of investigation and compilation of supporting programs, and integrating many disparate parts.<br>
                       Soldering and other hardware contributions.<br>
                       Implement and integrate Hall effect sensor with Andrew.<br>
-                      Tweaks to temperature code.<br>
+                      Tweaks to temperature code.
+                      Technical manual for the barcode scanning, and editorial contributions for the final report<br>
                     </p>
                     <h5 id="am" class="section scrollspy">Andrew Mortimer</h5>
                     <p>Contributed considerably to Phase 1 report - including product research, some hardware design, as well as research and the "Motivation" section. <br> Worked with Alex on the Hall effect sensor code in Python and integrated this onto the Pi. <br> Wrote a large portion of the final report.</p>
