@@ -19,18 +19,18 @@
 <header>
     <div class="navbar-fixed">
         <nav class="blue darken-2">
-            <a data-activates="mobile" class="button-collapse hide-on-large-and-up"><i class="mdi-navigation-menu right"></i></a>
+            <a data-activates="mobile" class="button-collapse hide-on-med-and-up"><i class="mdi-navigation-menu right"></i></a>
             <div class="nav-wrapper container">
                 <a class="brand-logo center">
                     <span class="logo large">FRIDGES</span>
                 </a>
-                <ul class="hide-on-med-and-down left">
+                <ul class="hide-on-small-and-down left">
                     <li><span class="usernameDisplay">Not Logged In.</span>
                     </li>
                     <li><a id="getUsersButton" class="modal-trigger" href="#changeUserModal" onclick="getUsers()">Change User</a>
                     </li>
                 </ul>
-                <ul class="hide-on-med-and-down right">
+                <ul class="hide-on-small-and-down right">
                     <li><a id="registerButton" class="modal-trigger" href="#createUserModal">Create User</a>
                     </li>
                 </ul>
@@ -49,19 +49,23 @@
 <main>
     <div class="">
         <div class="row">
-            <div class="col s12 m2 l2 center-align">
+            <div class="col s12 m4 l4 center-align">
                 <div id="temperatureDisplay" class="card blue darken-2 white-text">
                     <h6 class="logo">Current Temperature</h6>
                     <h5><span id="temperatureDisplayText">00.0</span>°C</h5>
                     <h6>Target: <span id="targetTemperatureDisplayText">00</span>°C</h6>
                     <h6><span id="doorStatusDisplayText"></span></h6>
+                    <a id="addButton" class="waves-effect waves-light btn green modal-trigger" href="#addItemModal">Add</a>
+                    <a id="scanBarcode" class="waves-effect waves-light btn green" href="barcode://test/">Scan Barcode</a>
                     <br>
+                    <h6 class="logo">Present Barcode to Camera</h6>
+
                 </div>
             </div>
-            <div class="col s12 m10 l10">
+            <div class="col s12 m8 l8 center-align">
                 <div id="datesDisplay" class="card blue darken-2 white-text">
                     <h5 class="center-align logo">Expiring Soon</h5>
-                    <div id="productDisplay" class="container">
+                    <div id="productDisplay">
                         <table>
                             <thead>
                                 <tr>
@@ -70,19 +74,6 @@
                                 </tr>
                             </thead>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m12 l12">
-                <div id="datesDisplay" class="card blue darken-2 white-text">
-                    <div class="center-align">
-                        <h5 class="logo">Present Barcode to Camera.</h5>
-                        <h6>If the camera fails to scan, or the product does not have a barcode, or you are accessing this remotely, add the item manually below.</h6>
-                        <br>
-                        <a id="addButton" class="waves-effect waves-light btn green modal-trigger" href="#addItemModal">Add</a>
-                        <a id="removeButton" class="waves-effect waves-light btn red" onclick="removeItem()">Remove</a>
-                        <br>
-                        <br>
                     </div>
                 </div>
             </div>
