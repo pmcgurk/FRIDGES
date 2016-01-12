@@ -12,6 +12,7 @@
       });
       $('.modal-trigger').leanModal();
       interval = setInterval(update, 2000);
+      $(document).on("click", ".editModalButton", editModal);
   });
 
   function update() {
@@ -79,10 +80,16 @@
 
   function editModal() {
       //TODO fill this with the clicked products info
+      pid = $(this).attr("pid");
+      name = $(this).attr("name");
+      date = $(this).attr("date");
+      $('#editConfirmButton').attr("pid", pid);
+      $('#editConfirmButton').attr("name", name);
+      $('#editConfirmButton').attr("date", date);
       $('#editConfirmButton').click(editItem);
-      $('#editConfirmButton').attr("pid", 18);
-      $('#productEditName').attr("placeholder", "Current Product Name");
-      $('#productEditBestBefore').attr("placeholder", "Current Product BestBefore");      $('#productEditBarcode').attr("placeholder", "Current Product Barcode");
+      $('#productEditName').attr("placeholder", name);
+      $('#productEditBestBefore').attr("placeholder", date);
+      $('#productEditBarcode').attr("placeholder", "12345679");
       $('#editItemModal').openModal();
   }
 
@@ -93,10 +100,14 @@
       if (owner == user.id) {
           var details = {};
           details.pid = $('#editConfirmButton').attr("pid");
-          //TODO change from hardcoded value
-          details.barcode = $('#productEditBarcode').val();
           details.bestbefore = $('#productEditBestBefore').val();
+          if (details.bestbefore == "") {
+              details.bestbefore = $('#productEditBestBefore').attr("placeholder");
+          }
           details.name = $('#productEditName').val();
+          if (details.name == "") {
+              details.name = $('#productEditName').attr("placeholder");
+          }
           $.ajax({
               url: "php/editItem.php",
               data: details
@@ -166,6 +177,7 @@
           userList = userList + "<a class='modal-action modal-close changeUserSelection' uid=" + id + " name = " + name + ">" + name + "</a><br>";
       }
       $("#userList").html(userList);
+
       $('.changeUserSelection').click(changeUser);
   }
 
@@ -206,7 +218,7 @@
       }
       var table = "<table><thead><tr><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
       for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a onclick='editModal()'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' class='editModalButton'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
       }
       table = table + "</tbody></table>";
       $('#productDisplay').html(table);
