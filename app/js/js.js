@@ -161,7 +161,7 @@
       var user = {};
       user.id = parseInt($(this).attr('uid'));
       user.name = $(this).attr('name');
-      console.log(user);
+      $('#changeUserModal').closeModal();
       localStorage.user = JSON.stringify(user);
   }
 
