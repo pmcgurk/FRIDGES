@@ -115,15 +115,15 @@ def main():
 	def tescoCallback(response):
 		print response
 		name = response['Products'][0]['Name']
-		picture = response['Products'][0]['ImagePath']
+		img = response['Products'][0]['ImagePath']
 		cursor = db.cursor()
-		statement = "INSERT INTO Products (Uid, name, barcode) values (1, '" + name + "', '0')"	
+		statement = "INSERT INTO Products (Uid, name, barcode, img) values (1, '" + name + "', '0', '" + img + "')"
                 print statement
 		ret = cursor.execute(statement)
 		print 'cursor.execute returned ' + str(ret)
 		db.commit()
 		sys.exit()
-		
+
 
 	ts = TescoSearcher(tescoCallback)
 
