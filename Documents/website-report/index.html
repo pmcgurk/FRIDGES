@@ -61,7 +61,7 @@
                     </li>
                     <li><a href="#finalprojectplan">Final Project Plan</a>
                     </li>
-                    <li><a href="#pm">- Organisation</a>
+                    <li><a href="#organisation">- Organisation</a>
                     </li>
                     <li>
                         <a href="#pm">- Paul McGurk</a>
@@ -91,43 +91,47 @@
         <div class="col s12 m9 l10">
             <div class="card blue darken-2 white-text">
                 <div class="container">
-
-                    <h4 class="logo" id="userGuide">Food waste Reduction with Intelligent Decisions Generating Energy Savings</h4>
-
                     <h4 class="logo section scrollspy" id="userGuide">Introduction</h4>
                     <h5 id="about" class="section scrollspy">About</h5>
                     <p>The project is to create a product using an Arduino and/or Raspberry Pi that will be a part of the Internet of Things. The Internet of Things is about taking everyday objects and embedding them with software, electronics and networking capabilities so that they can sense the environment around them and then send and receive data. The idea, after much thought and discussion will be to create a smart fridge. This idea will not only have a physical benefit to its application but also an environmental one, as from the start, the design is centred on trying to reduce food waste and energy consumption.</p>
                     <h5 id="motivation" class="section scrollspy">Motivation</h5>
-                    <p>According to statistics from LoveFoodHateWaste (a website run by WRAP - Waste and Resources Action Programme) UK households throw away 7 million tonnes of food every year. One of the main reasons for this is not using the food before it goes out of date. The average cost per household of this food wastage is £470 per year. <br> Leaving the fridge door open for extended periods of time is a waste of electricity, not only can this quickly raise the temperature of the fridge but it is estimated by Home Energy Magazine, that about 7% of a fridge's energy consumption is caused by opening the door. The Institute of Food and Agricultural Sciences at the University of Florida has stated that opening the fridge door for extended periods of time, can lead to the wastage of anywhere from 50-120kWh a year, a substantial amount of energy. The average cost of a kWh in the UK is 15.5p (September 2015 tariffs). This means wasting the higher end of the benchmark, 120kWh, costs the household £18.60 a year (120kWh * 15.5p).</p>
+                    <p>According to statistics from LoveFoodHateWaste (a website run by WRAP - Waste and Resources Action Programme) UK households throw away 7 million tonnes of food every year. One of the main reasons for this is not using the food before it goes out of date. The average cost per household of this food wastage is £470 per year.
+                        <br> Leaving the fridge door open for extended periods of time is a waste of electricity, not only can this quickly raise the temperature of the fridge but it is estimated by Home Energy Magazine, that about 7% of a fridge's energy consumption is caused by opening the door. The Institute of Food and Agricultural Sciences at the University of Florida has stated that opening the fridge door for extended periods of time, can lead to the wastage of anywhere from 50-120kWh a year, a substantial amount of energy. The average cost of a kWh in the UK is 15.5p (September 2015 tariffs). This means wasting the higher end of the benchmark, 120kWh, costs the household £18.60 a year (120kWh * 15.5p).</p>
                     <h5 id="goal" class="section scrollspy">Goal</h5>
-                    <p>The goal of the fridge is to work in tandem with the user to help reduce food waste and electricity consumption. In order to do this, the fridge will keep track of each item of food the user owns. This information can be accessed remotely, so the user can check what items they have in stock. Therefore they will not buy additional items they already have, lessening the need to throw out excess unused food. Due to the individual user logins on the system, each user of the fridge has only their own items attached to their account. <br> To reduce electricity consumption, the temperature sensor will notify the user if they have left the fridge door open for too long. There is also a door sensor in case the user walks away and doesn't shut the door properly. In order to cool the fridge back to its normal operating temperature, the fridge will be required to use extra electricity it wouldn't have to use, if the door was open for less time.</p>
-                                        <img src="img/finished.jpg" class="responsive-img">
-                </div><br>
+                    <p>The goal of the fridge is to work in tandem with the user to help reduce food waste and electricity consumption. In order to do this, the fridge will keep track of each item of food the user owns. This information can be accessed remotely, so the user can check what items they have in stock. Therefore they will not buy additional items they already have, lessening the need to throw out excess unused food. Due to the individual user logins on the system, each user of the fridge has only their own items attached to their account.
+                        <br> To reduce electricity consumption, the temperature sensor will notify the user if they have left the fridge door open for too long. There is also a door sensor in case the user walks away and doesn't shut the door properly. In order to cool the fridge back to its normal operating temperature, the fridge will be required to use extra electricity it wouldn't have to use, if the door was open for less time.</p>
+                    <img src="img/finished.jpg" class="responsive-img">
+                </div>
+                <br>
             </div>
             <div class="card blue darken-2 white-text">
                 <div class="container">
                     <h4 class="logo section scrollspy" id="userGuide">User Guide</h4>
                     <h5 id="barcodescanning" class="section scrollspy">Barcode Scanning</h5>
                     <p>When an item is placed in the fridge, the barcode can be scanned and its best-before date recorded.
-                      <br><br> Step by Step Guide for Scanning Products <br><br>
-                      1. Select the "Scan Barcode" option using the touchscreen. <br>
-                      <img src="img/guide-add-barcode.png" style="height: 25vh" class="responsive-img">
-                      <br>
-                      2. Hold the barcode up to the Pi Camera, using the viewfinder for guidance.<br>
-                      3. Once the barcode has been detected, the viewfinder will close and the barcode will be used to search for the product on Tesco Labs API<br>
-                      4. If the product is found, it will appear in the list of products owned by user Guest. Press the Claim button to claim ownership of the item <br>
-                      5. If the product does not appear in the list, then you can use the Add button to add the product manually. This is useful if you have non-Tesco product. <br>
-                      6. The best-before date can be entered by clicking Edit next to the product.
-                      <br><br> Please note that only products that Tesco Groceries sells will be able to be scanned - other products will have to be entered manually.</p>
+                        <br>
+                        <br> Step by Step Guide for Scanning Products
+                        <br>
+                        <br> 1. Select the "Scan Barcode" option using the touchscreen.
+                        <br>
+                        <img src="img/guide-add-barcode.png" style="height: 25vh" class="responsive-img">
+                        <br> 2. Hold the barcode up to the Pi Camera, using the viewfinder for guidance.
+                        <br> 3. Once the barcode has been detected, the viewfinder will close and the barcode will be used to search for the product on Tesco Labs API
+                        <br> 4. If the product is found, it will appear in the list of products owned by user Guest. Press the Claim button to claim ownership of the item
+                        <br> 5. If the product does not appear in the list, then you can use the Add button to add the product manually. This is useful if you have non-Tesco product.
+                        <br> 6. The best-before date can be entered by clicking Edit next to the product.
+                        <br>
+                        <br> Please note that only products that Tesco Groceries sells will be able to be scanned - other products will have to be entered manually.</p>
                     <h5 id="removingitems" class="section scrollspy">Removing Items</h5>
                     <p>When removing an item from the fridge, find the product on the list and click the remove button. This product will then be removed from the list of products.
-                    <h5 id="temperaturereading" class="section scrollspy">Temperature Reading</h5>
-                    <p>The thermometer takes constant readings of the temperature inside the fridge. An LED will change colour based on the current temperature of the fridge. Blue indicates a normal (or lower) operating temperature. This will transition to green then red as the temperature rises above normal. This willl most likely be an indicator that the fridge door has been left open and the fridge will have to use more energy to bring the temperature back down to the normal operating temperature.</p>
-                    <h5 id="opendooralert" class="section scrollspy">Open Door Status</h5>
-                    <p>The status of the door (i.e. whether it is open or closed) is indicated on the page.</p>
-                    <h5 id="otheruses" class="section scrollspy">Possible Other Uses</h5>
-                    <p>Due to the nature of the barcode scanning, it is possible to track not just refrigerated items, but also products stored in the cupboards/freezer. In order to do this, just scan the product as usual and store it in the desired location.</p>
-                </div><br>
+                        <h5 id="temperaturereading" class="section scrollspy">Temperature Reading</h5>
+                        <p>The thermometer takes constant readings of the temperature inside the fridge. An LED will change colour based on the current temperature of the fridge. Blue indicates a normal (or lower) operating temperature. This will transition to green then red as the temperature rises above normal. This willl most likely be an indicator that the fridge door has been left open and the fridge will have to use more energy to bring the temperature back down to the normal operating temperature.</p>
+                        <h5 id="opendooralert" class="section scrollspy">Open Door Status</h5>
+                        <p>The status of the door (i.e. whether it is open or closed) is indicated on the page.</p>
+                        <h5 id="otheruses" class="section scrollspy">Possible Other Uses</h5>
+                        <p>Due to the nature of the barcode scanning, it is possible to track not just refrigerated items, but also products stored in the cupboards/freezer. In order to do this, just scan the product as usual and store it in the desired location.</p>
+                </div>
+                <br>
             </div>
             <div class="card blue darken-2 white-text">
                 <div class="container">
@@ -149,39 +153,52 @@
 
                     <h5 id="opendooralertTech" class="section scrollspy">Open Door Alert</h5>
                     <p> We wanted a method of checking whether the door is opened or closed. We decided to attach a magnet to the door. A Hall effect sensor was used to check for the presence of the magnetic field. When the field is present, the sensor's output pin is pulled low, and the door is therefore closed. When the door is opened, the magnet attached to the door is moved away from the hall effect sensor mounted on the chassis, which causes the sensor's output pin to go high. </p>
-                     <p>We used the RPi.GPIO library to access the GPIO pins on the pi. We connected the hall effect sensor's signal pin to GPIO 3, and used this pin to get the state of the door.</p>
+                    <p>We used the RPi.GPIO library to access the GPIO pins on the pi. We connected the hall effect sensor's signal pin to GPIO 3, and used this pin to get the state of the door.</p>
                     <img src="img/hall_effect_schem.png" class="responsive-img">
                     <p>In order for the software on the Pi to access the hardware used, we utilised the RPi.GPIO library to allow access to the GPIO pins on the board.</p>
                     <h5 id="testing" class="section scrollspy">Testing</h5>
                     <p>As we split the project into separate prototypes with us each working on something different, it made sense to continuously test our work throughout the implementation of the project. For example, the LED/thermistor prototype was fully tested for a week in a fridge under normal user conditions. To test the barcode scanner with the database of products, we scanned several different items - ones we hoped would work as well as ones we expected not to - in order to see how this was handled. This meant that, when it was time to assemble all of the individual prototypes onto the fridge itself, there were very few teething problems as everything had already been rigorously tested. For the open door alert, we spent some time positioning the Hall effect sensor and the magnet (which was attached to the door) in order to find the optimal position so that it is always clear when the door is open or closed.</p>
-                </div><br>
+                </div>
+                <br>
             </div>
             <div class="card blue darken-2 white-text">
                 <div class="container">
                     <h4 class="logo section scrollspy" id="finalprojectplan">Final Project Plan</h4>
-                    <img src="img/trello.png" class="responsive-img">
-                    <h5 id="pm" class="section scrollspy">Organisation</h5>
+                    <h5 id="organisation" class="section scrollspy">Organisation</h5>
                     <p>We were able to organise our project and delegate all the tasks that needed done via Trello. This was useful as it meant everybody knew who was doing what, and it made it easy to raise any issues that were discovered. In order to keep our source code up to date and in a safe place we used Github. The Gituhb issue tracker was also made use of as we neared the deadline to ensure we did not miss anything that needed to be fixed.</p>
+                    <img src="img/trello.png" class="responsive-img">
                     <h5 id="pm" class="section scrollspy">Paul McGurk</h5>
-                    <p>JavaScript, PHP and HTML for the Web server and user interface.<br>
-                        Python code for the LED prototype, and the main python program for the final submission.<br>
-                        Contributed to wiring for electronics</p>
+                    <p>JavaScript, PHP and HTML for the Web server and user interface.
+                        <br> Python code for the LED prototype, and the main python program for the final submission.
+                        <br> Contributed to wiring for electronics.</p>
 
                     <h5 id="dr" class="section scrollspy">Daniel Rafferty</h5>
-                    <p>Set up Web-server, first with Apache then Flask, before reverting back to Apache.<br>Worked with Scott to:<br>- Set up MySQL and PHPMyAdmin for Databases.<br>- Created and maintained User and Products tables.<br>- Used JS, PHP and Python to populate database from user input.<br>- Worked on Motivation, Goals and User Guide for final website report.<br>
-</p>
+                    <p>Set up Web-server, first with Apache then Flask, before reverting back to Apache.
+                        <br>Worked with Scott to:
+                        <br>- Set up MySQL and PHPMyAdmin for Databases.
+                        <br>- Created and maintained User and Products tables.
+                        <br>- Used JS, PHP and Python to populate database from user input.
+                        <br>- Worked on Motivation, Goals and User Guide for final website report.
+                        <br>
+                    </p>
                     <h5 id="amc" class="section scrollspy">Alex McBride</h5>
-                    <p>Implemented the barcode scanning using Zbar and EAN lookup using the Tesco Labs API, which involved a great deal of investigation and compilation of supporting programs, and integrating many disparate parts.<br>
-                      Soldering and other hardware contributions.<br>
-                      Implement and integrate Hall effect sensor with Andrew.<br>
-                      Tweaks to temperature code.
-                      Technical manual for the barcode scanning, and editorial contributions for the final report<br>
+                    <p>Implemented the barcode scanning using Zbar and EAN lookup using the Tesco Labs API, which involved a great deal of investigation and compilation of supporting programs, and integrating many disparate parts.
+                        <br> Soldering and other hardware contributions.
+                        <br> Implement and integrate Hall effect sensor with Andrew.
+                        <br> Tweaks to temperature code. Technical manual for the barcode scanning, and editorial contributions for the final report
+                        <br>
                     </p>
                     <h5 id="am" class="section scrollspy">Andrew Mortimer</h5>
-                    <p>Worked with Alex on the Hall effect sensor code in Python and integrated this onto the Pi. <br> Wrote a large portion of the final report.</p>
+                    <p>Worked with Alex on the Hall effect sensor code in Python and integrated this onto the Pi.
+                        <br> Wrote a large portion of the final report.</p>
                     <h5 id="sh" class="section scrollspy">Scott Henderson</h5>
-                    <p>Worked alongside Daniel to create and manage the database. <br> Retrieved and displayed the items on the touchscreen interface from the database in JavaScript. <br> Added the scanned products from TescoLabs to the database in Python using MySQL. <br> Got the image links from TescoLabs and added them to the database and displayed them on the interface. <br> Added some sections and fleshed out parts of the report.</p>
-                </div><br>
+                    <p>Worked alongside Daniel to create and manage the database.
+                        <br> Retrieved and displayed the items on the touchscreen interface from the database in JavaScript.
+                        <br> Added the scanned products from TescoLabs to the database in Python using MySQL.
+                        <br> Got the image links from TescoLabs and added them to the database and displayed them on the interface.
+                        <br> Added some sections and fleshed out parts of the report.</p>
+                </div>
+                <br>
             </div>
         </div>
         <div class="col hide-on-small-only m3 l2">
