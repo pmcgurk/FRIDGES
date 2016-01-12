@@ -131,7 +131,7 @@
 
                     <h5 id="opendooralertTech" class="section scrollspy">Open Door Alert</h5>
                     <p> We wanted a method of checking whether the door is opened or closed. We decided to attach a magnet to the door. A Hall effect sensor was used to check for the presence of the magnetic field. When the field is present, the sensor's output pin is pulled low, and the door is therefore closed. When the door is opened, the magnet attached to the door is moved away from the hall effect sensor mounted on the chassis, which causes the sensor's output pin to go high. </p>
- +                    <p>We used the RPi.GPIO library to access the GPIO pins on the pi. We connected the hall effect sensor's signal pin to GPIO 3, and used this pin to get the state of the door.</p>
+                     <p>We used the RPi.GPIO library to access the GPIO pins on the pi. We connected the hall effect sensor's signal pin to GPIO 3, and used this pin to get the state of the door.</p>
                     <img src="img/hall_effect_schem.png" class="responsive-img">
                     <p>In order for the software on the Pi to access the hardware used, we utilised the RPi.GPIO library to allow access to the GPIO pins on the board.</p>
                 </div>
