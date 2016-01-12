@@ -13,6 +13,7 @@
       $('.modal-trigger').leanModal();
       interval = setInterval(update, 2000);
       $(document).on("click", ".editModalButton", editModal);
+      $(document).on("click", ".claimButton", claimItem);
   });
 
   function update() {
@@ -31,6 +32,19 @@
 
   function showAddItem() {
       Materialize.toast("Display Modal with Forms to add item", 2000);
+  }
+
+  function claimItem() {
+      var user = JSON.parse(localStorage.user);
+      pid = $(this).attr("pid");
+      details = {
+          "pid": pid,
+          "owner": user.id
+      };
+      $.ajax({
+          url: "php/claimItem.php",
+          data: details
+      }).done(editResponse);
   }
 
   function addItem() {
@@ -180,7 +194,8 @@
       for (var i = 0; i < users.length; i++) {
           var id = users[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
           var name = users[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-          userList = userList + "<a class='modal-action modal-close changeUserSelection' uid=" + id + " name = " + name + ">" + name + "</a><br>";
+          userList = userList + "<a class='modal-action modal-close changeUserSelection' uid=" + id + " name = " + name + ">"
+          name + id + "</a><br>";
       }
       $("#userList").html(userList);
 
@@ -224,7 +239,11 @@
       }
       var table = "<table><thead><tr><th>Owner</th><th>Product</th><th>Date</th></tr></thead><tbody>";
       for (var i = 0; i < data.length; i++) {
-          table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' owner='" + data[i].uid + "'  class='editModalButton'>Edit</a></td><td><a class='red-text' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>"; 
+          if (data[i].uid == 1) {
+              table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' owner='" + data[i].uid + "'  class='claimButton btn green'>Claim</a></td><td><a class='btn red' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          } else {
+              table = table + "<tr><td>" + data[i].uname + "<td>" + data[i].name + "</td><td>" + data[i].date + "</td><td><a pid='" + data[i].pid + "' date='" + data[i].date + "' name='" + data[i].name + "' owner='" + data[i].uid + "'  class='editModalButton btn yellow darken-2'>Edit</a></td><td><a class='btn red' onclick='removeThisItem(" + data[i].pid + "," + data[i].uid + ")'>Remove</a></td></tr>";
+          }
       }
       table = table + "</tbody></table>";
       $('#productDisplay').html(table);
@@ -232,11 +251,11 @@
   }
 
   function getDoorText(data) {
-        if (data) {
-            return "Door Open";
-        } else {
-            return "Door Closed";
-        }
+      if (data) {
+          return "Door Open";
+      } else {
+          return "Door Closed";
+      }
   }
 
   function updateData(data) {
